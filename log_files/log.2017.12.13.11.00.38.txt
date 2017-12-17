@@ -1,0 +1,19 @@
+2017.12.13.11.00.38,  Creating KEYSIGH: sucess
+2017.12.13.11.00.38,  Creating FL5700: sucess
+2017.12.13.11.00.38,  Creating FL5520: sucess
+2017.12.13.11.00.38,  writing to KEYSIGH: RESET
+2017.12.13.11.00.38,  writing to KEYSIGH: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2017.12.13.11.00.38,  writing to KEYSIGH: ERR?
+2017.12.13.11.00.38,  reading KEYSIGH: 0
+
+0
+
+2017.12.13.11.00.38,  writing to FL5700: *RST
+2017.12.13.11.00.39,  writing to FL5700: OUT 0V, 0HZ
+2017.12.13.11.00.39,  writing to FL5700: FAULT?
+2017.12.13.11.00.39,  reading FL5700: 320
+
+320
+
+Error 320
+ while resetting instrument, or queriying status
