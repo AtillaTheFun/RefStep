@@ -1,6 +1,6 @@
 """
 Main thread for controlling the buttons of the ref-step algorithm.
-Information is collected here and sent to other objects for handling.
+Information is collected here and sent to other objects for handling. 
 """
 import wx, wx.html
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
