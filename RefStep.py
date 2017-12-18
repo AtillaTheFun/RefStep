@@ -25,9 +25,9 @@ import modules.analysis as analysis
 import modules.gpib_data as gpib_data
 import modules.gpib_inst as gpib_inst
 import modules.stuff as stuff
-class GraphFrame( noname.MyFrame1 ):
-    def __init__( self, parent ):
-        noname.MyFrame1.__init__( self, parent)
+class GraphFrame(noname.MyFrame1):
+    def __init__(self, parent):
+        noname.MyFrame1.__init__(self, parent)
         #the mixin below offers better ctrl c ctr v cut and paste than the basic wxgrid
         wx.grid.Grid.__bases__ += (pywxgrideditmixin.PyWXGridEditMixin,)
         self.m_grid3.__init_mixin__()
@@ -132,7 +132,7 @@ class GraphFrame( noname.MyFrame1 ):
         if self.filled_grid == True:
             grid = self.m_grid3
             if int(float(grid.GetCellValue(3,3)))>int(grid.GetNumberRows()):
-                #int(float( is needed as it cant seem to cast straight to an int
+                #int(float(is needed as it cant seem to cast straight to an int
                 print("Final row needed to be updated in grid")
                 grid.SetCellValue(3,3,str(grid.GetNumberRows()))
             self.m_grid3.Layout()
@@ -309,7 +309,7 @@ class GraphFrame( noname.MyFrame1 ):
         self.doStop()
         self.data.reset_list()
         self.m_textCtrl81.Clear()
-        self.m_button12.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
+        self.m_button12.SetBackgroundColour(wx.Colour(0, 255, 0))
 
     def OnStart(self, event):
         """
@@ -462,7 +462,7 @@ class GraphFrame( noname.MyFrame1 ):
             # Process results here
             print 'GPIB Result: %s'%event.data, time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime())
             if event.data == "UNSAFE":
-                self.m_button12.SetBackgroundColour(wx.Colour( 255, 0, 0 ))
+                self.m_button12.SetBackgroundColour(wx.Colour(255, 0, 0))
         
     
         # In either event, the worker is done
@@ -603,25 +603,25 @@ class GraphFrame( noname.MyFrame1 ):
             time.sleep(1.1)#minimises error messages from suddenly stopped graph
         self.Destroy()
 
-class HelpBox ( wx.Frame ):
-    def __init__( self, parent ):
-        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+class HelpBox (wx.Frame):
+    def __init__(self, parent):
+        wx.Frame.__init__ (self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size(500,300), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL)
 
-        self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+        self.SetSizeHintsSz(wx.DefaultSize, wx.DefaultSize)
 
-        gbSizer4 = wx.GridBagSizer( 0, 0 )
-        gbSizer4.SetFlexibleDirection( wx.BOTH )
-        gbSizer4.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+        gbSizer4 = wx.GridBagSizer(0, 0)
+        gbSizer4.SetFlexibleDirection(wx.BOTH)
+        gbSizer4.SetNonFlexibleGrowMode(wx.FLEX_GROWMODE_SPECIFIED)
 
-        self.m_htmlWin1 = wx.html.HtmlWindow( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 1500,1250 ), wx.html.HW_SCROLLBAR_AUTO )
-        gbSizer4.Add( self.m_htmlWin1, wx.GBPosition( 0, 0 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+        self.m_htmlWin1 = wx.html.HtmlWindow(self, wx.ID_ANY, wx.DefaultPosition, wx.Size(1500,1250), wx.html.HW_SCROLLBAR_AUTO)
+        gbSizer4.Add(self.m_htmlWin1, wx.GBPosition(0, 0), wx.GBSpan(1, 1), wx.ALL, 5)
 
 
-        self.SetSizer( gbSizer4 )
+        self.SetSizer(gbSizer4)
         self.Layout()
-        self.Centre( wx.BOTH )
+        self.Centre(wx.BOTH)
 
-    def __del__( self ):
+    def __del__(self):
         pass
 
 
