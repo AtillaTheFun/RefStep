@@ -186,36 +186,9 @@ class MyFrame1 (wx.Frame):
 # CALIBRATION REPORT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         self.m_scrolledWindow48 = wx.Panel(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
 
-#        self.m_grid8 = wx.grid.Grid(self.m_scrolledWindow48, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0)
-        
-#        # Grid
-#        self.m_grid8.CreateGrid(5, 4)
-#        self.m_grid8.EnableEditing(True)
-#        self.m_grid8.EnableGridLines(True)
-#        self.m_grid8.EnableDragGridSize(False)
-#        self.m_grid8.SetMargins(0, 0)
-#        
-#        # Columns
-#        self.m_grid8.EnableDragColMove(False)
-#        self.m_grid8.EnableDragColSize(True)
-#        self.m_grid8.SetColLabelSize(30)
-#        self.m_grid8.SetColLabelValue(0, u"Name")
-#        self.m_grid8.SetColLabelValue(1, u"Ratio")
-#        self.m_grid8.SetColLabelValue(2, u"Uncert")
-#        self.m_grid8.SetColLabelValue(3, u"Dof")
-#        self.m_grid8.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
-#        
-#        # Rows
-#        self.m_grid8.EnableDragRowSize(True)
-#        self.m_grid8.SetRowLabelSize(80)
-#        self.m_grid8.SetRowLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+
         gbSizer8 = wx.GridBagSizer(0, 0)
 
-#        # Label Appearance
-#        
-#        # Cell Defaults
-#        self.m_grid8.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
-#        gbSizer8.Add(self.m_grid8, wx.GBPosition(0, 0), wx.GBSpan(1, 4), wx.ALL, 5)
         
         self.m_scrolledWindow48 = wx.ScrolledWindow(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.HSCROLL|wx.VSCROLL)
         self.m_scrolledWindow48.SetScrollRate(5, 5)
@@ -272,7 +245,7 @@ class MyFrame1 (wx.Frame):
         self.m_grid41 = wx.grid.Grid(self.m_scrolledWindow48, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0)
         
         # Grid
-        self.m_grid41.CreateGrid(5, 4)
+        self.m_grid41.CreateGrid(5, 3)
         self.m_grid41.EnableEditing(True)
         self.m_grid41.EnableGridLines(True)
         self.m_grid41.EnableDragGridSize(False)
@@ -282,15 +255,14 @@ class MyFrame1 (wx.Frame):
         self.m_grid41.EnableDragColMove(False)
         self.m_grid41.EnableDragColSize(True)
         self.m_grid41.SetColLabelSize(30)
-        self.m_grid41.SetColLabelValue(0, u"Name")
-        self.m_grid41.SetColLabelValue(1, u"Ratio")
+        self.m_grid41.SetColLabelValue(0, u"Range")
+        self.m_grid41.SetColLabelValue(1, u" Readout")
         self.m_grid41.SetColLabelValue(2, u"Uncert")
-        self.m_grid41.SetColLabelValue(3, u"Dof")
         self.m_grid41.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
         
         # Rows
         self.m_grid41.EnableDragRowSize(True)
-        self.m_grid41.SetRowLabelSize(80)
+        self.m_grid41.SetRowLabelSize(1)
         self.m_grid41.SetRowLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
         
         # Label Appearance
@@ -298,8 +270,39 @@ class MyFrame1 (wx.Frame):
         # Cell Defaults
         self.m_grid41.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
         gbSizer8.Add(self.m_grid41, wx.GBPosition(6, 1), wx.GBSpan(1, 4), wx.ALL, 5)
-  
-  
+        
+        
+        self.m_grid42 = wx.grid.Grid(self.m_scrolledWindow48, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0)
+        
+        # Grid
+        self.m_grid42.CreateGrid(5, 5)
+        self.m_grid42.EnableEditing(True)
+        self.m_grid42.EnableGridLines(True)
+        self.m_grid42.EnableDragGridSize(False)
+        self.m_grid42.SetMargins(0, 0)
+        
+        # Columns
+        self.m_grid42.EnableDragColMove(False)
+        self.m_grid42.EnableDragColSize(True)
+        self.m_grid42.SetColLabelSize(30)
+        self.m_grid42.SetColLabelValue(0, u"Range")
+        self.m_grid42.SetColLabelValue(1, u" Readout")
+        self.m_grid42.SetColLabelValue(2, u"Voltage +")
+        self.m_grid42.SetColLabelValue(3, u"Voltage -")
+        self.m_grid42.SetColLabelValue(4, u"Uncert")
+
+        self.m_grid42.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+        
+        # Rows
+        self.m_grid42.EnableDragRowSize(True)
+        self.m_grid42.SetRowLabelSize(1)
+        self.m_grid42.SetRowLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+        
+        # Label Appearance
+        
+        # Cell Defaults
+        self.m_grid42.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
+        gbSizer8.Add(self.m_grid42, wx.GBPosition(7, 1), wx.GBSpan(1, 4), wx.ALL, 5)
   
   
   
