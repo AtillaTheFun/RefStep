@@ -303,6 +303,40 @@ class MyFrame1 (wx.Frame):
         # Cell Defaults
         self.m_grid42.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
         gbSizer8.Add(self.m_grid42, wx.GBPosition(7, 1), wx.GBSpan(1, 4), wx.ALL, 5)
+        
+        
+        self.m_grid43 = wx.grid.Grid(self.m_scrolledWindow48, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0)
+        
+        # Grid
+        self.m_grid43.CreateGrid(5, 4)
+        self.m_grid43.EnableEditing(True)
+        self.m_grid43.EnableGridLines(True)
+        self.m_grid43.EnableDragGridSize(False)
+        self.m_grid43.SetMargins(0, 0)
+        
+        # Columns
+        self.m_grid43.EnableDragColMove(False)
+        self.m_grid43.EnableDragColSize(True)
+        self.m_grid43.SetColLabelSize(30)
+        self.m_grid43.SetColLabelValue(0, u"Readout")
+        self.m_grid43.SetColLabelValue(1, u"Relative +")
+        self.m_grid43.SetColLabelValue(2, u"Relative -")
+        self.m_grid43.SetColLabelValue(3, u"Uncert")
+
+        self.m_grid43.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+        
+        # Rows
+        self.m_grid43.EnableDragRowSize(True)
+        self.m_grid43.SetRowLabelSize(1)
+        self.m_grid43.SetRowLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+        
+        # Label Appearance
+        
+        # Cell Defaults
+        self.m_grid43.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
+        gbSizer8.Add(self.m_grid43, wx.GBPosition(8, 1), wx.GBSpan(1, 4), wx.ALL, 5)
+  
+  
   
   
   
