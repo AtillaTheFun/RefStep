@@ -232,23 +232,47 @@ class MyFrame1 ( wx.Frame ):
 		gbSizer8.Add( self.m_textCtrl188, wx.GBPosition( 0, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
   
   		self.m_staticText189 = wx.StaticText( self.m_panel41, wx.ID_ANY, u"Serial Number:", wx.DefaultPosition, wx.DefaultSize, 0 )
-		gbSizer8.Add( self.m_staticText189, wx.GBPosition( 0, 3 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+		gbSizer8.Add( self.m_staticText189, wx.GBPosition( 1, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
   		self.m_textCtrl189 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, u"Serial Number", wx.DefaultPosition, wx.DefaultSize, 0 )
-		gbSizer8.Add( self.m_textCtrl189, wx.GBPosition( 0, 4 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
-		self.m_textCtrl190 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, u"Date:", wx.DefaultPosition, wx.DefaultSize, 0 )
-		gbSizer8.Add( self.m_textCtrl190, wx.GBPosition( 1, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+		gbSizer8.Add( self.m_textCtrl189, wx.GBPosition(1, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+		self.m_staticText190 = wx.StaticText( self.m_panel41, wx.ID_ANY, u"Date:", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gbSizer8.Add( self.m_staticText190, wx.GBPosition( 2, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
   		time_bit = time.strftime("%Y.%m.%d",time.localtime())
   		self.m_textCtrl190 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, time_bit, wx.DefaultPosition, wx.DefaultSize, 0 )
-		gbSizer8.Add( self.m_textCtrl190, wx.GBPosition( 1, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+		gbSizer8.Add( self.m_textCtrl190, wx.GBPosition( 2, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
 
-		#______________WIP_________________
+		
 		time_bit = time.strftime("%Y",time.localtime())
   		
 		self.m_button822 = wx.Button( self.m_panel41, wx.ID_ANY, u"Create Report" , wx.DefaultPosition, wx.DefaultSize, 0 )
   		gbSizer8.Add( self.m_button822, wx.GBPosition( 12, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
-		self.m_textCtrl810 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, u"Report No. Electrical/"+time_bit+"/____/Day Month Year", wx.DefaultPosition, wx.defaultSize, 0 )
-		gbSizer8.Add( self.m_textCtrl810, wx.GBPosition( 3, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  		
+    		self.m_staticText810 = wx.StaticText( self.m_panel41, wx.ID_ANY, u"Report No.", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gbSizer8.Add( self.m_staticText810, wx.GBPosition( 10, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  		self.m_textCtrl810 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, u"Electrical/"+time_bit+"/____/Day Month Year", wx.DefaultPosition, wx.Size(400,30), 0 )
+		gbSizer8.Add( self.m_textCtrl810, wx.GBPosition( 10,2), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
 		
+  
+    		self.m_staticText191 = wx.StaticText( self.m_panel41, wx.ID_ANY, u"Client:", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gbSizer8.Add( self.m_staticText191, wx.GBPosition( 3, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  		self.m_textCtrl191 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, u"Client Name", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gbSizer8.Add( self.m_textCtrl191, wx.GBPosition( 3, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  
+    		self.m_staticText191 = wx.StaticText( self.m_panel41, wx.ID_ANY, u"Calibration Conditions:", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gbSizer8.Add( self.m_staticText191, wx.GBPosition( 4, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  		self.m_textCtrl191 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,100), 0 )
+		gbSizer8.Add( self.m_textCtrl191, wx.GBPosition( 4, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+ 
+  
+    		self.m_staticText192 = wx.StaticText( self.m_panel41, wx.ID_ANY, u"Description of Method:", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gbSizer8.Add( self.m_staticText192, wx.GBPosition( 5, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  		self.m_textCtrl192 = wx.TextCtrl( self.m_panel41, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,100), 0 )
+		gbSizer8.Add( self.m_textCtrl192, wx.GBPosition( 5, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
+  
+  
+  
+  
+  
   
 		 
 		self.m_menubar1 = wx.MenuBar( 0 )
