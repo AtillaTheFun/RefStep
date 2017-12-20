@@ -62,9 +62,12 @@ class INSTRUMENT(object):
         sucess = False #did we read sucessfully
         #string to be printed and saved in log file
         string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' writing to '+self.label+': ' 
+ 
         try:
             self.inst.write(command)
             time.sleep(self.com_settle_time)
+#Check command Recieved        
+
             string = string+str(command)
             sucess = True
         except self.inst_bus.VisaIOError:

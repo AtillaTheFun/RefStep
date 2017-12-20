@@ -317,7 +317,7 @@ class GPIBThreadF(stuff.WorkerThread):
 
             #read errors in meters. The error string later has more warnings appended to it. 
             error_strings = self.Error_string_maker()
-            
+
             #need to determine maximum of DVM range to find accuracy threshold
             range_max = self.set_meter_range(row)
 
@@ -343,7 +343,7 @@ class GPIBThreadF(stuff.WorkerThread):
             error_strings = error_strings + issues
             #print the error report of this data sequence to the table
             self.set_grid_val(row, 0,str(error_strings))
-            
+
             if len(these_readings)>1:
                 data_stdev = np.std(these_readings)
                 data_mean = np.mean(these_readings)
@@ -355,20 +355,20 @@ class GPIBThreadF(stuff.WorkerThread):
             after_msmnt_time = time.time()
             Time = time.localtime() #time at end of msmnt
             row_time = str(Time[0])+str(Time[1])+str(Time[2])+str(Time[3])+str(Time[4])
- 
+
             #print results
             self.set_grid_val(row, self.dvm_nordgs_col + 6,repr(data_mean))
             self.set_grid_val(row, self.dvm_nordgs_col + 7,repr(data_stdev))
-            
+
             self.print_instrument_status(row)
-                
+
             #put csv reading at end so all values are on table.
             csv_line = [self.read_grid_cell(row, i) for i in range(self.grid.GetNumberCols())]
             csv_line = csv_line+[before_msmnt_time,after_msmnt_time]+these_readings
             self.sh.append(csv_line)
-     
+
         self.end()
-        
+
 
     def initialchecks(self,instrument):
         """
@@ -386,7 +386,7 @@ class GPIBThreadF(stuff.WorkerThread):
             self.PrintSave('Error '+str(error)+' while resetting instrument, or queriying status')
             return 'failed'
         else: return 'clear'
-        
+
     def CheckInstruments(self,*args):
         """
         Given any number of instruments, will read through each and PrintSave errors.
