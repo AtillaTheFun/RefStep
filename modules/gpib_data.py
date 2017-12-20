@@ -262,7 +262,7 @@ class GPIBThreadF(stuff.WorkerThread):
             self.data.add_to_list(a)
             these_readings.append(a)
         return these_readings,error_strings
-    
+
     def print_instrument_status(self,row):
         """Read the status of all instruments, print to grid"""
         self.com(self.voltmeter.inst_status)
@@ -288,21 +288,21 @@ class GPIBThreadF(stuff.WorkerThread):
             #Notify the window that the thread ended, so buttons are enabled.
             wx.PostEvent(self._notify_window, stuff.ResultEvent(self.EVT, 'GPIB ended'))
             return
-        
+
         if self.OverideSafety == False: #Then do the safety checks.
             state = self.SafetyCheck()
             if state != 'clear':
                 self._want_abort = True
                 self.PrintSave('safety checks failed, making safe, aborting.')
                 self.MakeSafe()
-            
+
         #initialise instruments
         self.initialise_instruments()
-        
+
         for row in range(self.start_row,self.stop_row + 1):
             if self._want_abort:
                 break #Breaks and skips to the end, where it runs "self.end()".
-            
+
             #do the row highlighting, force a refresh.
             self.PrintSave("Spread sheet row "+str(int(row)+1))
             wx.CallAfter(self.grid.SelectRow,row)
@@ -327,18 +327,18 @@ class GPIBThreadF(stuff.WorkerThread):
             #delay for DVM between mesmnts
             nominal_reading  = float(self.read_grid_cell(row,self.dvm_range_col+1))
             #nominal reading for comparison to actual reading
-            
+
             self.com(self.voltmeter.MeasureSetup)
-            
+
             #wait desired time for instruments to settle
             self.wait(delay_time)
-            
+
             these_readings = [] #array for readings from a single table row.
             before_msmnt_time =time.time() #start time of measuremtns.
             nordgs = int(float(self.read_grid_cell(row, self.dvm_nordgs_col) ))
             #Do the readings
             these_readings,issues = self.do_readings(delay_time2,range_max,nominal_reading,nordgs)
-            
+
             #Update the full error string
             error_strings = error_strings + issues
             #print the error report of this data sequence to the table

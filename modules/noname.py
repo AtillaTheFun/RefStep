@@ -403,6 +403,18 @@ class MyFrame1 (wx.Frame):
         
         self.m_menubar1.Append(self.m_menu11, u"File") 
         
+        
+        self.m_menu3 = wx.Menu()
+        self.m_menuItem46 = wx.MenuItem(self.m_menu3, wx.ID_ANY, u"Regular Operation", wx.EmptyString, wx.ITEM_RADIO)
+        self.m_menu3.AppendItem(self.m_menuItem46)
+        self.m_menuItem46.Check(True)
+        
+        self.m_menuItem45 = wx.MenuItem(self.m_menu3, wx.ID_ANY, u"Validation", wx.EmptyString, wx.ITEM_RADIO)
+        self.m_menu3.AppendItem(self.m_menuItem45)
+        
+
+        self.m_menubar1.Append(self.m_menu3, u"Validation")         
+        
         self.m_menu13 = wx.Menu()
         self.m_menuItem30 = wx.MenuItem(self.m_menu13, wx.ID_ANY, u"Help", wx.EmptyString, wx.ITEM_NORMAL)
         self.m_menu13.AppendItem(self.m_menuItem30)
@@ -411,6 +423,8 @@ class MyFrame1 (wx.Frame):
         self.m_menu13.AppendItem(self.m_menuItem31)
         
         self.m_menubar1.Append(self.m_menu13, u"Help") 
+       
+        
         
         self.SetMenuBar(self.m_menubar1)
         
@@ -563,6 +577,8 @@ class MyFrame1 (wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnOverideSafety, id = self.m_menuItem25.GetId())
         self.Bind(wx.EVT_MENU, self.OnHelp, id = self.m_menuItem30.GetId())
         self.Bind(wx.EVT_MENU, self.OnAbout, id = self.m_menuItem31.GetId())
+        self.Bind(wx.EVT_MENU, self.OnVal, id = self.m_menuItem45.GetId())
+        self.Bind(wx.EVT_MENU, self.OnNoVal, id = self.m_menuItem46.GetId())
         self.m_grid21.Bind(wx.EVT_CHAR, self.on_grid_edited)
         self.m_button151.Bind(wx.EVT_BUTTON, self.OnAddRow)
     
@@ -631,6 +647,12 @@ class MyFrame1 (wx.Frame):
         event.Skip()
     
     def OnAbout(self, event):
+        event.Skip()
+        
+    def OnVal(self, event):
+        event.Skip()
+
+    def OnNoVal(self, event):
         event.Skip()
     
     def on_grid_edited(self, event):

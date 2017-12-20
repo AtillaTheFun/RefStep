@@ -40,6 +40,7 @@ class GraphFrame(noname.MyFrame1):
         
         self.paused = True
         self.Show(True)
+        self.Validate = False
         self.EVT_RESULT_ID_0 = wx.NewId() #used for graphing thread
         self.EVT_RESULT_ID_1 = wx.NewId() #used for GPIB data 1 thread
 
@@ -572,6 +573,16 @@ class GraphFrame(noname.MyFrame1):
         name = 'Manual.html'
         html.LoadPage(name)
         dlg.Show()
+        
+    def OnVal(self,event):
+        if self.Validate == False:
+            self.Validate = True
+            
+    def OnNoVal(self, event):
+        if self.Validate == True:
+            self.Validate = False
+
+        
         
     def OnAbout(self,event):
         info = wx.AboutDialogInfo()
