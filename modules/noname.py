@@ -34,17 +34,17 @@ class MyFrame1 (wx.Frame):
         gbSizer311.SetFlexibleDirection(wx.BOTH)
         gbSizer311.SetNonFlexibleGrowMode(wx.FLEX_GROWMODE_SPECIFIED)
         
-        MeterAdressChoices = []
-        self.MeterAdress = wx.ComboBox(self.m_panel511, wx.ID_ANY, u"GPIB0::23::INSTR", wx.DefaultPosition, wx.DefaultSize, MeterAdressChoices, 0)
-        gbSizer311.Add(self.MeterAdress, wx.GBPosition(1, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        MeteraddressChoices = []
+        self.Meteraddress = wx.ComboBox(self.m_panel511, wx.ID_ANY, u"GPIB0::23::INSTR", wx.DefaultPosition, wx.DefaultSize, MeteraddressChoices, 0)
+        gbSizer311.Add(self.Meteraddress, wx.GBPosition(1, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         
-        SAdressChoices = []
-        self.SAdress = wx.ComboBox(self.m_panel511, wx.ID_ANY, u"GPIB0::15::INSTR", wx.DefaultPosition, wx.DefaultSize, SAdressChoices, 0)
-        gbSizer311.Add(self.SAdress, wx.GBPosition(2, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        SaddressChoices = []
+        self.Saddress = wx.ComboBox(self.m_panel511, wx.ID_ANY, u"GPIB0::15::INSTR", wx.DefaultPosition, wx.DefaultSize, SaddressChoices, 0)
+        gbSizer311.Add(self.Saddress, wx.GBPosition(2, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         
-        XAdressChoices = []
-        self.XAdress = wx.ComboBox(self.m_panel511, wx.ID_ANY, u"GPIB0::4::INSTR", wx.DefaultPosition, wx.DefaultSize, XAdressChoices, 0)
-        gbSizer311.Add(self.XAdress, wx.GBPosition(3, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        XaddressChoices = []
+        self.Xaddress = wx.ComboBox(self.m_panel511, wx.ID_ANY, u"GPIB0::4::INSTR", wx.DefaultPosition, wx.DefaultSize, XaddressChoices, 0)
+        gbSizer311.Add(self.Xaddress, wx.GBPosition(3, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         
         self.m_staticText12 = wx.StaticText(self.m_panel511, wx.ID_ANY, u"Meter", wx.DefaultPosition, wx.DefaultSize, 0)
         self.m_staticText12.Wrap(-1)
@@ -202,12 +202,12 @@ class MyFrame1 (wx.Frame):
         self.m_staticText188 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Instrument Name:", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText188, wx.GBPosition(0, 1), wx.GBSpan(1, 1), wx.ALL, 5)
 
-        self.m_textCtrl188 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"Instrument Name", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_textCtrl188 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"[Instrument Name]", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_textCtrl188, wx.GBPosition(0, 2), wx.GBSpan(1, 1), wx.ALL, 5)
   
         self.m_staticText189 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Serial Number:", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText189, wx.GBPosition(1, 1), wx.GBSpan(1, 1), wx.ALL, 5)
-        self.m_textCtrl189 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"Serial Number", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_textCtrl189 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"[Serial Number]", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_textCtrl189, wx.GBPosition(1, 2), wx.GBSpan(1, 1), wx.ALL, 5)
         self.m_staticText190 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Date:", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText190, wx.GBPosition(2, 1), wx.GBSpan(1, 1), wx.ALL, 5)
@@ -557,6 +557,7 @@ class MyFrame1 (wx.Frame):
         
         # Connect Events
         self.Bind(wx.EVT_CLOSE, self.OnClose)
+        self.m_button822.Bind(wx.EVT_BUTTON, self.OnCreateReport)
         self.m_button14.Bind(wx.EVT_BUTTON, self.OnRefreshInstruments)
         self.m_button15.Bind(wx.EVT_BUTTON, self.OnSendTestCommand)
         self.m_button16.Bind(wx.EVT_BUTTON, self.OnReadTestCommand)

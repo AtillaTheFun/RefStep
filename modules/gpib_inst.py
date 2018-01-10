@@ -14,7 +14,7 @@ class INSTRUMENT(object):
     and recieve class which also wraps each communication with a check to see if the
     communication was sucesful. """
     def __init__(self,inst_bus,letter, **kwargs):
-        self.com = {'label':'','adress':'', 'Ranges':[], 'measure_seperation':'0', 'NoError':'',\
+        self.com = {'label':'','address':'', 'Ranges':[], 'measure_seperation':'0', 'NoError':'',\
                     'reset':'','status':'','init':'','Make_Safe':'', 'error':'', \
                     'SettleTime':'0', 'DCVRange':'', 'SetVoltage':'', 'operate':'', \
                     'standby':'','MeasureSetup':'','SingleMsmntSetup':''} #command dictionary
@@ -22,7 +22,7 @@ class INSTRUMENT(object):
         self.label = self.com["label"]
         self.com.update(label=str(letter)+str(kwargs['label']) )
         self.range = eval(self.com['Ranges']) #Use eval here or string operations? Like split multiple times.
-        self.adress = self.com['adress']
+        self.address = self.com['address']
         #ensure values are ints
         try:
             self.com_settle_time = float(self.com['SettleTime'])
@@ -47,11 +47,11 @@ class INSTRUMENT(object):
         string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' Creating '+self.label+': '
         try:
             self.rm = self.inst_bus.ResourceManager()
-            self.inst = self.rm.open_resource(self.adress)
+            self.inst = self.rm.open_resource(self.address)
             string = string+"sucess"
             sucess = True
         except: #There are a number of issues visa might raise?
-            string = string+"visa failed at adress "+str(self.adress)
+            string = string+"visa failed at address "+str(self.address)
         return [sucess,None,string]
     
     def send(self,command):
@@ -62,12 +62,11 @@ class INSTRUMENT(object):
         sucess = False #did we read sucessfully
         #string to be printed and saved in log file
         string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' writing to '+self.label+': ' 
- 
+
         try:
             self.inst.write(command)
             time.sleep(self.com_settle_time)
-#Check command Recieved        
-
+     
             string = string+str(command)
             sucess = True
         except self.inst_bus.VisaIOError:
@@ -94,49 +93,75 @@ class INSTRUMENT(object):
     def initialise_instrument(self):
         """A specific instrument command to the ref-step algorithm,
 initialises instruments with a set of commands"""
-        return self.send(self.com['init'])
+        success,nothing,string = self.send(self.com['init'])
+        
+                
+        
+        return [success,nothing,string]
 
     def make_safe(self):
         """specific to the ref-step algorithm, should turn instruments off"""
-        return self.send(self.com['Make_Safe'])
+        success,nothing,string = self.send(self.com['init'])
+
+        return [success,nothing,string]
     
     def inst_status(self):
         """specific to the ref-step algorithm, used for reading status"""
-        return self.send(self.com['status'])
+        success,nothing,string = self.send(self.com['status'])
+
+        return [success,nothing,string]
 
     def reset_instrument(self):
         """specific to the ref-step algorithm, reset routine"""
-        return self.send(self.com['reset'])
+        success,nothing,string = self.send(self.com['reset'])
+
+        return [success,nothing,string]
         
     def set_DCrange(self, value):
         """specific to the ref-step algorithm, setting a DC voltage"""
+        success,nothing,string = self.send(self.com['DCVRange'])
         line = str(self.com['DCVRange'])
         line = line.replace("$",str(value))
-        return self.send(line)
+        out = self.send(line)
+        
+        return out
     
     def query_error(self):
         """specific to the ref-step algorithm, reading the instruments error"""
-        return self.send(self.com['error'])
+        success,nothing,string = self.send(self.com['error'])
+
+        return [success,nothing,string]
             
     def set_DCvalue(self, value):
         """specific to the ref-step algorithm, set a DC value for sources"""
+        success,nothing,string = self.send(self.com['SetVoltage'])
         line = str(self.com['SetVoltage'])
         line = line.replace("$",str(value))
-        return self.send(line)
+        out = self.send(line)
+        
+        return out
 
     def Operate(self):
         """specific to the ref-step algorithm, operates sources"""
-        return self.send(self.com['operate'])
+        success,nothing,string = self.send(self.com['operate'])
+
+        return [success,nothing,string]
     
     def Standby(self):
         """specific to the ref-step algorithm, puts sources on standby"""
-        return self.send(self.com['standby'])
+        success,nothing,string = self.send(self.com['standby'])
+
+        return [success,nothing,string]
 
     def MeasureSetup(self):
         """specific to the ref-step algorithm, pre measurement sequence set up"""
-        return self.send(self.com['MeasureSetup'])
+        success,nothing,string = self.send(self.com['MeasureSetup'])
+
+        return [success,nothing,string]
 
     def SingleMsmntSetup(self):
         """specific to the ref-step algorithm, should any commands be sent prior to an individual measurement"""
-        return self.send(self.com['SingleMsmntSetup'])
+        success,nothing,string = self.send(self.com['SingleMsmntSetup'])
+
+        return [success,nothing,string]
 

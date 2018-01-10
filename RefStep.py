@@ -14,6 +14,8 @@ import os
 import sys
 import visa
 import time
+import PyPDF2
+import docx
 
 import modules.noname as noname
 import modules.visa2 as visa2 # this is the simulation version of visa
@@ -25,6 +27,7 @@ import modules.analysis as analysis
 import modules.gpib_data as gpib_data
 import modules.gpib_inst as gpib_inst
 import modules.stuff as stuff
+import modules.ReportBuilder as ReportBuilder
 class GraphFrame(noname.MyFrame1):
     def __init__(self, parent):
         noname.MyFrame1.__init__(self, parent)
@@ -74,8 +77,15 @@ class GraphFrame(noname.MyFrame1):
         #Murray wanted a popup window with info?
         self.OnAbout(None)
         
-    
-  
+    def OnCreateReport(self, event):
+        """
+        """
+        CalRep = ReportBuilder.CalReport()
+        CalRep.init(self)
+        CalRep.BuildReport()
+        
+        
+        
     def OnLive(self, event):
         """
         Chooses visa for live instruments
@@ -344,9 +354,9 @@ class GraphFrame(noname.MyFrame1):
             ds.update({sim(dicts.GetCellValue(row, 2)):sim(dicts.GetCellValue(row, 3))})
             dx.update({sim(dicts.GetCellValue(row, 4)):sim(dicts.GetCellValue(row, 5))})
         #Unpack the dictionaries to each respective instrument.
-        self.meter = gpib_inst.INSTRUMENT(self.inst_bus, 'M', adress=self.MeterAdress.GetValue(), **dm)
-        self.sourceS = gpib_inst.INSTRUMENT(self.inst_bus, 'S', adress=self.SAdress.GetValue(), **ds)
-        self.sourceX = gpib_inst.INSTRUMENT(self.inst_bus, 'X', adress=self.XAdress.GetValue(), **dx)        
+        self.meter = gpib_inst.INSTRUMENT(self.inst_bus, 'M', address=self.Meteraddress.GetValue(), **dm)
+        self.sourceS = gpib_inst.INSTRUMENT(self.inst_bus, 'S', address=self.Saddress.GetValue(), **ds)
+        self.sourceX = gpib_inst.INSTRUMENT(self.inst_bus, 'X', address=self.Xaddress.GetValue(), **dx)        
         return [self.meter, self.sourceS, self.sourceX]
 
     def OnOverideSafety(self,event):
@@ -465,7 +475,7 @@ class GraphFrame(noname.MyFrame1):
             if event.data == "UNSAFE":
                 self.m_button12.SetBackgroundColour(wx.Colour(255, 0, 0))
         
-    
+        
         # In either event, the worker is done
         self.worker1 = None
         self.m_grid3.EnableEditing(True)
@@ -483,18 +493,18 @@ class GraphFrame(noname.MyFrame1):
 
     def OnRefreshInstruments(self, event):
         """
-        Adds all active instrument adresses to the drop down selection for the instrumetns.
+        Adds all active instrument addresses to the drop down selection for the instruments.
         """
         rm = self.inst_bus.ResourceManager()#new Visa
         try:
             resources = rm.list_resources()
-            self.MeterAdress.Clear()
-            self.SAdress.Clear()
-            self.XAdress.Clear()
-            for adress in resources:
-                self.MeterAdress.Append(adress)
-                self.SAdress.Append(adress)
-                self.XAdress.Append(adress)
+            self.Meteraddress.Clear()
+            self.Saddress.Clear()
+            self.Xaddress.Clear()
+            for address in resources:
+                self.Meteraddress.Append(address)
+                self.Saddress.Append(address)
+                self.Xaddress.Append(address)
                 
         except self.inst_bus.VisaIOError:
             resources = "visa error"
@@ -513,24 +523,24 @@ class GraphFrame(noname.MyFrame1):
         """
         name = self.m_comboBox8.GetValue()
         if name == 'Meter':
-            adress = self.MeterAdress.GetValue()
-            self.doOnSend(adress)
+            address = self.Meteraddress.GetValue()
+            self.doOnSend(address)
         elif name == 'Reference source (S)' :
-            adress = self.SAdress.GetValue()
-            self.doOnSend(adress)
+            address = self.Saddress.GetValue()
+            self.doOnSend(address)
         elif name == 'To calibrate (X)':
-            adress = self.XAdress.GetValue()
-            self.doOnSend(adress)
+            address = self.Xaddress.GetValue()
+            self.doOnSend(address)
         else:
             self.m_textCtrl23.AppendText('select instrument\n')
 
-    def doOnSend(self,adress):
-        """ sends the commend to the adress specified,
+    def doOnSend(self,address):
+        """ sends the commend to the address specified,
         creates a new visa resource manager."""
         try:
             command = self.m_textCtrl18.GetValue()
             rm = self.inst_bus.ResourceManager()#new Visa
-            instrument = rm.open_resource(adress)
+            instrument = rm.open_resource(address)
             instrument.write(command)
             self.m_textCtrl23.AppendText(command+'\n')
         except self.inst_bus.VisaIOError:
@@ -544,21 +554,21 @@ class GraphFrame(noname.MyFrame1):
         """
         instrument = self.m_comboBox8.GetValue()
         if instrument == 'Meter':
-            adress = self.MeterAdress.GetValue()
-            self.doRead(adress)
+            address = self.Meteraddress.GetValue()
+            self.doRead(address)
         elif instrument == 'Reference source (S)' :
-            adress = self.SAdress.GetValue()
-            self.doRead(adress)
+            address = self.Saddress.GetValue()
+            self.doRead(address)
         elif instrument == 'To calibrate (X)':
-            adress = self.XAdress.GetValue()
-            self.doRead(adress)
+            address = self.Xaddress.GetValue()
+            self.doRead(address)
         else:
             self.m_textCtrl23.AppendText('select instrument\n')
         
-    def doRead(self,adress):
-        """reads from the specified adress"""
+    def doRead(self,address):
+        """reads from the specified address"""
         rm = self.inst_bus.ResourceManager()#new Visa
-        instrument = rm.open_resource(adress)
+        instrument = rm.open_resource(address)
         try:
             value = instrument.read_raw()
             self.m_textCtrl23.AppendText(repr(value)+'\n')
@@ -588,12 +598,12 @@ class GraphFrame(noname.MyFrame1):
         info = wx.AboutDialogInfo()
         info = wx.AboutDialogInfo()
         info.SetName('Ref step')
-        info.SetVersion('1.0.0')
+        info.SetVersion('2.0.0')
         info.SetDescription("description")
         info.SetCopyright('(C) 2017-2018 Measurement Standards Laboratory of New Zealand')
         info.SetWebSite('http://www.measurement.govt.nz/')
         info.SetLicence("Use it well")
-        info.AddDeveloper('some code monkey')
+        info.AddDeveloper('some code monkey(s)')
         wx.AboutBox(info)
 
     

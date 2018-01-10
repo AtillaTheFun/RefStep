@@ -12,6 +12,7 @@ import wx
 import numpy as np
 import gpib_inst
 import openpyxl
+import PyPDF2
 
 class GPIBThreadF(stuff.WorkerThread):
     """
