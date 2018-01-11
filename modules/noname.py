@@ -223,10 +223,10 @@ class MyFrame1 (wx.Frame):
         self.m_textCtrl191 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"Client Name", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_textCtrl191, wx.GBPosition(3, 2), wx.GBSpan(1, 1), wx.ALL, 5)
 
-        self.m_staticText191 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Calibration Conditions:", wx.DefaultPosition, wx.DefaultSize, 0)
-        gbSizer8.Add(self.m_staticText191, wx.GBPosition(4, 1), wx.GBSpan(1, 1), wx.ALL, 5)
-        self.m_textCtrl191 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,100), 0)
-        gbSizer8.Add(self.m_textCtrl191, wx.GBPosition(4, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_staticText196 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Calibration Conditions:", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer8.Add(self.m_staticText196, wx.GBPosition(4, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_textCtrl196 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,100), 0)
+        gbSizer8.Add(self.m_textCtrl196, wx.GBPosition(4, 2), wx.GBSpan(1, 1), wx.ALL, 5)
  
   
         self.m_staticText192 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Description of Method:", wx.DefaultPosition, wx.DefaultSize, 0)
@@ -235,10 +235,10 @@ class MyFrame1 (wx.Frame):
         gbSizer8.Add(self.m_textCtrl192, wx.GBPosition(5, 2), wx.GBSpan(1, 1), wx.ALL, 5)
         
         
-        self.m_textCtrl191 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,50), 0)
-        gbSizer8.Add(self.m_textCtrl191, wx.GBPosition(6, 2), wx.GBSpan(1, 1), wx.ALL, 5)
-        self.m_staticText192 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Results:", wx.DefaultPosition, wx.DefaultSize, 0)
-        gbSizer8.Add(self.m_staticText192, wx.GBPosition(6, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_textCtrl185 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,50), 0)
+        gbSizer8.Add(self.m_textCtrl185, wx.GBPosition(6, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_staticText185 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Results:", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer8.Add(self.m_staticText185, wx.GBPosition(6, 1), wx.GBSpan(1, 1), wx.ALL, 5)
 
         
         
