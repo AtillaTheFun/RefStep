@@ -187,6 +187,17 @@ class Analyser(object):
                 test_row = test_row+1
         return (test_row,2*test_row-start_row) #center,last row
     
+    def x_range(self,row):
+        
+        x_range = self.read_cell(row, 1)
+        return x_range, x_range
+        
+    def m_range(self, row):
+        
+        m_range = self.read_cell(row, 5)
+        return m_range, m_range
+        
+    
     def analysis(self):
         """
         Main analysis function. Reads averages and standard deviations to create GTC,ureal objects, by using the find_center function to determine starting and end points of a set.
@@ -221,15 +232,20 @@ class Analyser(object):
                 
                 x_ratios = self.x_ratio(x_top,s0,s1)+self.x_ratio(x_bottom[::-1],s0,s1)
                 m_ratios = self.m_ratio(m_top,s0,s1)+self.m_ratio(m_bottom[::-1],s0,s1)
+
                 #join arrays of the three ratios, linearity, gain, fit ??
+                x_ranges = self.x_range(start_row)+self.x_range(start_row)
+                m_ranges = self.m_range(start_row)+self.m_range(start_row)
 
                 ratios = x_ratios+m_ratios
-
+                ranges = x_ranges+m_ranges
                 #print the ratios to the sheet
                 cols.append(["Label"]+[x.label for x in ratios])
                 cols.append(["Ratio"]+[x.x for x in ratios])
                 cols.append(["STDEV"]+[x.u for x in ratios])
                 cols.append(["Effct. DoF"]+[x.df for x in ratios])
+                cols.append(["Range"]+[x for x in ranges]) 
+                #add range for each ratio
                 self.print_cols(cols,printing_row)
                 printing_row += len(ratios) + 1
                 self.results.append(cols)

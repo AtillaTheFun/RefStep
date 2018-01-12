@@ -40,6 +40,7 @@ class GraphFrame(noname.MyFrame1):
 #        self.m_grid8.__init_mixin__()
         
         self.number_plots = 1
+        self.ranges=[]
         
         self.paused = True
         self.Show(True)
