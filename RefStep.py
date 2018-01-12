@@ -79,10 +79,64 @@ class GraphFrame(noname.MyFrame1):
         
     def OnCreateReport(self, event):
         """
+        Uses the Report builder to output a Calibration Report.
         """
         CalRep = ReportBuilder.CalReport()
         CalRep.init(self)
         CalRep.BuildReport()
+        
+    def OnSource(self, event):
+        """
+        Respond to checkbox events.
+        """
+        if self.m_checkBox1.GetValue():
+            self.m_checkBox1.SetValue(False)
+        else:
+            self.m_checkBox1.SetValue(True)
+    
+    def OnMeter(self, event):
+        """
+        Respond to checkbox events.
+        """
+        if self.m_checkBox2.GetValue():
+            self.m_checkBox2.SetValue(False)
+        else:
+            self.m_checkBox2.SetValue(True)
+            
+    def OnOpenData(self, event):
+        """
+        from MIEcalculator, graph_gui.py.
+        """
+        # In this case, the dialog is created within the method because
+        # the directory name, etc, may be changed during the running of the
+        # application. In theory, you could create one earlier, store it in
+        # your frame object and change it when it was called to reflect
+        # current parameters / values
+        wildcard = "Poject source (*.csv; *.xls; *.xlsx; *.xlsm)|*.csv;*.xls; *.xlsx; *.xlsm|" \
+         "All files (*.*)|*.*"
+
+        dlg = wx.FileDialog(self, "Choose a data file", self.dirname, "",
+        wildcard, wx.OPEN | wx.MULTIPLE)
+
+        if dlg.ShowModal() == wx.ID_OK:
+            filename = dlg.GetFilename()
+            dirname = dlg.GetDirectory()
+            self.data_file = os.path.join(dirname, filename)
+            self.projwd = dirname #remember the project working directory
+            self.FillData()
+        self.m_textCtrl187.Clear() 
+        self.m_textCtrl187.WriteText(filename) # update text field with current data file. 
+        dlg.Destroy()
+        
+    def FillData(self):
+        """
+        Loads data to create a report. Requires a results sheet named "Results".
+        Uses tables.TABLES for a excel-to-grid object.
+        """
+        
+        datagrid = tables.TABLES(self)
+
+        self.data_grid = datagrid.excel_to_grid(self.data_file, 'Results', self.m_grid44)
         
         
         
@@ -122,7 +176,7 @@ class GraphFrame(noname.MyFrame1):
             dirname = dlg.GetDirectory()
             self.proj_file = os.path.join(dirname, filename)
             self.projwd = dirname #remember the project working directory
-            self.FillGrid()
+            
         dlg.Destroy()
         
         
@@ -263,7 +317,6 @@ class GraphFrame(noname.MyFrame1):
         
         xcel_name = str(self.Analysis_file_name.GetValue())#'Book1.xlsx'
         xcel_sheet = 'Sheet'
-        
         
         analyser = analysis.Analyser(xcel_name,xcel_sheet)
         analyser.analysis()

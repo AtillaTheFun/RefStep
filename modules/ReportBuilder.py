@@ -21,6 +21,7 @@ class CalReport():
         self.cond = parent.m_textCtrl196.GetValue()
         self.method =  parent.m_textCtrl192.GetValue()
         self.results = parent.m_textCtrl185.GetValue()
+       
         
     def BuildReport(self):
         """
@@ -54,3 +55,16 @@ class CalReport():
         hdr_cells[1].text = 'Instrument Readout'
         hdr_cells[2].text = 'Expanded Uncertainty'
         doc.save('Calibration Report for '+self.name+'.docx')
+        
+    def MeterCalculations(self):
+        """
+        Calculate absolute values from ratios calculated in analysis
+        """
+        
+        
+        
+        
+    def SourceCalculations(self):
+        """
+        """
+        
