@@ -34,7 +34,7 @@ class Analyser(object):
                 #warnings.simplefilter('default')
                 #try command? if fail, let user know.
                 self.sh = self.wb[sheet_name]
-            
+                
                 self.sh_results = self.wb.create_sheet(title="Results")
                 window = [1,self.sh.max_row+1,1,self.sh.max_column+1]
                 self.data = self.get_data(window) #row,row,col,col
@@ -98,7 +98,7 @@ class Analyser(object):
         the range below and are used for the gain ratio computation.
         """
         #compute ratios for a set of ascending ureals, for source x. first two data points are for the gain ratio, ie they are on a lower range.
-        print("lenght x "+str(len(ureals)))
+        print("length x "+str(len(ureals)))
         Sum = 0
         num = 0
         print([x.x for x in ureals])
@@ -121,7 +121,7 @@ class Analyser(object):
         the range below and are used for the gain ratio computation.
         """
         #compute ratios for a set of ascending ureals, for the meter, first two data points are for the gain ratio, ie they are on a lower range.
-        print("lenght m "+str(len(ureals)))
+        print("length m "+str(len(ureals)))
         Sum = 0
         num = 0
         for j in range(2,(len(ureals)+2)/2):
@@ -234,8 +234,8 @@ class Analyser(object):
                 m_ratios = self.m_ratio(m_top,s0,s1)+self.m_ratio(m_bottom[::-1],s0,s1)
 
                 #join arrays of the three ratios, linearity, gain, fit ??
-                x_ranges = self.x_range(start_row)+self.x_range(start_row)
-                m_ranges = self.m_range(start_row)+self.m_range(start_row)
+                x_ranges = self.x_range(center)+self.x_range(center)
+                m_ranges = self.m_range(center)+self.m_range(center)
 
                 ratios = x_ratios+m_ratios
                 ranges = x_ranges+m_ranges

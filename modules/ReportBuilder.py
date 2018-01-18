@@ -21,12 +21,19 @@ class CalReport():
         self.cond = parent.m_textCtrl196.GetValue()
         self.method =  parent.m_textCtrl192.GetValue()
         self.results = parent.m_textCtrl185.GetValue()
-       
+        self.parent = parent
+      
         
     def BuildReport(self):
         """
         Report building produces a docx file that contains information from user fields. (adding in data from analysis)
         """
+        if self.parent.m_checkBox1.GetValue():
+            self.MeterCalculations()
+        else:
+            self.SourceCalculations()
+            
+        
         doc = docx.Document()
         doc.add_heading('Report on the Calibration of a ' + self.name, 1)
         doc.add_heading('Description', 3)
@@ -58,13 +65,49 @@ class CalReport():
         
     def MeterCalculations(self):
         """
-        Calculate absolute values from ratios calculated in analysis
+        Calculations for producing tables in a meter Calibration Report
+        Calculate absolute values from ratios calculated in analysis 
         """
+        self.row = range(0, self.parent.m_grid44.GetNumberCols())
         
+        self.labels = [self.row]
+        self.expUnc = [self.row]
+        self.ratio = [self.row]
+        self.vRange = [self.row]
         
-        
-        
+        for x in self.row:
+            label = self.parent.m_grid44.GetCellValue(x, 0)
+            ratio = self.parent.m_grid44.GetCellValue(x, 1)
+            stDev = self.parent.m_grid44.GetCellValue(x, 2) 
+            vRange = self.parent.m_grid44.GetCellValue(x, 4)
+            if label[0][0] == 'm':
+                self.labels[x] = label
+                self.expUnc[x] = stDev #needs an operation
+                self.ratio[x] = ratio 
+                self.vRange[x] = vRange
+#                self.abs[x] = 
+                
+                
     def SourceCalculations(self):
         """
+        Calculations for producing tables in a source Calibration Report
+        Calculate absolute values from ratios calculated in analysis
         """
+        self.row = range(0, self.parent.m_grid44.GetNumberCols())
         
+        self.labels = [self.row]
+        self.expUnc = [self.row]
+        self.ratio = [self.row]
+        self.vRange = [self.row]
+        
+        for x in self.row:
+            label = self.parent.m_grid44.GetCellValue(x, 0)
+            ratio = self.parent.m_grid44.GetCellValue(x, 1)
+            stDev = self.parent.m_grid44.GetCellValue(x, 2) 
+            vRange = self.parent.m_grid44.GetCellValue(x, 4)
+            if label[0][0] == 'x':
+                self.labels[x] = label
+                self.expUnc[x] = stDev #needs an operation
+                self.ratio[x] = ratio #Not in final form for use in report.
+                self.vRange[x] = vRange
+                
