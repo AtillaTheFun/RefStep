@@ -326,7 +326,7 @@ class GraphFrame(noname.MyFrame1):
         printed_results = controlgrid.excel_to_grid(xcel_name, 'Results', self.m_grid4)
         
         
-        #Perhaps find a god place to put back to the table.
+        #Perhaps find a good place to put back to the table.
         
     def OnSaveTables(self,event):
         """

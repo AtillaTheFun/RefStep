@@ -236,15 +236,21 @@ class Analyser(object):
                 #join arrays of the three ratios, linearity, gain, fit ??
                 x_ranges = self.x_range(center)+self.x_range(center)
                 m_ranges = self.m_range(center)+self.m_range(center)
+                
+                x_readouts = [self.read_cell(center,2)] + [self.read_cell(center,2)]+ [self.read_cell(center,2)]+ [self.read_cell(center,2)]
+                m_readouts = [self.read_cell(center,2)] + [self.read_cell(center,2)]+ [self.read_cell(center,2)]+ [self.read_cell(center,2)]
+
 
                 ratios = x_ratios+m_ratios
                 ranges = x_ranges+m_ranges
+                readouts = x_readouts + m_readouts
                 #print the ratios to the sheet
                 cols.append(["Label"]+[x.label for x in ratios])
                 cols.append(["Ratio"]+[x.x for x in ratios])
                 cols.append(["STDEV"]+[x.u for x in ratios])
                 cols.append(["Effct. DoF"]+[x.df for x in ratios])
                 cols.append(["Range"]+[x for x in ranges]) 
+                cols.append(["Readout"] + [x for x in readouts])
                 #add range for each ratio
                 self.print_cols(cols,printing_row)
                 printing_row += len(ratios) + 1

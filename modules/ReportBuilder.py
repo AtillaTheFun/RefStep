@@ -85,6 +85,10 @@ class CalReport():
                 self.expUnc[x] = stDev #needs an operation
                 self.ratio[x] = ratio 
                 self.vRange[x] = vRange
+                if vRange == 10:
+                    self.abs[x] = 10*ratio
+#                else:
+#                    self.abs[x] = ratio*
 #                self.abs[x] = 
                 
                 

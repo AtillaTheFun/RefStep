@@ -150,7 +150,7 @@ class MyFrame1 (wx.Frame):
         self.m_grid4 = wx.grid.Grid(self.m_scrolledWindow5, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0)
         
         # Grid
-        self.m_grid4.CreateGrid(5, 5)
+        self.m_grid4.CreateGrid(5, 6)
         self.m_grid4.EnableEditing(True)
         self.m_grid4.EnableGridLines(True)
         self.m_grid4.EnableDragGridSize(False)
@@ -165,6 +165,8 @@ class MyFrame1 (wx.Frame):
         self.m_grid4.SetColLabelValue(2, u"Uncert")
         self.m_grid4.SetColLabelValue(3, u"Dof")
         self.m_grid4.SetColLabelValue(4, u"Range")
+        self.m_grid4.SetColLabelValue(5, u"Readout")
+        
         
         self.m_grid4.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
         
