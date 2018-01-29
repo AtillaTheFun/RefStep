@@ -1,0 +1,127 @@
+2018.01.26.10.40.53,  Creating HP: success
+2018.01.26.10.40.53,  Creating FL5700: success
+2018.01.26.10.40.53,  Creating FL5730: success
+2018.01.26.10.40.53,  writing to HP: RESET
+2018.01.26.10.40.53,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.26.10.40.53,  writing to HP: ERR?
+2018.01.26.10.40.54,  reading HP: 0
+
+0
+
+2018.01.26.10.40.54,  writing to FL5700: *RST
+2018.01.26.10.40.54,  writing to FL5700: OUT 0V, 0HZ
+2018.01.26.10.40.54,  writing to FL5700: FAULT?
+2018.01.26.10.40.54,  reading FL5700: 0
+
+0
+
+2018.01.26.10.40.54,  writing to FL5730: *RST
+2018.01.26.10.40.55,  writing to FL5730: OUT 0V, 0HZ
+2018.01.26.10.40.55,  writing to FL5730: FAULT?
+2018.01.26.10.40.55,  reading FL5730: 0
+
+0
+
+2018.01.26.10.40.55,  writing to FL5700: STBY
+2018.01.26.10.40.56,  writing to FL5730: STBY
+2018.01.26.10.40.56,  writing to FL5700: FAULT?
+2018.01.26.10.40.56,  reading FL5700: 0
+
+2018.01.26.10.40.56,  writing to FL5730: FAULT?
+2018.01.26.10.40.57,  reading FL5730: 0
+
+2018.01.26.10.40.57,  writing to FL5730: OUT 0V
+2018.01.26.10.40.57,  writing to FL5700: OUT 0V
+2018.01.26.10.40.57,  writing to FL5730: FAULT?
+2018.01.26.10.40.58,  reading FL5730: 0
+
+2018.01.26.10.40.58,  writing to FL5700: FAULT?
+2018.01.26.10.40.58,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.01.26.10.40.58,  writing to FL5700: OPER
+2018.01.26.10.40.58,  writing to FL5730: OPER
+2018.01.26.10.41.03,  reading HP:  6.028435152E-06
+
+2018.01.26.10.41.03,  writing to FL5700: FAULT?
+2018.01.26.10.41.04,  reading FL5700: 0
+
+2018.01.26.10.41.04,  writing to FL5730: FAULT?
+2018.01.26.10.41.04,  reading FL5730: 0
+
+testing voltage setting correctly
+2018.01.26.10.41.04,  writing to FL5700: STBY
+2018.01.26.10.41.04,  writing to FL5700: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.01.26.10.41.05,  writing to FL5700: OUT 1V
+2018.01.26.10.41.05,  writing to FL5700: OPER
+2018.01.26.10.41.10,  reading HP:  1.000005519E+00
+
+2018.01.26.10.41.10,  writing to FL5700: FAULT?
+2018.01.26.10.41.11,  reading FL5700: 0
+
+2018.01.26.10.41.11,  writing to FL5730: FAULT?
+2018.01.26.10.41.11,  reading FL5730: 0
+
+2018.01.26.10.41.11,  writing to FL5700: STBY
+2018.01.26.10.41.11,  writing to FL5700: OUT 0V
+2018.01.26.10.41.12,  writing to FL5700: OPER
+2018.01.26.10.41.12,  writing to FL5730: STBY
+2018.01.26.10.41.12,  writing to FL5730: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.01.26.10.41.12,  writing to FL5730: OUT 1V
+2018.01.26.10.41.13,  writing to FL5730: OPER
+2018.01.26.10.41.18,  reading HP: -9.999988715E-01
+
+2018.01.26.10.41.18,  writing to FL5700: FAULT?
+2018.01.26.10.41.18,  reading FL5700: 0
+
+2018.01.26.10.41.18,  writing to FL5730: FAULT?
+2018.01.26.10.41.19,  reading FL5730: 0
+
+2018.01.26.10.41.19,  writing to HP: RESET
+2018.01.26.10.41.19,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.26.10.41.19,  writing to FL5700: *RST
+2018.01.26.10.41.19,  writing to FL5700: OUT 0V, 0HZ
+2018.01.26.10.41.20,  writing to FL5730: *RST
+2018.01.26.10.41.20,  writing to FL5730: OUT 0V, 0HZ
+
+2018.01.26.10.41.20,  writing to FL5700: FAULT?
+2018.01.26.10.41.21,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.01.26.10.41.21,  writing to FL5730: FAULT?
+2018.01.26.10.41.21,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.01.26.10.41.21,  writing to HP: ERR?
+2018.01.26.10.41.21,  reading HP: 0
+
+meter ESR = 0
+
+
+Spread sheet row 8
+2018.01.26.10.41.21,  writing to FL5730: RANGELCK OFF; OUT .2V; RANGELCK ON
+2018.01.26.10.41.21,  writing to FL5730: OUT 0V
+2018.01.26.10.41.22,  writing to FL5700: RANGELCK OFF; OUT .1V; RANGELCK ON
+2018.01.26.10.41.22,  writing to FL5700: OUT 0V
+2018.01.26.10.41.22,  writing to FL5730: OPER
+2018.01.26.10.41.22,  writing to FL5700: OPER
+2018.01.26.10.41.23,  writing to FL5700: FAULT?
+2018.01.26.10.41.23,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.01.26.10.41.23,  writing to FL5730: FAULT?
+2018.01.26.10.41.23,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.01.26.10.41.23,  writing to HP: ERR?
+2018.01.26.10.41.23,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.01.26.10.41.23,  writing to HP: DCV .1
+could not identify .1 as a valid range

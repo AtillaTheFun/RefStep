@@ -43,52 +43,53 @@ class INSTRUMENT(object):
         Creates the visa instrument object, to which commands will be sent
         and recieved. 
         """
-        sucess = False
+        success = False
         string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' Creating '+self.label+': '
         try:
             self.rm = self.inst_bus.ResourceManager()
             self.inst = self.rm.open_resource(self.address)
-            string = string+"sucess"
-            sucess = True
+            string = string+"success"
+            success = True
         except: #There are a number of issues visa might raise?
             string = string+"visa failed at address "+str(self.address)
-        return [sucess,None,string]
+        return [success,None,string]
     
     def send(self,command):
         """
         From here a command is sent to the instrument, surrounded by the try block.
         If the command fails, it does not halt the problem but sends back a failed status.
         """
-        sucess = False #did we read sucessfully
+        success = False #did we read successfully
         #string to be printed and saved in log file
         string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' writing to '+self.label+': ' 
 
         try:
             self.inst.write(command)
+            print(command)
             time.sleep(self.com_settle_time)
      
             string = string+str(command)
-            sucess = True
+            success = True
         except self.inst_bus.VisaIOError:
             string = string+"visa failed"
-        return [sucess,None,string]
+        return [success,None,string]
     
     def read_instrument(self):
         """
         Similar to the send function, but reads and expects a return value too.
         """
         val = '0' #value to be returned, string-type like instruments
-        sucess = False #did we read sucessfully
+        success = False #did we read successfully
         #string to be printed and saved in log file
         string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' reading '+self.label+': ' 
         try:
             time.sleep(self.measure_seperation)
             val = self.inst.read()
             string = string+str(val)
-            sucess = True
+            success = True
         except self.inst_bus.VisaIOError:
             string = string+"visa failed"
-        return [sucess,val,string]
+        return [success,val,string]
 
     def initialise_instrument(self):
         """A specific instrument command to the ref-step algorithm,
@@ -119,7 +120,6 @@ initialises instruments with a set of commands"""
         
     def set_DCrange(self, value):
         """specific to the ref-step algorithm, setting a DC voltage"""
-        success,nothing,string = self.send(self.com['DCVRange'])
         line = str(self.com['DCVRange'])
         line = line.replace("$",str(value))
         out = self.send(line)
@@ -134,11 +134,9 @@ initialises instruments with a set of commands"""
             
     def set_DCvalue(self, value):
         """specific to the ref-step algorithm, set a DC value for sources"""
-        success,nothing,string = self.send(self.com['SetVoltage'])
         line = str(self.com['SetVoltage'])
-        line = line.replace("$",str(value))
+        line = line.replace('$V',str(value)+'V')
         out = self.send(line)
-        
         return out
 
     def Operate(self):

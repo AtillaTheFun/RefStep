@@ -180,7 +180,7 @@ class GraphFrame(noname.MyFrame1):
             
         dlg.Destroy()
         
-        
+        self.FillGrid()
         
     def OnLoadTable(self, event):
         """Immediatly  calls the FillGrid function, so it can be used without the event too."""
@@ -375,6 +375,7 @@ class GraphFrame(noname.MyFrame1):
         self.data.reset_list()
         self.m_textCtrl81.Clear()
         self.m_button12.SetBackgroundColour(wx.Colour(0, 255, 0))
+        
 
     def OnStart(self, event):
         """

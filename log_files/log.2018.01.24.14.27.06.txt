@@ -1,0 +1,26 @@
+2018.01.24.14.27.07,  Creating Keysight: sucess
+2018.01.24.14.27.08,  Creating FL5700: sucess
+2018.01.24.14.27.09,  Creating FL5730: sucess
+2018.01.24.14.27.10,  writing to Keysight: RESET
+2018.01.24.14.27.21,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.24.14.27.22,  writing to Keysight: ERR?
+2018.01.24.14.27.23,  reading Keysight: 0
+
+0
+
+2018.01.24.14.27.24,  writing to FL5700: *RST
+2018.01.24.14.27.35,  writing to FL5700: OUT 0V, 0HZ
+2018.01.24.14.27.37,  writing to FL5700: FAULT?
+2018.01.24.14.27.38,  reading FL5700: 0
+
+0
+
+2018.01.24.14.27.39,  writing to FL5730: *RST
+2018.01.24.14.27.50,  writing to FL5730: OUT 0V,0HZ
+2018.01.24.14.27.52,  writing to FL5730: FAULT?
+2018.01.24.14.27.53,  reading FL5730: 2220
+
+2220
+
+Error 2220
+ while resetting instrument, or queriying status

@@ -1,0 +1,42 @@
+2018.01.24.11.47.52,  Creating Keysight: sucess
+2018.01.24.11.47.52,  Creating FL5700: sucess
+2018.01.24.11.47.52,  Creating FL5730: sucess
+2018.01.24.11.47.52,  writing to Keysight: RESET
+2018.01.24.11.47.52,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.24.11.47.52,  writing to Keysight: ERR?
+2018.01.24.11.47.53,  reading Keysight: 0
+
+0
+
+2018.01.24.11.47.53,  writing to FL5700: *RST
+2018.01.24.11.47.53,  writing to FL5700: OUT 0V, 0HZ
+2018.01.24.11.47.53,  writing to FL5700: FAULT?
+2018.01.24.11.47.53,  reading FL5700: 0
+
+0
+
+2018.01.24.11.47.53,  writing to FL5730: *RST
+2018.01.24.11.47.54,  writing to FL5730: OUT 0 V, 0 HZ
+2018.01.24.11.47.54,  writing to FL5730: FAULT?
+2018.01.24.11.47.54,  reading FL5730: 0
+
+0
+
+2018.01.24.11.47.54,  writing to FL5700: STBY
+2018.01.24.11.47.55,  writing to FL5730: STBY
+2018.01.24.11.47.55,  writing to FL5700: FAULT?
+2018.01.24.11.47.55,  reading FL5700: 0
+
+2018.01.24.11.47.55,  writing to FL5730: FAULT?
+2018.01.24.11.47.56,  reading FL5730: 0
+
+2018.01.24.11.47.56,  writing to FL5700: OUT 0 V
+2018.01.24.11.47.57,  writing to FL5730: OUT 0 V
+2018.01.24.11.47.57,  writing to FL5700: FAULT?
+2018.01.24.11.47.57,  reading FL5700: 2220
+
+Error 2220
+ in instrument XFL5700
+2018.01.24.11.47.57,  writing to FL5700: FAULT?
+2018.01.24.11.47.57,  reading FL5700: 0
+

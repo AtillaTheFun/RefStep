@@ -165,7 +165,7 @@ class MyFrame1 (wx.Frame):
         self.m_grid4.SetColLabelValue(2, u"Uncert")
         self.m_grid4.SetColLabelValue(3, u"Dof")
         self.m_grid4.SetColLabelValue(4, u"Range")
-        self.m_grid4.SetColLabelValue(5, u"Readout")
+        self.m_grid4.SetColLabelValue(5, u"V Setting Max/Min")
         
         
         self.m_grid4.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
@@ -411,7 +411,9 @@ class MyFrame1 (wx.Frame):
         self.m_staticText195 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Ratio Data", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText195, wx.GBPosition(14, 1), wx.GBSpan(1, 1), wx.ALL, 5)
 
-  
+# DC Offset Measurement ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        
   
   
   

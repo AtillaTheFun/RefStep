@@ -1,0 +1,5 @@
+2018.01.25.09.58.58,  Creating Keysight: sucess
+2018.01.25.09.58.59,  Creating FL5700: sucess
+2018.01.25.09.59.00,  Creating FL5730: sucess
+2018.01.25.09.59.01,  writing to Keysight: RESET
+2018.01.25.09.59.02,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20

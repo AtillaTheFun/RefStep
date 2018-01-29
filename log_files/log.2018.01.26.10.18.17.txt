@@ -1,0 +1,4 @@
+2018.01.26.10.18.17,  Creating HP: success
+2018.01.26.10.18.17,  Creating FL5700: success
+2018.01.26.10.18.17,  Creating FL5730: success
+2018.01.26.10.18.17,  writing to HP: visa failed

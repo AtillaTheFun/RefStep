@@ -1,0 +1,48 @@
+2018.01.26.08.58.19,  Creating HP: success
+2018.01.26.08.58.20,  Creating FL5700: success
+2018.01.26.08.58.21,  Creating FL5730: success
+2018.01.26.08.58.22,  writing to HP: RESET
+2018.01.26.08.58.26,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.26.08.58.27,  writing to HP: ERR?
+2018.01.26.08.58.28,  reading HP: 0
+
+0
+
+2018.01.26.08.58.29,  writing to FL5700: *RST
+2018.01.26.08.58.34,  writing to FL5700: OUT 0V, 0HZ
+2018.01.26.08.58.35,  writing to FL5700: FAULT?
+2018.01.26.08.58.36,  reading FL5700: 0
+
+0
+
+2018.01.26.08.58.37,  writing to FL5730: *RST
+2018.01.26.08.58.42,  writing to FL5730: OUT 0V, 0HZ
+2018.01.26.08.58.43,  writing to FL5730: FAULT?
+2018.01.26.08.58.44,  reading FL5730: 0
+
+0
+
+2018.01.26.08.58.45,  writing to FL5700: STBY
+2018.01.26.08.58.47,  writing to FL5730: STBY
+2018.01.26.08.58.48,  writing to FL5700: FAULT?
+2018.01.26.08.58.49,  reading FL5700: 0
+
+2018.01.26.08.58.50,  writing to FL5730: FAULT?
+2018.01.26.08.58.52,  reading FL5730: 0
+
+2018.01.26.08.58.53,  writing to FL5730: FAULT?
+2018.01.26.08.58.54,  reading FL5730: 0
+
+2018.01.26.08.58.55,  writing to FL5700: FAULT?
+2018.01.26.08.58.56,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.01.26.08.58.57,  writing to FL5700: OPER
+2018.01.26.08.58.58,  writing to FL5730: OPER
+2018.01.26.08.59.05,  reading HP: -9.888732706E+00
+
+2018.01.26.08.59.06,  writing to FL5700: FAULT?
+Make safe sent. status is:
+SourceX True
+SourceS True
+Meter True

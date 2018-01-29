@@ -1,0 +1,51 @@
+2018.01.25.09.58.14,  Creating Keysight: sucess
+2018.01.25.09.58.15,  Creating FL5700: sucess
+2018.01.25.09.58.16,  Creating FL5730: sucess
+2018.01.25.09.58.17,  writing to Keysight: RESET
+2018.01.25.09.58.18,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.25.09.58.19,  writing to FL5700: *RST
+2018.01.25.09.58.21,  writing to FL5700: OUT 0V, 0HZ
+2018.01.25.09.58.22,  writing to FL5730: *RST
+2018.01.25.09.58.23,  writing to FL5730: OUT 0V,0HZ
+
+2018.01.25.09.58.25,  writing to FL5700: FAULT?
+2018.01.25.09.58.26,  reading FL5700: 2220
+
+sourceX ESR = 2220
+
+2018.01.25.09.58.27,  writing to FL5730: FAULT?
+2018.01.25.09.58.28,  reading FL5730: 2220
+
+sourceS ESR = 2220
+
+2018.01.25.09.58.29,  writing to Keysight: ERR?
+2018.01.25.09.58.30,  reading Keysight: 0
+
+meter ESR = 0
+
+
+Spread sheet row 8
+2018.01.25.09.58.32,  writing to FL5730: RANGELCK OFF; OUT .2V; RANGELCK ON
+2018.01.25.09.58.33,  writing to FL5730: OUT 0V,0HZ
+2018.01.25.09.58.35,  writing to FL5700: RANGELCK OFF; OUT .1V; RANGELCK ON
+2018.01.25.09.58.36,  writing to FL5700: OUT 0V,0HZ
+2018.01.25.09.58.38,  writing to FL5730: OPER
+2018.01.25.09.58.39,  writing to FL5700: OPER
+2018.01.25.09.58.40,  writing to FL5700: FAULT?
+2018.01.25.09.58.42,  reading FL5700: 2220
+
+sourceX ESR = 2220
+
+2018.01.25.09.58.43,  writing to FL5730: FAULT?
+2018.01.25.09.58.44,  reading FL5730: 2220
+
+sourceS ESR = 2220
+
+2018.01.25.09.58.45,  writing to Keysight: ERR?
+2018.01.25.09.58.46,  reading Keysight: 0
+
+meter ESR = 0
+
+
+2018.01.25.09.58.47,  writing to Keysight: DCV .1
+could not identify .1 as a valid range

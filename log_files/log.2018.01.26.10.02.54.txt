@@ -1,0 +1,59 @@
+2018.01.26.10.02.55,  Creating HP: success
+2018.01.26.10.02.56,  Creating FL5700: success
+2018.01.26.10.02.57,  Creating FL5730: success
+2018.01.26.10.02.58,  writing to HP: RESET
+2018.01.26.10.03.02,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.26.10.03.03,  writing to HP: ERR?
+2018.01.26.10.03.05,  reading HP: 0
+
+0
+
+2018.01.26.10.03.06,  writing to FL5700: *RST
+2018.01.26.10.03.10,  writing to FL5700: OUT 0V, 0HZ
+2018.01.26.10.03.11,  writing to FL5700: FAULT?
+2018.01.26.10.03.12,  reading FL5700: 0
+
+0
+
+2018.01.26.10.03.13,  writing to FL5730: *RST
+2018.01.26.10.03.18,  writing to FL5730: OUT 0V, 0HZ
+2018.01.26.10.03.19,  writing to FL5730: FAULT?
+2018.01.26.10.03.20,  reading FL5730: 0
+
+0
+
+2018.01.26.10.03.21,  writing to FL5700: STBY
+2018.01.26.10.03.23,  writing to FL5730: STBY
+2018.01.26.10.03.24,  writing to FL5700: FAULT?
+2018.01.26.10.03.25,  reading FL5700: 0
+
+2018.01.26.10.03.26,  writing to FL5730: FAULT?
+2018.01.26.10.03.28,  reading FL5730: 0
+
+2018.01.26.10.03.29,  writing to FL5730: OUT 0.1V
+2018.01.26.10.03.30,  writing to FL5700: OUT 0.1V
+2018.01.26.10.03.31,  writing to FL5730: FAULT?
+2018.01.26.10.03.32,  reading FL5730: 0
+
+2018.01.26.10.03.34,  writing to FL5700: FAULT?
+2018.01.26.10.03.35,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.01.26.10.03.36,  writing to FL5700: OPER
+2018.01.26.10.03.37,  writing to FL5730: OPER
+2018.01.26.10.03.43,  reading HP: -9.690107018E+00
+
+2018.01.26.10.03.44,  writing to FL5700: FAULT?
+2018.01.26.10.03.46,  reading FL5700: 0
+
+2018.01.26.10.03.47,  writing to FL5730: FAULT?
+2018.01.26.10.03.48,  reading FL5730: 0
+
+testing voltage setting correctly
+2018.01.26.10.03.49,  writing to FL5700: STBY
+2018.01.26.10.03.50,  writing to FL5700: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.01.26.10.03.52,  writing to FL5700: OUT 1V
+2018.01.26.10.03.53,  writing to FL5700: OPER
+2018.01.26.10.03.59,  reading HP: -9.683502744E+00
+
+Source X set to 1, expect reading to be near 1, but it is -9.683502744 check output load on X and SettleTime

@@ -1,0 +1,14 @@
+2018.01.23.11.08.46,  Creating Keysight: sucess
+2018.01.23.11.08.46,  Creating FL5700: sucess
+2018.01.23.11.08.46,  Creating FL5730: sucess
+2018.01.23.11.08.46,  writing to Keysight: RESET
+2018.01.23.11.08.46,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.23.11.08.46,  writing to Keysight: ERR?
+2018.01.23.11.08.47,  reading Keysight: 0
+
+0
+
+2018.01.23.11.08.47,  writing to FL5700: *RST
+2018.01.23.11.08.47,  writing to FL5700: OUT 0V, 0HZ
+2018.01.23.11.08.47,  writing to FL5700: FAULT?
+2018.01.23.11.08.47,  reading FL5700: visa failed

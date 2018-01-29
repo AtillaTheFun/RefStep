@@ -77,6 +77,7 @@ class GPIBThreadF(stuff.WorkerThread):
         Will also recieve the status of the command from the instrument
         class, and if it failes this will flag the thread to abort.
         """
+
         if not self._want_abort:
             if send_item != None:
                 sucess,val,string = command(send_item)
@@ -183,6 +184,8 @@ class GPIBThreadF(stuff.WorkerThread):
         self.com(self.voltmeter.query_error)
         self.PrintSave('meter ESR = '+str(self.com(self.voltmeter.read_instrument)))
         self.PrintSave('')
+        
+        print('init done')
         
     def set_source_ranges(self,row):
         """
@@ -300,6 +303,8 @@ class GPIBThreadF(stuff.WorkerThread):
         #initialise instruments
         self.initialise_instruments()
 
+        
+
         for row in range(self.start_row,self.stop_row + 1):
             if self._want_abort:
                 break #Breaks and skips to the end, where it runs "self.end()".
@@ -378,6 +383,7 @@ class GPIBThreadF(stuff.WorkerThread):
         errors until the meter returns the no-error string. This can cause problems if
         the no-error string is inputed wrongly.
         """
+        
         self.com(instrument.reset_instrument) #reset voltmeter
         self.com(instrument.initialise_instrument)
         self.com(instrument.query_error)
@@ -391,11 +397,11 @@ class GPIBThreadF(stuff.WorkerThread):
     def CheckInstruments(self,*args):
         """
         Given any number of instruments, will read through each and PrintSave errors.
-        Each instrumetn is continuously interrogated until it returns its no-error string.
+        Each instrument is continuously interrogated until it returns its no-error string.
         """
         for instrument in args:
             self.com(instrument.query_error)
-            error = self.com(instrument.read_instrument)
+            error = self.com(instrument.read_instrument)  #2220
             if error != instrument.com['NoError']:
                 while error != instrument.com['NoError'] and not self._want_abort:
                     #loop as there could be several errors
@@ -425,14 +431,14 @@ class GPIBThreadF(stuff.WorkerThread):
         state = self.initialchecks(self.voltmeter)
         if state == 'clear': state = self.initialchecks(self.sourceX)
         if state == 'clear': state = self.initialchecks(self.sourceS)
-        if state == 'clear':
+        if state == 'clear':    
             self.com(self.sourceX.Standby)
             self.com(self.sourceS.Standby)
             state = self.CheckInstruments(self.sourceX,self.sourceS)
         if state == 'clear':
-            self.com(self.sourceX.set_DCvalue,0)
             self.com(self.sourceS.set_DCvalue,0)
-            state = self.CheckInstruments(self.sourceX,self.sourceS)
+            self.com(self.sourceX.set_DCvalue,0)
+            state = self.CheckInstruments(self.sourceS,self.sourceX)
         if state == 'clear':
             self.PrintSave('testing voltage is setting correctly, and zeros')
             

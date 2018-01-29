@@ -1,0 +1,30 @@
+2018.01.24.16.19.56,  Creating Keysight: sucess
+2018.01.24.16.19.57,  Creating FL5700: sucess
+2018.01.24.16.19.58,  Creating FL5730: sucess
+2018.01.24.16.19.59,  writing to Keysight: RESET
+2018.01.24.16.20.03,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.01.24.16.20.04,  writing to Keysight: ERR?
+2018.01.24.16.20.05,  reading Keysight: 0
+
+0
+
+2018.01.24.16.20.06,  writing to FL5700: *RST
+2018.01.24.16.20.10,  writing to FL5700: OUT 0V, 0HZ
+2018.01.24.16.20.12,  writing to FL5700: FAULT?
+2018.01.24.16.20.13,  reading FL5700: 0
+
+0
+
+2018.01.24.16.20.14,  writing to FL5730: *RST
+2018.01.24.16.20.18,  writing to FL5730: OUT 0V,0HZ
+2018.01.24.16.20.20,  writing to FL5730: FAULT?
+2018.01.24.16.20.21,  reading FL5730: 0
+
+0
+
+2018.01.24.16.20.22,  writing to FL5700: STBY
+2018.01.24.16.20.23,  writing to FL5730: STBY
+2018.01.24.16.20.25,  writing to FL5700: FAULT?
+2018.01.24.16.20.26,  reading FL5700: 0
+
+2018.01.24.16.20.27,  writing to FL5730: FAULT?
