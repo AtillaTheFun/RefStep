@@ -186,7 +186,32 @@ class MyFrame1 (wx.Frame):
         self.m_scrolledWindow5.Layout()
         gbSizer7.Fit(self.m_scrolledWindow5)
         self.m_auinotebook4.AddPage(self.m_scrolledWindow5, u"Analysis", False, wx.NullBitmap)
+        
+        
+        
+        # DC Offset Measurement ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        self.m_scrolledWindow49 = wx.Panel(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
+
+
+        gbSizer9 = wx.GridBagSizer(0, 0)
+
+        
+        self.m_scrolledWindow49 = wx.ScrolledWindow(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.HSCROLL|wx.VSCROLL)
+        self.m_scrolledWindow49.SetScrollRate(10, 10)
+
+        self.m_scrolledWindow49.SetSizer(gbSizer9)
+
+        self.m_scrolledWindow49.Layout()
+        gbSizer9.Fit(self.m_scrolledWindow49)  
+        self.m_auinotebook4.AddPage(self.m_scrolledWindow49, u"DC Offset Measurement", False, wx.NullBitmap)
+
+        self.m_button197 = wx.Button(self.m_scrolledWindow49, wx.ID_ANY, u"Begin Measurement", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer9.Add(self.m_button197, wx.GBPosition(1, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        
+        
+        
+        
 # CALIBRATION REPORT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         self.m_scrolledWindow48 = wx.Panel(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
 
@@ -411,12 +436,9 @@ class MyFrame1 (wx.Frame):
         self.m_staticText195 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Ratio Data", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText195, wx.GBPosition(14, 1), wx.GBSpan(1, 1), wx.ALL, 5)
 
-# DC Offset Measurement ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        
   
-  
-  
+  # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
          
         self.m_menubar1 = wx.MenuBar(0)
         self.m_menu11 = wx.Menu()

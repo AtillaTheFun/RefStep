@@ -102,7 +102,7 @@ initialises instruments with a set of commands"""
 
     def make_safe(self):
         """specific to the ref-step algorithm, should turn instruments off"""
-        success,nothing,string = self.send(self.com['init'])
+        success,nothing,string = self.send(self.com['Make_Safe'])
 
         return [success,nothing,string]
     
