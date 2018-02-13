@@ -18,7 +18,7 @@ import time
 
 class MyFrame1 (wx.Frame):
 
-    def __init__(self, parent):
+    def __init__(self, parent): 
         wx.Frame.__init__ (self, parent, id = wx.ID_ANY, title = u"Instrument Controller", pos = wx.DefaultPosition, size = wx.Size(1325,700), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL)
         
         self.SetSizeHintsSz(wx.DefaultSize, wx.DefaultSize)
@@ -206,10 +206,84 @@ class MyFrame1 (wx.Frame):
         gbSizer9.Fit(self.m_scrolledWindow49)  
         self.m_auinotebook4.AddPage(self.m_scrolledWindow49, u"DC Offset Measurement", False, wx.NullBitmap)
 
-        self.m_button197 = wx.Button(self.m_scrolledWindow49, wx.ID_ANY, u"Begin Measurement", wx.DefaultPosition, wx.DefaultSize, 0)
-        gbSizer9.Add(self.m_button197, wx.GBPosition(1, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_button197 = wx.Button(self.m_scrolledWindow49, wx.ID_ANY, u"Start", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer9.Add(self.m_button197, wx.GBPosition(0, 0), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_button198 = wx.Button(self.m_scrolledWindow49, wx.ID_ANY, u"Stop", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer9.Add(self.m_button198, wx.GBPosition(0, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        self.m_button199 = wx.Button(self.m_scrolledWindow49, wx.ID_ANY, u"Make Safe", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_button12.SetBackgroundColour(wx.Colour(0, 255, 0))
+        gbSizer9.Add(self.m_button199, wx.GBPosition(0, 2), wx.GBSpan(1, 1), wx.ALL, 5)
         
         
+        self.staticText92 = wx.StaticText(self.m_scrolledWindow49, wx.ID_ANY, u"Delay(s):", wx.DefaultPosition,wx.DefaultSize, 0)
+        gbSizer9.Add(self.staticText92, wx.GBPosition(2, 0), wx.GBSpan(1,1), wx.ALL, 5)
+        
+        self.m_textCtrl92 = wx.TextCtrl(self.m_scrolledWindow49, wx.ID_ANY, u"300", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer9.Add(self.m_textCtrl92, wx.GBPosition(2, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+  
+        
+        self.staticText93 = wx.StaticText(self.m_scrolledWindow49, wx.ID_ANY, u"Readings:", wx.DefaultPosition,wx.DefaultSize, 0)
+        gbSizer9.Add(self.staticText93, wx.GBPosition(3, 0), wx.GBSpan(1,1), wx.ALL, 5)
+        
+        self.m_textCtrl93 = wx.TextCtrl(self.m_scrolledWindow49, wx.ID_ANY, u"20", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer9.Add(self.m_textCtrl93, wx.GBPosition(3, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+  
+        
+        
+        
+        
+        
+        
+        self.m_staticText91 = wx.StaticText(self.m_scrolledWindow49, wx.ID_ANY, u"Ranges to Calibrate:", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText91.Wrap(-1)
+        gbSizer9.Add(self.m_staticText91, wx.GBPosition(4, 0), wx.GBSpan(1, 2), wx.ALL, 5)
+        
+        self.m_grid91 = wx.grid.Grid(self.m_scrolledWindow49, wx.ID_ANY, wx.DefaultPosition, wx.Size(540,150), 0)
+        
+        # Grid
+        self.m_grid91.CreateGrid(8, 3)
+        self.m_grid91.EnableEditing(True)
+        self.m_grid91.EnableGridLines(True)
+        self.m_grid91.EnableDragGridSize(False)
+        self.m_grid91.SetMargins(0, 0)
+        
+        # Columns
+        self.m_grid91.SetColSize(0, 150)
+        self.m_grid91.SetColLabelValue(0, u"Range (V)")
+        self.m_grid91.SetColSize(1, 150)
+        self.m_grid91.SetColLabelValue(1, u"Instrument Readout (V)")
+        self.m_grid91.SetColSize(2, 150)
+        self.m_grid91.SetColLabelValue(2, u"Expanded Uncertainty (V)")
+        self.m_grid91.EnableDragColMove(False)
+        self.m_grid91.EnableDragColSize(True)
+        self.m_grid91.SetColLabelSize(30)
+        self.m_grid91.SetColLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+        
+        # Rows
+        self.m_grid91.EnableDragRowSize(True)
+        self.m_grid91.SetRowLabelSize(80)
+        self.m_grid91.SetRowLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
+    
+        # Label Appearance
+        
+        # Cell Defaults
+        self.m_grid91.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
+        gbSizer9.Add(self.m_grid91, wx.GBPosition(5,0), wx.GBSpan(1,3), 5)
+        
+        self.m_grid91.Layout()
+        
+
+                
+        
+        self.m_staticText91 = wx.StaticText(self.m_scrolledWindow49, wx.ID_ANY, u"Event reports", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText91.Wrap(-1)
+        gbSizer9.Add(self.m_staticText91, wx.GBPosition(7, 0), wx.GBSpan(1, 1), wx.ALL, 5)
+
+        self.m_button159 = wx.Button(self.m_scrolledWindow49, wx.ID_ANY, u"Add Row", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer9.Add(self.m_button159, wx.GBPosition(6, 0), wx.GBSpan(1, 3), wx.ALL, 5)
+        
+        self.m_textCtrl91 = wx.TextCtrl(self.m_scrolledWindow49, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(500,250), wx.TE_MULTILINE)
+        gbSizer9.Add(self.m_textCtrl91, wx.GBPosition(8, 0), wx.GBSpan(1, 3), wx.ALL, 5)
         
         
 # CALIBRATION REPORT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -642,6 +716,9 @@ class MyFrame1 (wx.Frame):
         self.m_button12.Bind(wx.EVT_BUTTON, self.OnMakeSafe)
         self.m_button6.Bind(wx.EVT_BUTTON, self.OnStop)
         self.m_button122.Bind(wx.EVT_BUTTON, self.OnAnalyse)
+        self.m_button197.Bind(wx.EVT_BUTTON, self.dcStart)
+        self.m_button198.Bind(wx.EVT_BUTTON, self.dcStop)
+        self.m_button199.Bind(wx.EVT_BUTTON, self.dcMakeSafe)
         #self.m_button2.Bind(wx.EVT_BUTTON, self.OnPauseButton)
         self.Bind(wx.EVT_MENU, self.OnOpenDict, id = self.m_menuItem21.GetId())
         self.Bind(wx.EVT_MENU, self.OnSaveTables, id = self.m_menuItem11.GetId())
@@ -657,6 +734,8 @@ class MyFrame1 (wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnNoVal, id = self.m_menuItem46.GetId())
         self.m_grid21.Bind(wx.EVT_CHAR, self.on_grid_edited)
         self.m_button151.Bind(wx.EVT_BUTTON, self.OnAddRow)
+        self.m_button159.Bind(wx.EVT_BUTTON, self.OnAddRowDC)
+        
     
     def __del__(self):
         self.m_mgr.UnInit()
@@ -664,6 +743,15 @@ class MyFrame1 (wx.Frame):
     
     
     # Virtual event handlers, overide them in your derived class
+    def dcStart(self,event):
+        event.skip()
+        
+    def dcStop(self,event):
+        event.skip()
+        
+    def dcMakeSafe(self, event):
+        event.skip()
+    
     def OnOpenData(self,event):
         event.skip()
     
@@ -746,4 +834,5 @@ class MyFrame1 (wx.Frame):
     def OnAddRow(self, event):
         event.Skip()
     
-
+    def OnAddRowDC(self, event):
+        event.Skip()

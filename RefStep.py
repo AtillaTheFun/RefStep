@@ -104,6 +104,105 @@ class GraphFrame(noname.MyFrame1):
         else:
             self.m_checkBox2.SetValue(True)
             
+    def dcStop(self, event):
+        """
+        Flags the worker thread to stop running if it exists.
+        """
+        # Flag the worker thread to stop if running
+        if self.worker1:
+            print('Halting GPIB data gathering')
+            self.worker1.abort() 
+        
+    def dcStart(self, event):
+        """
+        Creates the instruments, and calls the doStart function. 
+        """
+        log = self.m_textCtrl91 # where stdout will be redirected
+        redir = stuff.RedirectText(log)
+        sys.stdout = redir #print statements, note to avoid 'print' if callafter delay is an issue
+        sys.stderr = redir #python errors
+        if self.filled_grid == True:
+            instruments = self.dcCreateMeter()
+            self.dcDoStart(instruments)
+        else:
+
+            print("Input grids changed, generate a table again to continue")
+        
+        
+    def dcMakeSafe(self, event):
+        """
+        Flags all threads to stop.
+        """
+        if self.worker1:
+            self.worker1.MakeSafe()
+        self.doStop() #stop main data gathering
+        self.timer0.Stop()#graph timer is stopped
+        self.paused = True #graphing is paused
+        #self.m_button2.SetLabel("Plot")
+
+       
+        
+    def dcCreateMeter(self):
+        """
+        Reads the dictionary uploaded to the grid, and creates gpib_inst.INSTRUMENT accordingly.
+        Instruments must be the meter on the left, source S in the middle, source X on the right.
+        """
+        def sim(s):
+            """Nested function used only here, returns a simplified string"""
+            s = s.replace('\\r','\r')
+            s = s.replace('\\n','\n')
+            #Other simplifications might be necessary in the future I suppose.
+            return s
+        
+        dicts = self.m_grid2
+        dm={} #Meter dictionary
+        dx={} #X dictionary
+        ds={} #S dictionary
+        rows = dicts.GetNumberRows()
+        for row in range(rows):
+            dm.update({sim(dicts.GetCellValue(row, 0)):sim(dicts.GetCellValue(row, 1))})
+            ds.update({sim(dicts.GetCellValue(row, 2)):sim(dicts.GetCellValue(row, 3))})
+            dx.update({sim(dicts.GetCellValue(row, 4)):sim(dicts.GetCellValue(row, 5))})
+        #Unpack the dictionaries to each respective instrument.
+        self.meter = gpib_inst.INSTRUMENT(self.inst_bus, 'M', address=self.Meteraddress.GetValue(), **dm)
+        return [self.meter]
+        
+    def dcDoStart(self, instruments):
+        """
+        Starts the algorithm, sends the created instruments to the wroker thread.
+        """
+        
+        self.meter = instruments[0]
+        #first read essential setup info from the control grid (self.m_grid3).        
+        grid = self.m_grid91
+        grid.EnableEditing(False)
+        #int(float()) is needed because the grid has loaded,e.g. 2.0 instead of 2
+        
+        dvm_range_col = 0
+        
+        self.START_TIME = time.localtime()
+        
+        #DISABLE BUTTONS
+        for button in [self.m_menuItem21,self.m_menuItem11,self.m_menuItem111,\
+                       self.m_menuItem2,self.m_menuItem1,self.m_menuItem25,\
+                       self.m_menuItem26,self.m_button15,self.m_button16]:
+            button.Enable(False)
+        
+        
+        #now call the thread
+        if not self.worker1:
+            self.worker1 = gpib_data.GPIBThreadDC(self, self.EVT_RESULT_ID_1,\
+            [self.inst_bus, grid, self.meter,\
+             dvm_range_col, self.Analysis_file_name,self.m_textCtrl92.GetValue(),self.m_textCtrl93.GetValue()],\
+            self.data,self.START_TIME,self.OverideSafety)
+            #It has a huge list of useful things that it needs.
+
+    def OnAddRowDC(self,event):
+        """Add another row to the ranges table, this is necessary as it requires manual inputting."""
+        self.m_grid91.AppendRows(1, True)
+        self.m_grid91.Layout()
+
+            
     def OnOpenData(self, event):
         """
         from MIEcalculator, graph_gui.py.
@@ -180,6 +279,8 @@ class GraphFrame(noname.MyFrame1):
             
         dlg.Destroy()
         
+        
+        
         self.FillGrid()
         
     def OnLoadTable(self, event):
@@ -211,17 +312,33 @@ class GraphFrame(noname.MyFrame1):
             for i in range(len(col_names)):
                 self.m_grid2.SetColLabelValue(i, col_names[i])
             self.m_grid2.Layout()
+            
+            
         else:
             print("no sheet named 'Dict' found, can not run")
             
         self.loaded_ranges = controlgrid.excel_to_grid(self.proj_file, 'Ranges', self.m_grid21)
+        
         if self.loaded_ranges == True:
+            
             col_names = ['Min','Max','# Readings','Pre-reading delay','Inter-reading delay','# Repetitions','# steps']
             for i in range(len(col_names)):
                 self.m_grid21.SetColLabelValue(i, col_names[i])
-            self.m_grid21.Layout()
+            self.m_grid21.Layout()                       
+            #Copy ranges from m_grid21 to m_grid91
+            rows = self.m_grid21.GetNumberRows()
+            rows = range(0,int(rows))
+            for x in rows:
+                self.m_grid91.SetCellValue(x,0, self.m_grid21.GetCellValue(x,1))
         else:
             print("no sheet named 'Ranges' found")
+            
+                    #wip
+        i = 0
+        while(isinstance(self.m_grid21.GetCellValue(1,i), (int, long, float))):
+            self.m_grid91.SetCellValue(0,i,self.m_grid21.GetCellValue(1,i)) 
+            i = i+1
+                
 
     def OnAddRow(self,event):
         """Add another row to the ranges table, this is necessary as it requires manual inputting."""

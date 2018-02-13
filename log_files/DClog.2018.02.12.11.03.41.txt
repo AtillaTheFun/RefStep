@@ -1,0 +1,11 @@
+2018.02.12.11.03.41,  Creating HP: success
+2018.02.12.11.03.41,  writing to HP: RESET
+2018.02.12.11.03.41,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.02.12.11.03.41,  writing to HP: ERR?
+2018.02.12.11.03.42,  reading HP: 0
+
+0
+
+2018.02.12.11.03.47,  reading HP: -5.340560875E-02
+
+Terminals shorted, expect reading to be near 0, but it is -0.05340560875

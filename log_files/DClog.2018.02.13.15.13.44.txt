@@ -1,0 +1,8 @@
+2018.02.13.15.13.44,  Creating HP: success
+2018.02.13.15.13.44,  writing to HP: RESET
+2018.02.13.15.13.44,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.02.13.15.13.44,  writing to HP: ERR?
+2018.02.13.15.13.44,  reading HP: 0
+
+0
+

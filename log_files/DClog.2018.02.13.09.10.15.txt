@@ -1,0 +1,29 @@
+2018.02.13.09.10.16,  Creating HP: success
+2018.02.13.09.10.16,  writing to HP: RESET
+2018.02.13.09.10.16,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.02.13.09.10.16,  writing to HP: ERR?
+2018.02.13.09.10.16,  reading HP: 0
+
+0
+
+2018.02.13.09.10.21,  reading HP: -1.627570742E-07
+
+2018.02.13.09.10.26,  reading HP: -1.425963878E-07
+
+2018.02.13.09.10.26,  writing to HP: RESET
+2018.02.13.09.10.26,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+
+2018.02.13.09.10.26,  writing to HP: ERR?
+2018.02.13.09.10.26,  reading HP: 0
+
+meter ESR = 0
+
+
+Spread sheet row 1
+2018.02.13.09.10.26,  writing to HP: ERR?
+2018.02.13.09.10.26,  reading HP: 0
+
+meter ESR = 0
+
+
+could not identify .1 as a valid range

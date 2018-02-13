@@ -251,7 +251,6 @@ class Analyser(object):
                 cols.append(["Effct. DoF"]+[x.df for x in ratios])
                 cols.append(["Range"]+[x for x in ranges]) 
                 cols.append(["Max/Min V Setting"] + [x for x in readouts])
-                #add range for each ratio
                 self.print_cols(cols,printing_row)
                 printing_row += len(ratios) + 1
                 self.results.append(cols)

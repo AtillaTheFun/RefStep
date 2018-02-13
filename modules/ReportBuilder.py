@@ -22,6 +22,7 @@ class CalReport():
         self.method =  parent.m_textCtrl192.GetValue()
         self.results = parent.m_textCtrl185.GetValue()
         self.parent = parent
+        
       
         
     def BuildReport(self):
@@ -68,14 +69,14 @@ class CalReport():
         Calculations for producing tables in a meter Calibration Report
         Calculate absolute values from ratios calculated in analysis 
         """
-        self.row = range(0, self.parent.m_grid44.GetNumberCols())
+        self.col = range(0, self.parent.m_grid44.GetNumberCols())
         
-        self.labels = [self.row]
-        self.expUnc = [self.row]
-        self.ratio = [self.row]
-        self.vRange = [self.row]
+        self.labels = [self.col]
+        self.expUnc = [self.col]
+        self.ratio = [self.col]
+        self.vRange = [self.col]
         
-        for x in self.row:
+        for x in self.col:
             label = self.parent.m_grid44.GetCellValue(x, 0)
             ratio = self.parent.m_grid44.GetCellValue(x, 1)
             stDev = self.parent.m_grid44.GetCellValue(x, 2) 
@@ -90,7 +91,12 @@ class CalReport():
 #                else:
 #                    self.abs[x] = ratio*
 #                self.abs[x] = 
-                
+        
+        self.row = range(0, self.parent.m_grid91.GetNumberRows()-1)
+        self.col = range(0, self.parent.m_grid91.GetNumberCols()-1)        
+        for x in self.row:
+            for y in self.col:
+                self.parent.m_grid41.SetCellValue(self.row,self.col, self.parent.m_grid91.GetCellValue(self.row,self.col))
                 
     def SourceCalculations(self):
         """
