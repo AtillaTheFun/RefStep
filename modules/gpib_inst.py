@@ -120,6 +120,9 @@ initialises instruments with a set of commands"""
         
     def set_DCrange(self, value):
         """specific to the ref-step algorithm, setting a DC voltage"""
+        
+        
+                
         line = str(self.com['DCVRange'])
         line = line.replace("$",str(value))
         out = self.send(line)

@@ -1,2 +1,0 @@
-2018.02.14.08.57.29,  Creating HP: success
-2018.02.14.08.57.35,  writing to HP: visa failed

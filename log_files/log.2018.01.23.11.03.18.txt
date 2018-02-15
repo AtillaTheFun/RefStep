@@ -1,4 +1,0 @@
-2018.01.23.11.03.18,  Creating Keysight: sucess
-2018.01.23.11.03.23,  Creating FL5700: sucess
-2018.01.23.11.03.28,  Creating FL5730: sucess
-2018.01.23.11.03.28,  writing to Keysight: visa failed

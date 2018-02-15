@@ -1,4 +1,0 @@
-2017.12.12.13.34.23,  Creating KEYSIGH: sucess
-2017.12.12.13.34.29,  Creating FL5700: sucess
-2017.12.12.13.34.29,  Creating FL5520: sucess
-2017.12.12.13.34.34,  writing to KEYSIGH: visa failed

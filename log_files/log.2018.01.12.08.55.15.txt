@@ -1,9 +1,0 @@
-2018.01.12.08.55.15,  Creating Keysight: sucess
-2018.01.12.08.55.15,  Creating FL5700: sucess
-2018.01.12.08.55.15,  Creating FL5520: sucess
-2018.01.12.08.55.15,  writing to Keysight: RESET
-2018.01.12.08.55.15,  writing to Keysight: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
-2018.01.12.08.55.15,  writing to Keysight: ERR?
-2018.01.12.08.55.15,  reading Keysight: 109.383407783
-109.383407783
-Error 109.383407783 while resetting instrument, or queriying status

@@ -151,6 +151,7 @@ class GPIBThreadF(stuff.WorkerThread):
         Function to close files and post an event to the main grid,
         letting it know that the thread has ended.
         """
+        self.MakeSafe()
         self.com(self.sourceS.Standby)
         self.com(self.sourceX.Standby)
         self.logfile.close()
@@ -213,12 +214,16 @@ class GPIBThreadF(stuff.WorkerThread):
         of the max of the range. used in safety checks.
         """
         dvm_range = self.read_grid_cell(row, self.dvm_range_col)
+        for some_range in self.voltmeter.range:
+            if float(some_range[2]) == float(dvm_range):
+                dvm_range = some_range[2]
         if dvm_range != self.read_grid_cell(row-1, self.dvm_range_col):
             self.com(self.voltmeter.set_DCrange,dvm_range)
             #fixes range as specified in sheet
         range_max = 0 # so it returns SOMEthing
+        
         try:
-            range_index = [some_range[2] for some_range in self.voltmeter.range].index(str(int(float(dvm_range))))
+            range_index = [some_range[2] for some_range in self.voltmeter.range].index(dvm_range)
             range_max = self.voltmeter.range[range_index][1]
         except:
             self.PrintSave("could not identify "+str(dvm_range)+" as a valid range")
@@ -534,7 +539,7 @@ class GPIBThreadDC(stuff.WorkerThread):
         self.sh = self.wb.active
         self.logfile = open(log_file_name,'w')
         self.ranges = 0
-        
+        self.dvm_range_col = 0
         self.start()
         
     def PrintSave(self, text):
@@ -620,11 +625,13 @@ class GPIBThreadDC(stuff.WorkerThread):
         Function to close files and post an event to the main grid,
         letting it know that the thread has ended.
         """
+        self.MakeSafe()
+        
         self.logfile.close()
         self.wb.save(filename = str(self.raw_file_name+'.xlsx'))
         wx.CallAfter(self.Analysis_file_name.SetValue,self.raw_file_name+'.xlsx')
         wx.PostEvent(self._notify_window, stuff.ResultEvent(self.EVT, 'GPIB ended'))
-        self.MakeSafe()
+        
 
     def wait(self,wait_time):
         """
@@ -660,6 +667,9 @@ class GPIBThreadDC(stuff.WorkerThread):
                 self.com(self.voltmeter.set_DCrange,dvm_range)
                 #fixes range as specified in sheet
         range_max = 0 # so it returns SOMEthing
+        for some_range in self.voltmeter.range:
+            if float(some_range[2]) == float(dvm_range):
+                dvm_range = some_range[2]
         try:
             range_index = [some_range[2] for some_range in self.voltmeter.range].index(dvm_range)
             range_max = self.voltmeter.range[range_index][1]
@@ -811,7 +821,6 @@ class GPIBThreadDC(stuff.WorkerThread):
             csv_line = [self.read_grid_cell(row, i) for i in range(self.grid.GetNumberCols())]
             csv_line = csv_line+[before_msmnt_time,after_msmnt_time]+these_readings
             self.sh.append(csv_line)
-        p
 
         self.end()
 

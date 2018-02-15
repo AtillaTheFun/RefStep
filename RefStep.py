@@ -498,6 +498,10 @@ class GraphFrame(noname.MyFrame1):
         """
         Creates the instruments, and calls the doStart function. 
         """
+        log = self.m_textCtrl81 # where stdout will be redirected
+        redir = stuff.RedirectText(log)
+        sys.stdout = redir #print statements, note to avoid 'print' if callafter delay is an issue
+        sys.stderr = redir #python errors
         if self.filled_grid == True:
             instruments = self.CreateInstruments()
             self.doStart(instruments)
