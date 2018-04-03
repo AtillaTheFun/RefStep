@@ -1,0 +1,10 @@
+2018.03.16.11.17.43,  Creating 34401a: success
+2018.03.16.11.17.43,  writing to 34401a: *RST
+2018.03.16.11.17.43,  writing to 34401a: SENS:VOLT:DC:RANG:AUTO ON;:SENS:ZERO:AUTO ON;:TRIG:DEL 0;:SENS:VOLT:DC:NPLC 20
+2018.03.16.11.17.43,  writing to 34401a: SYST:ERR?
+2018.03.16.11.17.43,  reading 34401a: +0,"No error"
+
++0,"No error"
+
+Error +0,"No error"
+ while resetting instrument, or queriying status

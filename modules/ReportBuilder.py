@@ -7,7 +7,7 @@ Created on Wed Jan 10 10:41:54 2018
 Code to perform the construction of Calibration reports for Meters and Sources. 
 """
 import docx
-
+import time
 
 class CalReport():
     def init(self, parent):
@@ -55,21 +55,56 @@ class CalReport():
         doc.add_heading('Method', 3)
         doc.add_paragraph(self.method)
         
-        doc.add_paragraph('')
-        
-        table = doc.add_table(rows=5, cols=3)
+        doc.add_paragraph('The measurements were made with a delay of at least '+self.parent.m_textCtrl92.GetValue()+' seconds after making the connection between leads and setting the ranges.')
+        doc.add_heading('DC Voltage Offset', 3)
+        table = doc.add_table(rows=self.parent.m_grid41.GetNumberRows()+1, cols=3)
         hdr_cells = table.rows[0].cells
         hdr_cells[0].text = 'Instrument Range'
         hdr_cells[1].text = 'Instrument Readout'
         hdr_cells[2].text = 'Expanded Uncertainty'
-        doc.save('Calibration Report for '+self.name+'.docx')
+        for i in range(0, 3):
+            for j in range(0,self.parent.m_grid41.GetNumberRows()):
+                table.rows[j+1].cells[i].text = str(self.parent.m_grid41.GetCellValue(j,i)) + 'V'
+                print(str(self.parent.m_grid41.GetCellValue(j,i)))
+                
+                
+        doc.add_heading('DC Voltage Gain', 3)       
+        table2 = doc.add_table(rows=self.parent.m_grid42.GetNumberRows()+1, cols=5)
+        hdr_cells2 = table2.rows[0].cells
+        hdr_cells2[0].text = 'Instrument Range'
+        hdr_cells2[1].text = 'Instrument Readout'
+        hdr_cells2[2].text = 'Voltage +'
+        hdr_cells2[3].text = 'Voltage -'
+        hdr_cells2[4].text = 'Expanded Uncertainty'
+        for i in range(0, 4):
+            for j in range(0,self.parent.m_grid42.GetNumberRows()):
+                table2.rows[j+1].cells[i].text = str(self.parent.m_grid42.GetCellValue(j,i)) + 'V'
+                print(str(self.parent.m_grid42.GetCellValue(j,i)))
+
+        doc.add_heading('DC Voltage Linearity', 3)
+        table3 = doc.add_table(rows=self.parent.m_grid43.GetNumberRows()+1, cols=5)
+        hdr_cells3 = table3.rows[0].cells
+        hdr_cells3[0].text = 'Instrument Range'
+        hdr_cells3[1].text = 'Instrument Readout'
+        hdr_cells3[2].text = 'Voltage +'
+        hdr_cells3[3].text = 'Voltage -'
+        for i in range(0, 3):
+            for j in range(0,self.parent.m_grid43.GetNumberRows()):
+                table3.rows[j+1].cells[i].text = str(self.parent.m_grid43.GetCellValue(j,i)) + 'V'
+                print(str(self.parent.m_grid43.GetCellValue(j,i)))
+
+        
+        
+        doc.save('Calibration Report for '+self.name+time.strftime(" %a, %d %b %Y", time.localtime())+'.docx')
+        
+        
         
     def MeterCalculations(self):
         """
         Calculations for producing tables in a meter Calibration Report
         Calculate absolute values from ratios calculated in analysis 
         """
-        self.col = range(0, self.parent.m_grid44.GetNumberCols())
+        self.col = range(0, self.parent.m_grid44.GetNumberCols()-1)
         
         self.labels = [self.col]
         self.expUnc = [self.col]
@@ -77,6 +112,7 @@ class CalReport():
         self.vRange = [self.col]
         
         for x in self.col:
+            print(x)
             label = self.parent.m_grid44.GetCellValue(x, 0)
             ratio = self.parent.m_grid44.GetCellValue(x, 1)
             stDev = self.parent.m_grid44.GetCellValue(x, 2) 
@@ -92,12 +128,7 @@ class CalReport():
 #                    self.abs[x] = ratio*
 #                self.abs[x] = 
         
-        self.row = range(0, self.parent.m_grid91.GetNumberRows()-1)
-        self.col = range(0, self.parent.m_grid91.GetNumberCols()-1)        
-        for x in self.row:
-            for y in self.col:
-                self.parent.m_grid41.SetCellValue(self.row,self.col, self.parent.m_grid91.GetCellValue(self.row,self.col))
-                
+        
     def SourceCalculations(self):
         """
         Calculations for producing tables in a source Calibration Report

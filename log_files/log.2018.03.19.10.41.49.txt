@@ -1,0 +1,61 @@
+2018.03.19.10.41.49,  Creating 34401a: success
+2018.03.19.10.41.49,  Creating FL5700: success
+2018.03.19.10.41.49,  Creating FL5730: success
+2018.03.19.10.41.49,  writing to 34401a: *RST
+2018.03.19.10.41.50,  writing to 34401a: SENS:VOLT:DC:RANG:AUTO ON;:SENS:ZERO:AUTO ON;:TRIG:DEL 0;:SENS:VOLT:DC:NPLC 20;:TRIG:COUN INF
+2018.03.19.10.41.51,  writing to 34401a: SYST:ERR?
+2018.03.19.10.41.52,  reading 34401a: +0,"No error"
+
++0,"No error"
+
+2018.03.19.10.41.52,  writing to FL5700: *RST
+2018.03.19.10.41.53,  writing to FL5700: OUT 0V, 0HZ
+2018.03.19.10.41.53,  writing to FL5700: FAULT?
+2018.03.19.10.41.53,  reading FL5700: 0
+
+0
+
+2018.03.19.10.41.53,  writing to FL5730: *RST
+2018.03.19.10.41.54,  writing to FL5730: OUT 0V, 0HZ
+2018.03.19.10.41.54,  writing to FL5730: FAULT?
+2018.03.19.10.41.54,  reading FL5730: 0
+
+0
+
+2018.03.19.10.41.54,  writing to FL5700: STBY
+2018.03.19.10.41.55,  writing to FL5730: STBY
+2018.03.19.10.41.55,  writing to FL5700: FAULT?
+2018.03.19.10.41.55,  reading FL5700: 0
+
+2018.03.19.10.41.55,  writing to FL5730: FAULT?
+2018.03.19.10.41.55,  reading FL5730: 0
+
+2018.03.19.10.41.55,  writing to FL5730: OUT 0V
+2018.03.19.10.41.56,  writing to FL5700: OUT 0V
+2018.03.19.10.41.56,  writing to FL5730: FAULT?
+2018.03.19.10.41.56,  reading FL5730: 0
+
+2018.03.19.10.41.56,  writing to FL5700: FAULT?
+2018.03.19.10.41.57,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.03.19.10.41.57,  writing to FL5700: OPER
+2018.03.19.10.41.57,  writing to FL5730: OPER
+2018.03.19.10.41.57,  writing to 34401a: MEAS:VOLT:DC?
+2018.03.19.10.42.03,  reading 34401a: +2.82400000E-06
+
+2018.03.19.10.42.03,  writing to FL5700: FAULT?
+2018.03.19.10.42.04,  reading FL5700: 0
+
+2018.03.19.10.42.04,  writing to FL5730: FAULT?
+2018.03.19.10.42.04,  reading FL5730: 0
+
+testing voltage setting correctly
+2018.03.19.10.42.04,  writing to FL5700: STBY
+2018.03.19.10.42.04,  writing to FL5700: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.03.19.10.42.05,  writing to FL5700: OUT 1V
+2018.03.19.10.42.05,  writing to FL5700: OPER
+2018.03.19.10.42.05,  writing to 34401a: MEAS:VOLT:DC?
+2018.03.19.10.42.11,  reading 34401a: +8.74088270E-01
+
+Source X set to 1, expect reading to be near 1, but it is 0.87408827 check output load on X and SettleTime

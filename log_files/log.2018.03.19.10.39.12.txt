@@ -1,0 +1,19 @@
+2018.03.19.10.39.12,  Creating 34401a: success
+2018.03.19.10.39.12,  Creating FL5700: success
+2018.03.19.10.39.12,  Creating FL5730: success
+2018.03.19.10.39.12,  writing to 34401a: *RST
+2018.03.19.10.39.12,  writing to 34401a: SENS:VOLT:DC:RANG:AUTO ON;:SENS:ZERO:AUTO ON;:TRIG:DEL 0;:SENS:VOLT:DC:NPLC 20;:TRIG:COUN INF
+2018.03.19.10.39.12,  writing to 34401a: SYST:ERR?
+2018.03.19.10.39.12,  reading 34401a: +0,"No error"
+
++0,"No error"
+
+2018.03.19.10.39.12,  writing to FL5700: *RST
+2018.03.19.10.39.13,  writing to FL5700: OUT 0V, 0HZ
+2018.03.19.10.39.13,  writing to FL5700: FAULT?
+2018.03.19.10.39.13,  reading FL5700: 2210
+
+2210
+
+Error 2210
+ while resetting instrument, or queriying status

@@ -1,0 +1,45 @@
+2018.03.20.10.16.51,  Creating 34401a: success
+2018.03.20.10.16.51,  Creating FL5700: success
+2018.03.20.10.16.51,  Creating FL5730: success
+2018.03.20.10.16.51,  writing to 34401a: *RST
+2018.03.20.10.16.51,  writing to 34401a: VOLT:DC:RANG:AUTO ON;:ZERO:AUTO ON;:TRIG:DEL:AUTO ON;:VOLT:DC:NPLC 20;:TRIG:COUN INF;:SAMP:COUN 10;:TRIG:SOUR IMM
+2018.03.20.10.16.51,  writing to 34401a: SYST:ERR?
+2018.03.20.10.16.51,  reading 34401a: +0,"No error"
+
++0,"No error"
+
+2018.03.20.10.16.51,  writing to FL5700: *RST
+2018.03.20.10.16.51,  writing to FL5700: OUT 0V, 0HZ
+2018.03.20.10.16.52,  writing to FL5700: FAULT?
+2018.03.20.10.16.52,  reading FL5700: 0
+
+0
+
+2018.03.20.10.16.52,  writing to FL5730: *RST
+2018.03.20.10.16.52,  writing to FL5730: OUT 0V, 0HZ
+2018.03.20.10.16.53,  writing to FL5730: FAULT?
+2018.03.20.10.16.53,  reading FL5730: 0
+
+0
+
+2018.03.20.10.16.53,  writing to FL5700: STBY
+2018.03.20.10.16.53,  writing to FL5730: STBY
+2018.03.20.10.16.54,  writing to FL5700: FAULT?
+2018.03.20.10.16.54,  reading FL5700: 0
+
+2018.03.20.10.16.54,  writing to FL5730: FAULT?
+2018.03.20.10.16.54,  reading FL5730: 0
+
+2018.03.20.10.16.54,  writing to FL5730: OUT 0V
+2018.03.20.10.16.55,  writing to FL5700: OUT 0V
+2018.03.20.10.16.55,  writing to FL5730: FAULT?
+2018.03.20.10.16.55,  reading FL5730: 0
+
+2018.03.20.10.16.55,  writing to FL5700: FAULT?
+2018.03.20.10.16.55,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.03.20.10.16.56,  writing to FL5700: OPER
+2018.03.20.10.16.56,  writing to FL5730: OPER
+2018.03.20.10.16.56,  writing to 34401a: READ?
+2018.03.20.10.17.01,  reading 34401a: visa failed

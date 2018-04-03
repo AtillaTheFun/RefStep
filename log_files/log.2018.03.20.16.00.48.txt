@@ -1,0 +1,7 @@
+2018.03.20.16.00.48,  Creating HP: success
+2018.03.20.16.00.48,  Creating FL5700: success
+2018.03.20.16.00.48,  Creating FL5730: success
+2018.03.20.16.00.48,       HP: RESET
+2018.03.20.16.00.48,       HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.20.16.00.48,       HP: ERR?
+2018.03.20.16.00.48,  reading HP: visa failed

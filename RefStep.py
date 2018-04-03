@@ -45,11 +45,9 @@ class GraphFrame(noname.MyFrame1):
         self.paused = True
         self.Show(True)
         self.Validate = False
-        self.EVT_RESULT_ID_0 = wx.NewId() #used for graphing thread
         self.EVT_RESULT_ID_1 = wx.NewId() #used for GPIB data 1 thread
 
         self.worker1 = None # for data source 1
-        stuff.EVT_RESULT(self,self.OnResult0, self.EVT_RESULT_ID_0)
         stuff.EVT_RESULT(self, self.OnResult1, self.EVT_RESULT_ID_1)
         log = self.m_textCtrl81 # where stdout will be redirected
         redir = stuff.RedirectText(log)
@@ -222,10 +220,34 @@ class GraphFrame(noname.MyFrame1):
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
             self.data_file = os.path.join(dirname, filename)
-            self.projwd = dirname #remember the project working directory
+            #remember the project working directory
             self.FillData()
         self.m_textCtrl187.Clear() 
         self.m_textCtrl187.WriteText(filename) # update text field with current data file. 
+        dlg.Destroy()
+
+    def OnOpenDCData(self, event):
+        """
+        from MIEcalculator, graph_gui.py.
+        """
+        # In this case, the dialog is created within the method because
+        # the directory name, etc, may be changed during the running of the
+        # application. In theory, you could create one earlier, store it in
+        # your frame object and change it when it was called to reflect
+        # current parameters / values
+        wildcard = "Poject source (*.csv; *.xls; *.xlsx; *.xlsm)|*.csv;*.xls; *.xlsx; *.xlsm|" \
+         "All files (*.*)|*.*"
+
+        dlg = wx.FileDialog(self, "Choose a data file", self.dirname, "",
+        wildcard, wx.OPEN | wx.MULTIPLE)
+
+        if dlg.ShowModal() == wx.ID_OK:
+            filename = dlg.GetFilename()
+            dirname = dlg.GetDirectory()
+            self.DCdata_file = os.path.join(dirname, filename)
+            self.FillDCData()
+        self.m_textCtrl187b.Clear() 
+        self.m_textCtrl187b.WriteText(filename) # update text field with current data file. 
         dlg.Destroy()
         
     def FillData(self):
@@ -235,10 +257,33 @@ class GraphFrame(noname.MyFrame1):
         """
         
         datagrid = tables.TABLES(self)
-
         self.data_grid = datagrid.excel_to_grid(self.data_file, 'Results', self.m_grid44)
+    def FillDCData(self):
+        """
+        Loads data to create a report. Requires a results sheet named "Results".
+        Uses tables.TABLES for a excel-to-grid object.
+        """
         
+        datagrid = tables.TABLES(self)
+        self.data_grid = datagrid.excel_to_grid(self.DCdata_file, 'Sheet', self.m_grid41)
         
+    def OnChooseAnalysisFile(self, event):  
+        wildcard = "Poject source (*.csv; *.xls; *.xlsx; *.xlsm)|*.csv;*.xls; *.xlsx; *.xlsm|" \
+         "All files (*.*)|*.*"
+
+        dlg = wx.FileDialog(self, "Choose a data file", self.dirname, "",
+        wildcard, wx.OPEN | wx.MULTIPLE)
+
+        if dlg.ShowModal() == wx.ID_OK:
+            filename = dlg.GetFilename()
+        self.Analysis_file_name.Clear() 
+        self.Analysis_file_name.WriteText(filename) # update text field with current data file. 
+        dlg.Destroy()
+        
+    def OnClearResultsDC(self, event):
+        self.m_grid91.ClearGrid()
+        print('Clear Grid')
+        self.FillGrid()
         
     def OnLive(self, event):
         """
@@ -329,7 +374,7 @@ class GraphFrame(noname.MyFrame1):
             rows = self.m_grid21.GetNumberRows()
             rows = range(0,int(rows))
             for x in rows:
-                self.m_grid91.SetCellValue(x,0, self.m_grid21.GetCellValue(x,1))
+                self.m_grid91.SetCellValue(x+1,0, self.m_grid21.GetCellValue(x,1))
         else:
             print("no sheet named 'Ranges' found")
             
@@ -345,6 +390,40 @@ class GraphFrame(noname.MyFrame1):
         self.m_grid21.AppendRows(1, True)
         self.m_grid21.Layout()
         
+    def OnAddRange(self,event):
+        """Add a range to the Calibration Ranges table"""
+        ranges = self.m_grid21.GetNumberRows()
+        i = 0
+        while i < ranges-1:
+            print(i)
+            cell = self.m_grid21.GetCellValue(i,0)
+            if cell == '':
+                row = i
+                i = ranges-1
+            i = i +1
+        self.m_grid21.SetCellValue(row,0,self.m_textCtrl50y.GetValue())
+        self.m_grid21.SetCellValue(row,1,self.m_textCtrl50z.GetValue())        
+        self.m_grid21.SetCellValue(row,2,self.m_textCtrl50a.GetValue())        
+        self.m_grid21.SetCellValue(row,3,self.m_textCtrl50b.GetValue())        
+        self.m_grid21.SetCellValue(row,4,self.m_textCtrl50c.GetValue())        
+        self.m_grid21.SetCellValue(row,5,self.m_textCtrl50d.GetValue())        
+        self.m_grid21.SetCellValue(row,6,self.m_textCtrl50e.GetValue())    
+        
+    def OnClearRange(self, event):
+        """Remove the last range from the Calibration Ranges table"""
+        ranges = self.m_grid21.GetNumberRows()
+        i = 0
+        while i < ranges-1:
+            print(i)
+            cell = self.m_grid21.GetCellValue(i,0)
+            if cell == '':
+                row = i
+                i = ranges-1
+            i = i +1
+        
+        if row>0:
+            for i in range(0,6):
+                self.m_grid21.SetCellValue(row-1,i,'')        
     def OnGenerateTable(self,event):
         """
         If a table has been loaded, calls CreateInstrumets and then GenerateTable.
@@ -418,7 +497,9 @@ class GraphFrame(noname.MyFrame1):
         
         if dlg.ShowModal() == wx.ID_OK:
             filename = dlg.GetFilename()
+            print(filename)
             dirname = dlg.GetDirectory()
+            print(dirname)
             analysis_file = os.path.join(dirname, filename)
         dlg.Destroy()
         if analysis_file: self.Analysis_file_name.SetLabel(analysis_file)
@@ -434,6 +515,7 @@ class GraphFrame(noname.MyFrame1):
         #call fill grid to load the new file up and replace the old one.
         
         xcel_name = str(self.Analysis_file_name.GetValue())#'Book1.xlsx'
+        print(xcel_name)
         xcel_sheet = 'Sheet'
         
         analyser = analysis.Analyser(xcel_name,xcel_sheet)
@@ -441,7 +523,8 @@ class GraphFrame(noname.MyFrame1):
         analyser.Save(xcel_name)
         controlgrid = tables.TABLES(self)
         printed_results = controlgrid.excel_to_grid(xcel_name, 'Results', self.m_grid4)
-        
+        printed_results_ratios = controlgrid.excel_to_grid(xcel_name, 'Gain Ratios', self.m_grid4b)
+            
         
         #Perhaps find a good place to put back to the table.
         
@@ -618,20 +701,6 @@ class GraphFrame(noname.MyFrame1):
         label = "Plot" if self.paused else "Pause"
         #self.m_button2.SetLabel(label)
         
-    def OnResult0(self, event):
-        """Show Result status, event for termination of graph thread"""
-        if event.data is None:
-
-            self.m_textCtrl14.AppendText('Plotting aborted ')
-            self.m_textCtrl14.AppendText(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()))
-            self.m_textCtrl14.AppendText('\n')
-        else:
-
-            self.m_textCtrl14.AppendText('Plot ended ')
-            self.m_textCtrl14.AppendText(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()))
-            self.m_textCtrl14.AppendText('\n')
-        # In either event, the worker is done
-        self.worker0 = None
  
     def OnResult1(self, event):
         """Show Result status, event for termination of gpib thread"""
@@ -794,10 +863,6 @@ class GraphFrame(noname.MyFrame1):
         if self.worker1: #stop main GPIB thread
             self.worker1.abort()
             time.sleep(0.3)
-        if self.worker0: #stop graph timer and plotting
-            self.timer0.Stop()
-            self.worker0.abort()
-            time.sleep(1.1)#minimises error messages from suddenly stopped graph
         self.Destroy()
 
 class HelpBox (wx.Frame):

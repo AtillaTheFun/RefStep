@@ -1,0 +1,727 @@
+2018.03.29.14.27.31,  Creating HP: success
+2018.03.29.14.27.31,  Creating FL5700: success
+2018.03.29.14.27.31,  Creating FL5730: success
+2018.03.29.14.27.31,       HP: RESET
+2018.03.29.14.27.31,       HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.29.14.27.31,       HP: ERR?
+2018.03.29.14.27.31,  reading HP: 0
+
+0
+
+2018.03.29.14.27.31,       FL5700: *RST
+2018.03.29.14.27.31,       FL5700: OUT 0V, 0HZ
+2018.03.29.14.27.32,       FL5700: FAULT?
+2018.03.29.14.27.32,  reading FL5700: 0
+
+0
+
+2018.03.29.14.27.32,       FL5730: *RST
+2018.03.29.14.27.32,       FL5730: OUT 0V, 0HZ
+2018.03.29.14.27.33,       FL5730: FAULT?
+2018.03.29.14.27.33,  reading FL5730: 0
+
+0
+
+2018.03.29.14.27.33,       FL5700: STBY
+2018.03.29.14.27.33,       FL5730: STBY
+2018.03.29.14.27.33,       FL5700: FAULT?
+2018.03.29.14.27.34,  reading FL5700: 0
+
+2018.03.29.14.27.34,       FL5730: FAULT?
+2018.03.29.14.27.34,  reading FL5730: 0
+
+2018.03.29.14.27.34,       FL5730: OUT 0V
+2018.03.29.14.27.34,       FL5700: OUT 0V
+2018.03.29.14.27.35,       FL5730: FAULT?
+2018.03.29.14.27.35,  reading FL5730: 0
+
+2018.03.29.14.27.35,       FL5700: FAULT?
+2018.03.29.14.27.35,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.03.29.14.27.35,       FL5700: OPER
+2018.03.29.14.27.36,       FL5730: OPER
+2018.03.29.14.27.41,  reading HP:  5.622573152E-07
+
+2018.03.29.14.27.41,       FL5700: FAULT?
+2018.03.29.14.27.41,  reading FL5700: 0
+
+2018.03.29.14.27.41,       FL5730: FAULT?
+2018.03.29.14.27.42,  reading FL5730: 0
+
+testing voltage setting correctly
+2018.03.29.14.27.42,       FL5700: STBY
+2018.03.29.14.27.42,       FL5700: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.03.29.14.27.42,       FL5700: OUT 1V
+2018.03.29.14.27.43,       FL5700: OPER
+2018.03.29.14.27.48,  reading HP:  1.000004320E+00
+
+2018.03.29.14.27.48,       FL5700: FAULT?
+2018.03.29.14.27.48,  reading FL5700: 0
+
+2018.03.29.14.27.48,       FL5730: FAULT?
+2018.03.29.14.27.48,  reading FL5730: 0
+
+2018.03.29.14.27.48,       FL5700: STBY
+2018.03.29.14.27.49,       FL5700: OUT 0V
+2018.03.29.14.27.49,       FL5700: OPER
+2018.03.29.14.27.49,       FL5730: STBY
+2018.03.29.14.27.50,       FL5730: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.03.29.14.27.50,       FL5730: OUT 1V
+2018.03.29.14.27.50,       FL5730: OPER
+2018.03.29.14.27.56,  reading HP: -9.999983659E-01
+
+2018.03.29.14.27.56,       FL5700: FAULT?
+2018.03.29.14.27.56,  reading FL5700: 0
+
+2018.03.29.14.27.56,       FL5730: FAULT?
+2018.03.29.14.27.56,  reading FL5730: 0
+
+2018.03.29.14.27.56,       HP: RESET
+2018.03.29.14.27.56,       HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.29.14.27.56,       FL5700: *RST
+2018.03.29.14.27.57,       FL5700: OUT 0V, 0HZ
+2018.03.29.14.27.57,       FL5730: *RST
+2018.03.29.14.27.57,       FL5730: OUT 0V, 0HZ
+
+2018.03.29.14.27.58,       FL5700: FAULT?
+2018.03.29.14.27.58,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.27.58,       FL5730: FAULT?
+2018.03.29.14.27.58,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.03.29.14.27.58,       HP: ERR?
+2018.03.29.14.27.58,  reading HP: 0
+
+meter ESR = 0
+
+
+Spread sheet row 1415
+2018.03.29.14.27.58,       FL5730: OUT -10.0V
+2018.03.29.14.27.59,       FL5700: RANGELCK OFF; OUT 20V; RANGELCK ON
+2018.03.29.14.27.59,       FL5700: OUT -10.0V
+2018.03.29.14.27.59,       FL5730: OPER
+2018.03.29.14.28.00,       FL5700: OPER
+2018.03.29.14.28.00,       FL5700: FAULT?
+2018.03.29.14.28.00,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.28.00,       FL5730: FAULT?
+2018.03.29.14.28.01,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.03.29.14.28.01,       HP: ERR?
+2018.03.29.14.28.01,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.29.14.28.01,       HP: DCV 10
+2018.03.29.14.28.01,       HP: LFREQ LINE
+2018.03.29.14.28.12,  reading HP: -3.300573203E-05
+
+2018.03.29.14.28.12, -3.300573203e-05
+
+2018.03.29.14.28.12,  reading HP: -3.493597797E-05
+
+2018.03.29.14.28.12, -3.493597797e-05
+
+2018.03.29.14.28.12,  reading HP: -3.402242646E-05
+
+2018.03.29.14.28.13, -3.402242646e-05
+
+2018.03.29.14.28.13,  reading HP: -3.343303838E-05
+
+2018.03.29.14.28.14, -3.343303838e-05
+
+2018.03.29.14.28.14,  reading HP: -3.372773242E-05
+
+2018.03.29.14.28.15, -3.372773242e-05
+
+2018.03.29.14.28.15,  reading HP: -3.374246712E-05
+
+2018.03.29.14.28.16, -3.374246712e-05
+
+2018.03.29.14.28.16,  reading HP: -3.458234512E-05
+
+2018.03.29.14.28.17, -3.458234512e-05
+
+2018.03.29.14.28.17,  reading HP: -3.346250779E-05
+
+2018.03.29.14.28.17, -3.346250779e-05
+
+2018.03.29.14.28.17,  reading HP: -3.331516077E-05
+
+2018.03.29.14.28.18, -3.331516077e-05
+
+2018.03.29.14.28.18,  reading HP: -3.332989547E-05
+
+2018.03.29.14.28.19, -3.332989547e-05
+
+2018.03.29.14.28.19,  reading HP: -3.313834435E-05
+
+2018.03.29.14.28.20, -3.313834435e-05
+
+2018.03.29.14.28.20,  reading HP: -3.288785442E-05
+
+2018.03.29.14.28.21, -3.288785442e-05
+
+2018.03.29.14.28.21,  reading HP: -3.337409958E-05
+
+2018.03.29.14.28.22, -3.337409958e-05
+
+2018.03.29.14.28.22,  reading HP: -3.299099733E-05
+
+2018.03.29.14.28.22, -3.299099733e-05
+
+2018.03.29.14.28.22,  reading HP: -3.325622196E-05
+
+2018.03.29.14.28.23, -3.325622196e-05
+
+2018.03.29.14.28.23,  reading HP: -3.335936488E-05
+
+2018.03.29.14.28.24, -3.335936488e-05
+
+2018.03.29.14.28.24,  reading HP: -3.371299772E-05
+
+2018.03.29.14.28.25, -3.371299772e-05
+
+2018.03.29.14.28.25,  reading HP: -3.290258912E-05
+
+2018.03.29.14.28.26, -3.290258912e-05
+
+2018.03.29.14.28.26,  reading HP: -3.272577270E-05
+
+2018.03.29.14.28.26, -3.27257727e-05
+
+2018.03.29.14.28.26,  reading HP: -3.325622196E-05
+
+2018.03.29.14.28.27, -3.325622196e-05
+
+2018.03.29.14.28.27,       HP: LINE?
+2018.03.29.14.28.28,  reading HP:  50.0758460E+00
+
+2018.03.29.14.28.28,       FL5730: RANGE?
+2018.03.29.14.28.29,  reading FL5730: DC11V
+
+2018.03.29.14.28.29,       FL5700: RANGE?
+2018.03.29.14.28.29,  reading FL5700: DC22V
+
+Spread sheet row 1416
+2018.03.29.14.28.29,       FL5730: OUT 0V
+2018.03.29.14.28.29,       FL5700: OUT 0V
+2018.03.29.14.28.30,       FL5730: OPER
+2018.03.29.14.28.30,       FL5700: OPER
+2018.03.29.14.28.30,       FL5700: FAULT?
+2018.03.29.14.28.31,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.28.31,       FL5730: FAULT?
+2018.03.29.14.28.31,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.03.29.14.28.31,       HP: ERR?
+2018.03.29.14.28.31,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.29.14.28.31,       HP: LFREQ LINE
+2018.03.29.14.28.42,  reading HP:  1.665821782E-06
+
+2018.03.29.14.28.42, 1.665821782e-06
+
+2018.03.29.14.28.42,  reading HP:  1.312018926E-06
+
+2018.03.29.14.28.43, 1.312018926e-06
+
+2018.03.29.14.28.43,  reading HP:  1.326760712E-06
+
+2018.03.29.14.28.44, 1.326760712e-06
+
+2018.03.29.14.28.44,  reading HP:  1.194084640E-06
+
+2018.03.29.14.28.44, 1.19408464e-06
+
+2018.03.29.14.28.44,  reading HP:  1.916432139E-06
+
+2018.03.29.14.28.45, 1.916432139e-06
+
+2018.03.29.14.28.45,  reading HP:  1.783756068E-06
+
+2018.03.29.14.28.46, 1.783756068e-06
+
+2018.03.29.14.28.46,  reading HP:  1.945915710E-06
+
+2018.03.29.14.28.47, 1.94591571e-06
+
+2018.03.29.14.28.47,  reading HP:  1.474178568E-06
+
+2018.03.29.14.28.48, 1.474178568e-06
+
+2018.03.29.14.28.48,  reading HP:  1.429953211E-06
+
+2018.03.29.14.28.49, 1.429953211e-06
+
+2018.03.29.14.28.49,  reading HP:  2.078591782E-06
+
+2018.03.29.14.28.49, 2.078591782e-06
+
+2018.03.29.14.28.49,  reading HP:  2.167042496E-06
+
+2018.03.29.14.28.50, 2.167042496e-06
+
+2018.03.29.14.28.50,  reading HP:  1.326760712E-06
+
+2018.03.29.14.28.51, 1.326760712e-06
+
+2018.03.29.14.28.51,  reading HP:  1.503662140E-06
+
+2018.03.29.14.28.52, 1.50366214e-06
+
+2018.03.29.14.28.52,  reading HP:  2.063849996E-06
+
+2018.03.29.14.28.53, 2.063849996e-06
+
+2018.03.29.14.28.53,  reading HP:  1.754272497E-06
+
+2018.03.29.14.28.53, 1.754272497e-06
+
+2018.03.29.14.28.53,  reading HP:  1.857464996E-06
+
+2018.03.29.14.28.54, 1.857464996e-06
+
+2018.03.29.14.28.54,  reading HP:  2.108075353E-06
+
+2018.03.29.14.28.55, 2.108075353e-06
+
+2018.03.29.14.28.55,  reading HP:  2.211267853E-06
+
+2018.03.29.14.28.56, 2.211267853e-06
+
+2018.03.29.14.28.56,  reading HP:  2.196526067E-06
+
+2018.03.29.14.28.57, 2.196526067e-06
+
+2018.03.29.14.28.57,  reading HP:  1.739530711E-06
+
+2018.03.29.14.28.58, 1.739530711e-06
+
+2018.03.29.14.28.58,       HP: LINE?
+2018.03.29.14.28.59,  reading HP:  50.0002264E+00
+
+2018.03.29.14.28.59,       FL5730: RANGE?
+2018.03.29.14.28.59,  reading FL5730: DC220MV
+
+2018.03.29.14.28.59,       FL5700: RANGE?
+2018.03.29.14.28.59,  reading FL5700: DC22V
+
+Spread sheet row 1417
+2018.03.29.14.28.59,       FL5730: OUT 0V
+2018.03.29.14.29.00,       FL5700: OUT -10.0V
+2018.03.29.14.29.00,       FL5730: OPER
+2018.03.29.14.29.00,       FL5700: OPER
+2018.03.29.14.29.01,       FL5700: FAULT?
+2018.03.29.14.29.01,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.29.01,       FL5730: FAULT?
+2018.03.29.14.29.01,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.03.29.14.29.01,       HP: ERR?
+2018.03.29.14.29.01,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.29.14.29.01,       HP: LFREQ LINE
+2018.03.29.14.29.12,  reading HP: -1.000005473E+01
+
+2018.03.29.14.29.12, -10.00005473
+
+2018.03.29.14.29.12,  reading HP: -1.000005452E+01
+
+2018.03.29.14.29.13, -10.00005452
+
+2018.03.29.14.29.13,  reading HP: -1.000005476E+01
+
+2018.03.29.14.29.14, -10.00005476
+
+2018.03.29.14.29.14,  reading HP: -1.000005442E+01
+
+2018.03.29.14.29.15, -10.00005442
+
+2018.03.29.14.29.15,  reading HP: -1.000005494E+01
+
+2018.03.29.14.29.16, -10.00005494
+
+2018.03.29.14.29.16,  reading HP: -1.000005405E+01
+
+2018.03.29.14.29.16, -10.00005405
+
+2018.03.29.14.29.16,  reading HP: -1.000005449E+01
+
+2018.03.29.14.29.17, -10.00005449
+
+2018.03.29.14.29.17,  reading HP: -1.000005416E+01
+
+2018.03.29.14.29.18, -10.00005416
+
+2018.03.29.14.29.18,  reading HP: -1.000005472E+01
+
+2018.03.29.14.29.19, -10.00005472
+
+2018.03.29.14.29.19,  reading HP: -1.000005419E+01
+
+2018.03.29.14.29.20, -10.00005419
+
+2018.03.29.14.29.20,  reading HP: -1.000005432E+01
+
+2018.03.29.14.29.20, -10.00005432
+
+2018.03.29.14.29.20,  reading HP: -1.000005429E+01
+
+2018.03.29.14.29.21, -10.00005429
+
+2018.03.29.14.29.21,  reading HP: -1.000005419E+01
+
+2018.03.29.14.29.22, -10.00005419
+
+2018.03.29.14.29.22,  reading HP: -1.000005438E+01
+
+2018.03.29.14.29.23, -10.00005438
+
+2018.03.29.14.29.23,  reading HP: -1.000005414E+01
+
+2018.03.29.14.29.24, -10.00005414
+
+2018.03.29.14.29.24,  reading HP: -1.000005448E+01
+
+2018.03.29.14.29.25, -10.00005448
+
+2018.03.29.14.29.25,  reading HP: -1.000005461E+01
+
+2018.03.29.14.29.25, -10.00005461
+
+2018.03.29.14.29.25,  reading HP: -1.000005429E+01
+
+2018.03.29.14.29.26, -10.00005429
+
+2018.03.29.14.29.26,  reading HP: -1.000005414E+01
+
+2018.03.29.14.29.27, -10.00005414
+
+2018.03.29.14.29.27,  reading HP: -1.000005392E+01
+
+2018.03.29.14.29.28, -10.00005392
+
+2018.03.29.14.29.28,       HP: LINE?
+2018.03.29.14.29.29,  reading HP:  49.9700557E+00
+
+2018.03.29.14.29.29,       FL5730: RANGE?
+2018.03.29.14.29.29,  reading FL5730: DC220MV
+
+2018.03.29.14.29.29,       FL5700: RANGE?
+2018.03.29.14.29.30,  reading FL5700: DC22V
+
+Spread sheet row 1418
+2018.03.29.14.29.30,       FL5730: RANGELCK OFF; OUT 1000V; RANGELCK ON
+2018.03.29.14.29.30,       FL5730: OUT 0V
+2018.03.29.14.29.30,       FL5700: RANGELCK OFF; OUT 1000V; RANGELCK ON
+2018.03.29.14.29.31,       FL5700: OUT 190.0V
+2018.03.29.14.29.31,       FL5730: OPER
+2018.03.29.14.29.31,       FL5700: OPER
+2018.03.29.14.29.31,       FL5700: FAULT?
+2018.03.29.14.29.32,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.29.32,       FL5730: FAULT?
+2018.03.29.14.29.32,  reading FL5730: 804
+
+sourceS ESR = 804
+
+2018.03.29.14.29.32,       HP: ERR?
+2018.03.29.14.29.32,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.29.14.29.32,       HP: DCV 1000
+2018.03.29.14.29.32,       HP: LFREQ LINE
+2018.03.29.14.29.43,  reading HP:  1.727258748E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.43, 172.7258748
+
+2018.03.29.14.29.43,  reading HP:  1.727259439E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.43, 172.7259439
+
+2018.03.29.14.29.43,  reading HP:  1.727259763E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.44, 172.7259763
+
+2018.03.29.14.29.44,  reading HP:  1.727259587E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.45, 172.7259587
+
+2018.03.29.14.29.45,  reading HP:  1.727259734E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.46, 172.7259734
+
+2018.03.29.14.29.46,  reading HP:  1.727259160E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.47, 172.725916
+
+2018.03.29.14.29.47,  reading HP:  1.727259778E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.48, 172.7259778
+
+2018.03.29.14.29.48,  reading HP:  1.727259336E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.48, 172.7259336
+
+2018.03.29.14.29.48,  reading HP:  1.727259116E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.49, 172.7259116
+
+2018.03.29.14.29.49,  reading HP:  1.727259072E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.50, 172.7259072
+
+2018.03.29.14.29.50,  reading HP:  1.727258763E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.51, 172.7258763
+
+2018.03.29.14.29.51,  reading HP:  1.727259160E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.52, 172.725916
+
+2018.03.29.14.29.52,  reading HP:  1.727258542E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.53, 172.7258542
+
+2018.03.29.14.29.53,  reading HP:  1.727258586E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.53, 172.7258586
+
+2018.03.29.14.29.53,  reading HP:  1.727259204E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.54, 172.7259204
+
+2018.03.29.14.29.54,  reading HP:  1.727258836E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.55, 172.7258836
+
+2018.03.29.14.29.55,  reading HP:  1.727259116E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.56, 172.7259116
+
+2018.03.29.14.29.56,  reading HP:  1.727258630E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.57, 172.725863
+
+2018.03.29.14.29.57,  reading HP:  1.727259307E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.58, 172.7259307
+
+2018.03.29.14.29.58,  reading HP:  1.727259322E+02
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.29.59, 172.7259322
+
+2018.03.29.14.29.59,       HP: LINE?
+2018.03.29.14.30.00,  reading HP:  49.9711817E+00
+
+2018.03.29.14.30.00,       FL5730: RANGE?
+2018.03.29.14.30.00,  reading FL5730: DC1100V
+
+2018.03.29.14.30.00,       FL5700: RANGE?
+2018.03.29.14.30.00,  reading FL5700: DC1100V
+
+Spread sheet row 1419
+2018.03.29.14.30.00,       FL5730: OUT 0V
+2018.03.29.14.30.01,       FL5700: OUT 100V
+2018.03.29.14.30.01,       FL5730: OPER
+2018.03.29.14.30.01,       FL5700: OPER
+2018.03.29.14.30.02,       FL5700: FAULT?
+2018.03.29.14.30.02,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.30.02,       FL5730: FAULT?
+2018.03.29.14.30.02,  reading FL5730: 2232
+
+sourceS ESR = 2232
+
+2018.03.29.14.30.02,       HP: ERR?
+2018.03.29.14.30.02,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.29.14.30.02,       HP: LFREQ LINE
+2018.03.29.14.30.13,  reading HP:  9.090838041E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.13, 90.90838041
+
+2018.03.29.14.30.13,  reading HP:  9.090838041E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.13, 90.90838041
+
+2018.03.29.14.30.13,  reading HP:  9.090838335E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.14, 90.90838335
+
+2018.03.29.14.30.14,  reading HP:  9.090839658E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.15, 90.90839658
+
+2018.03.29.14.30.15,  reading HP:  9.090842598E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.16, 90.90842598
+
+2018.03.29.14.30.16,  reading HP:  9.090836571E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.17, 90.90836571
+
+2018.03.29.14.30.17,  reading HP:  9.090840540E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.18, 90.9084054
+
+2018.03.29.14.30.18,  reading HP:  9.090836718E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.18, 90.90836718
+
+2018.03.29.14.30.18,  reading HP:  9.090838188E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.19, 90.90838188
+
+2018.03.29.14.30.19,  reading HP:  9.090839511E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.20, 90.90839511
+
+2018.03.29.14.30.20,  reading HP:  9.090837453E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.21, 90.90837453
+
+2018.03.29.14.30.21,  reading HP:  9.090841716E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.22, 90.90841716
+
+2018.03.29.14.30.22,  reading HP:  9.090838776E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.23, 90.90838776
+
+2018.03.29.14.30.23,  reading HP:  9.090838188E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.23, 90.90838188
+
+2018.03.29.14.30.23,  reading HP:  9.090836718E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.24, 90.90836718
+
+2018.03.29.14.30.24,  reading HP:  9.090844509E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.25, 90.90844509
+
+2018.03.29.14.30.25,  reading HP:  9.090845391E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.26, 90.90845391
+
+2018.03.29.14.30.26,  reading HP:  9.090831867E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.27, 90.90831867
+
+2018.03.29.14.30.27,  reading HP:  9.090836424E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.28, 90.90836424
+
+2018.03.29.14.30.28,  reading HP:  9.090837600E+01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.03.29.14.30.29, 90.908376
+
+2018.03.29.14.30.29,       HP: LINE?
+2018.03.29.14.30.30,  reading HP:  49.8903777E+00
+
+2018.03.29.14.30.30,       FL5730: RANGE?
+2018.03.29.14.30.30,  reading FL5730: DC1100V
+
+2018.03.29.14.30.30,       FL5700: RANGE?
+2018.03.29.14.30.30,  reading FL5700: DC1100V
+
+Spread sheet row 1420
+2018.03.29.14.30.30,       FL5730: OUT 90.0V
+2018.03.29.14.30.31,       FL5700: OUT 190.0V
+2018.03.29.14.30.31,       FL5730: OPER
+2018.03.29.14.30.31,       FL5700: OPER
+2018.03.29.14.30.32,       FL5700: FAULT?
+2018.03.29.14.30.32,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.03.29.14.30.32,       FL5730: FAULT?
+2018.03.29.14.30.32,  reading FL5730: 804
+
+sourceS ESR = 804
+
+2018.03.29.14.30.32,       HP: ERR?
+2018.03.29.14.30.32,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.29.14.30.32,       HP: LFREQ LINE
+2018.03.29.14.30.43,  reading HP:  1.727258073E+02
+
+Readings exceeded 5% from nominal, aborting. Check settle times, ranges, and connections

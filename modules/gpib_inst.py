@@ -61,7 +61,7 @@ class INSTRUMENT(object):
         """
         success = False #did we read successfully
         #string to be printed and saved in log file
-        string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+' writing to '+self.label+': ' 
+        string = str(time.strftime("%Y.%m.%d.%H.%M.%S, ", time.localtime()))+'      '+self.label+': ' 
 
         try:
             self.inst.write(command)

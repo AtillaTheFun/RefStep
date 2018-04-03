@@ -1,0 +1,23 @@
+2018.03.12.10.09.23,  Creating HP: success
+2018.03.12.10.09.23,  writing to HP: RESET
+2018.03.12.10.09.23,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.12.10.09.24,  writing to HP: ERR?
+2018.03.12.10.09.24,  reading HP: 0
+
+0
+
+2018.03.12.10.09.29,  reading HP: -1.116267916E-07
+
+2018.03.12.10.09.34,  reading HP: -1.779557548E-07
+
+2018.03.12.10.09.34,  writing to HP: RESET
+2018.03.12.10.09.34,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+
+2018.03.12.10.09.34,  writing to HP: ERR?
+2018.03.12.10.09.34,  reading HP: 0
+
+meter ESR = 0
+
+
+Make safe sent. status is:
+Meter True

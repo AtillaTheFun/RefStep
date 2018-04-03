@@ -1,0 +1,10 @@
+2018.03.21.10.33.23,  Creating 34401a: success
+2018.03.21.10.33.23,       34401a: *RST
+2018.03.21.10.33.23,       34401a: VOLT:DC:RANG:AUTO ON;:ZERO:AUTO ON;:TRIG:DEL:AUTO ON;:VOLT:DC:NPLC 20;:TRIG:COUN INF;:TRIG:SOUR IMM
+2018.03.21.10.33.23,       34401a: SYST:ERR?
+2018.03.21.10.33.23,  reading 34401a: -410,"Query INTERRUPTED"
+
+-410,"Query INTERRUPTED"
+
+Error -410,"Query INTERRUPTED"
+ while resetting instrument, or queriying status

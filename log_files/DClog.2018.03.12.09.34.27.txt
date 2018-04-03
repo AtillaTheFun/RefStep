@@ -1,0 +1,29 @@
+2018.03.12.09.34.27,  Creating HP: success
+2018.03.12.09.34.27,  writing to HP: RESET
+2018.03.12.09.34.27,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.12.09.34.27,  writing to HP: ERR?
+2018.03.12.09.34.27,  reading HP: 0
+
+0
+
+2018.03.12.09.34.32,  reading HP: -1.737393395E-07
+
+2018.03.12.09.34.37,  reading HP: -1.808007182E-07
+
+2018.03.12.09.34.37,  writing to HP: RESET
+2018.03.12.09.34.38,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+
+2018.03.12.09.34.38,  writing to HP: ERR?
+2018.03.12.09.34.38,  reading HP: 0
+
+meter ESR = 0
+
+
+Spread sheet row 1
+2018.03.12.09.34.38,  writing to HP: ERR?
+2018.03.12.09.34.38,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.03.12.09.34.38,  writing to HP: LFREQ LINE

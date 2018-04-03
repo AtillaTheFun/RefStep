@@ -1,0 +1,12 @@
+2018.03.29.13.04.08,  Creating HP: success
+2018.03.29.13.04.08,  Creating FL5700: success
+2018.03.29.13.04.09,  Creating FL5730: success
+2018.03.29.13.04.09,       HP: RESET
+2018.03.29.13.04.09,       HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.29.13.04.09,       HP: ERR?
+2018.03.29.13.04.09,  reading HP:  5.974140395E-01
+
+ 5.974140395E-01
+
+Error  5.974140395E-01
+ while resetting instrument, or queriying status

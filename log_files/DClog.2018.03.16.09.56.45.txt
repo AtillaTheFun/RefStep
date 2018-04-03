@@ -1,0 +1,10 @@
+2018.03.16.09.56.45,  Creating 34401a: success
+2018.03.16.09.56.45,  writing to 34401a: *RST
+2018.03.16.09.56.45,  writing to 34401a: SENS:VOLT:DC:RANG:AUTO ON; SENS:ZERO:AUTO ON;TRIG:DEL 0; SENS:VOLT:DC:NPLC 
+2018.03.16.09.56.45,  writing to 34401a: SYST:ERR?
+2018.03.16.09.56.45,  reading 34401a: -113,"Undefined header"
+
+-113,"Undefined header"
+
+Error -113,"Undefined header"
+ while resetting instrument, or queriying status

@@ -1,0 +1,1753 @@
+2018.02.16.15.51.48,  Creating HP: success
+2018.02.16.15.51.48,  Creating FL5700: success
+2018.02.16.15.51.48,  Creating FL5730: success
+2018.02.16.15.51.48,  writing to HP: RESET
+2018.02.16.15.51.48,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.02.16.15.51.48,  writing to HP: ERR?
+2018.02.16.15.51.48,  reading HP: 0
+
+0
+
+2018.02.16.15.51.48,  writing to FL5700: *RST
+2018.02.16.15.51.48,  writing to FL5700: OUT 0V, 0HZ
+2018.02.16.15.51.49,  writing to FL5700: FAULT?
+2018.02.16.15.51.49,  reading FL5700: 0
+
+0
+
+2018.02.16.15.51.49,  writing to FL5730: *RST
+2018.02.16.15.51.49,  writing to FL5730: OUT 0V, 0HZ
+2018.02.16.15.51.50,  writing to FL5730: FAULT?
+2018.02.16.15.51.50,  reading FL5730: 0
+
+0
+
+2018.02.16.15.51.50,  writing to FL5700: STBY
+2018.02.16.15.51.50,  writing to FL5730: STBY
+2018.02.16.15.51.51,  writing to FL5700: FAULT?
+2018.02.16.15.51.51,  reading FL5700: 0
+
+2018.02.16.15.51.51,  writing to FL5730: FAULT?
+2018.02.16.15.51.51,  reading FL5730: 0
+
+2018.02.16.15.51.51,  writing to FL5730: OUT 0V
+2018.02.16.15.51.51,  writing to FL5700: OUT 0V
+2018.02.16.15.51.52,  writing to FL5730: FAULT?
+2018.02.16.15.51.52,  reading FL5730: 0
+
+2018.02.16.15.51.52,  writing to FL5700: FAULT?
+2018.02.16.15.51.52,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.02.16.15.51.52,  writing to FL5700: OPER
+2018.02.16.15.51.53,  writing to FL5730: OPER
+2018.02.16.15.51.58,  reading HP:  1.287790764E-07
+
+2018.02.16.15.51.58,  writing to FL5700: FAULT?
+2018.02.16.15.51.58,  reading FL5700: 0
+
+2018.02.16.15.51.58,  writing to FL5730: FAULT?
+2018.02.16.15.51.59,  reading FL5730: 0
+
+testing voltage setting correctly
+2018.02.16.15.51.59,  writing to FL5700: STBY
+2018.02.16.15.51.59,  writing to FL5700: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.02.16.15.51.59,  writing to FL5700: OUT 1V
+2018.02.16.15.52.00,  writing to FL5700: OPER
+2018.02.16.15.52.05,  reading HP:  9.999989786E-01
+
+2018.02.16.15.52.05,  writing to FL5700: FAULT?
+2018.02.16.15.52.05,  reading FL5700: 0
+
+2018.02.16.15.52.05,  writing to FL5730: FAULT?
+2018.02.16.15.52.05,  reading FL5730: 0
+
+2018.02.16.15.52.05,  writing to FL5700: STBY
+2018.02.16.15.52.06,  writing to FL5700: OUT 0V
+2018.02.16.15.52.06,  writing to FL5700: OPER
+2018.02.16.15.52.06,  writing to FL5730: STBY
+2018.02.16.15.52.07,  writing to FL5730: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.02.16.15.52.07,  writing to FL5730: OUT 1V
+2018.02.16.15.52.07,  writing to FL5730: OPER
+2018.02.16.15.52.13,  reading HP: -1.000003952E+00
+
+2018.02.16.15.52.13,  writing to FL5700: FAULT?
+2018.02.16.15.52.13,  reading FL5700: 0
+
+2018.02.16.15.52.13,  writing to FL5730: FAULT?
+2018.02.16.15.52.13,  reading FL5730: 0
+
+2018.02.16.15.52.13,  writing to HP: RESET
+2018.02.16.15.52.13,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.02.16.15.52.14,  writing to FL5700: *RST
+2018.02.16.15.52.14,  writing to FL5700: OUT 0V, 0HZ
+2018.02.16.15.52.14,  writing to FL5730: *RST
+2018.02.16.15.52.14,  writing to FL5730: OUT 0V, 0HZ
+
+2018.02.16.15.52.15,  writing to FL5700: FAULT?
+2018.02.16.15.52.15,  reading FL5700: 0
+
+sourceX ESR = 0
+
+2018.02.16.15.52.15,  writing to FL5730: FAULT?
+2018.02.16.15.52.15,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.52.15,  writing to HP: ERR?
+2018.02.16.15.52.15,  reading HP: 0
+
+meter ESR = 0
+
+
+Spread sheet row 1058
+2018.02.16.15.52.15,  writing to FL5730: RANGELCK OFF; OUT 10V; RANGELCK ON
+2018.02.16.15.52.16,  writing to FL5730: OUT 0.0V
+2018.02.16.15.52.16,  writing to FL5700: RANGELCK OFF; OUT 1000V; RANGELCK ON
+2018.02.16.15.52.16,  writing to FL5700: OUT 10.0V
+2018.02.16.15.52.17,  writing to FL5730: OPER
+2018.02.16.15.52.17,  writing to FL5700: OPER
+2018.02.16.15.52.17,  writing to FL5700: FAULT?
+2018.02.16.15.52.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.52.18,  writing to FL5730: FAULT?
+2018.02.16.15.52.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.52.18,  writing to HP: ERR?
+2018.02.16.15.52.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.52.18,  writing to HP: DCV 1000
+2018.02.16.15.52.18,  writing to HP: LFREQ LINE
+2018.02.16.15.52.29,  reading HP: -4.713518153E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.29, -4.713518153e-05
+
+2018.02.16.15.52.29,  reading HP: -2.945948845E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.29, -2.945948845e-06
+
+2018.02.16.15.52.29,  reading HP:  3.977030941E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.30, 3.977030941e-05
+
+2018.02.16.15.52.30,  reading HP:  1.178379538E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.31, 1.178379538e-05
+
+2018.02.16.15.52.31,  reading HP: -2.062164192E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.32, -2.062164192e-05
+
+2018.02.16.15.52.32,  reading HP: -2.356759076E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.33, -2.356759076e-05
+
+2018.02.16.15.52.33,  reading HP: -1.914866750E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.33, -1.91486675e-05
+
+2018.02.16.15.52.33,  reading HP:  1.620271865E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.34, 1.620271865e-05
+
+2018.02.16.15.52.34,  reading HP: -2.062164192E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.35, -2.062164192e-05
+
+2018.02.16.15.52.35,  reading HP: -2.945948845E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.36, -2.945948845e-05
+
+2018.02.16.15.52.36,  reading HP: -1.031082096E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.37, -1.031082096e-05
+
+2018.02.16.15.52.37,  reading HP:  2.651353961E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.38, 2.651353961e-05
+
+2018.02.16.15.52.38,  reading HP: -4.124328384E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.38, -4.124328384e-05
+
+2018.02.16.15.52.38,  reading HP: -3.829733499E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.39, -3.829733499e-05
+
+2018.02.16.15.52.39,  reading HP: -6.628384902E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.40, -6.628384902e-05
+
+2018.02.16.15.52.40,  reading HP: -2.504056519E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.41, -2.504056519e-05
+
+2018.02.16.15.52.41,  reading HP:  2.945948845E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.42, 2.945948845e-05
+
+2018.02.16.15.52.42,  reading HP: -1.914866750E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.43, -1.91486675e-05
+
+2018.02.16.15.52.43,  reading HP: -5.302707922E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.43, -5.302707922e-05
+
+2018.02.16.15.52.43,  reading HP: -1.325676980E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.52.44, -1.32567698e-05
+
+2018.02.16.15.52.44,  writing to HP: LINE?
+2018.02.16.15.52.45,  reading HP:  49.9757052E+00
+
+2018.02.16.15.52.45,  writing to FL5730: RANGE?
+2018.02.16.15.52.46,  reading FL5730: DC11V
+
+2018.02.16.15.52.46,  writing to FL5700: RANGE?
+2018.02.16.15.52.46,  reading FL5700: DC1100V
+
+Spread sheet row 1059
+2018.02.16.15.52.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.52.46,  writing to FL5700: OUT 0.0V
+2018.02.16.15.52.47,  writing to FL5730: OPER
+2018.02.16.15.52.47,  writing to FL5700: OPER
+2018.02.16.15.52.47,  writing to FL5700: FAULT?
+2018.02.16.15.52.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.52.48,  writing to FL5730: FAULT?
+2018.02.16.15.52.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.52.48,  writing to HP: ERR?
+2018.02.16.15.52.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.52.48,  writing to HP: LFREQ LINE
+2018.02.16.15.52.59,  reading HP:  1.324722550E-05
+
+2018.02.16.15.52.59, 1.32472255e-05
+
+2018.02.16.15.52.59,  reading HP:  0.000000000E-01
+
+2018.02.16.15.52.59, 0.0
+
+2018.02.16.15.52.59,  reading HP: -3.091019284E-05
+
+2018.02.16.15.53.00, -3.091019284e-05
+
+2018.02.16.15.53.00,  reading HP: -1.471913945E-05
+
+2018.02.16.15.53.01, -1.471913945e-05
+
+2018.02.16.15.53.01,  reading HP: -1.471913945E-05
+
+2018.02.16.15.53.02, -1.471913945e-05
+
+2018.02.16.15.53.02,  reading HP: -5.004507412E-05
+
+2018.02.16.15.53.03, -5.004507412e-05
+
+2018.02.16.15.53.03,  reading HP:  2.796636495E-05
+
+2018.02.16.15.53.03, 2.796636495e-05
+
+2018.02.16.15.53.03,  reading HP: -5.887655779E-06
+
+2018.02.16.15.53.04, -5.887655779e-06
+
+2018.02.16.15.53.04,  reading HP: -2.207870917E-05
+
+2018.02.16.15.53.05, -2.207870917e-05
+
+2018.02.16.15.53.05,  reading HP: -1.030339761E-05
+
+2018.02.16.15.53.06, -1.030339761e-05
+
+2018.02.16.15.53.06,  reading HP:  1.030339761E-05
+
+2018.02.16.15.53.07, 1.030339761e-05
+
+2018.02.16.15.53.07,  reading HP:  1.030339761E-05
+
+2018.02.16.15.53.08, 1.030339761e-05
+
+2018.02.16.15.53.08,  reading HP:  0.000000000E-01
+
+2018.02.16.15.53.08, 0.0
+
+2018.02.16.15.53.08,  reading HP: -1.471913945E-06
+
+2018.02.16.15.53.09, -1.471913945e-06
+
+2018.02.16.15.53.09,  reading HP: -2.649445100E-05
+
+2018.02.16.15.53.10, -2.6494451e-05
+
+2018.02.16.15.53.10,  reading HP: -2.943827889E-06
+
+2018.02.16.15.53.11, -2.943827889e-06
+
+2018.02.16.15.53.11,  reading HP:  5.887655779E-05
+
+2018.02.16.15.53.12, 5.887655779e-05
+
+2018.02.16.15.53.12,  reading HP:  2.943827889E-06
+
+2018.02.16.15.53.13, 2.943827889e-06
+
+2018.02.16.15.53.13,  reading HP:  2.943827889E-06
+
+2018.02.16.15.53.13, 2.943827889e-06
+
+2018.02.16.15.53.13,  reading HP: -8.831483668E-06
+
+2018.02.16.15.53.14, -8.831483668e-06
+
+2018.02.16.15.53.14,  writing to HP: LINE?
+2018.02.16.15.53.15,  reading HP:  49.9907611E+00
+
+2018.02.16.15.53.15,  writing to FL5730: RANGE?
+2018.02.16.15.53.16,  reading FL5730: DC11V
+
+2018.02.16.15.53.16,  writing to FL5700: RANGE?
+2018.02.16.15.53.16,  reading FL5700: DC1100V
+
+Spread sheet row 1060
+2018.02.16.15.53.16,  writing to FL5730: OUT 10.0V
+2018.02.16.15.53.16,  writing to FL5700: OUT 10.0V
+2018.02.16.15.53.17,  writing to FL5730: OPER
+2018.02.16.15.53.17,  writing to FL5700: OPER
+2018.02.16.15.53.17,  writing to FL5700: FAULT?
+2018.02.16.15.53.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.53.18,  writing to FL5730: FAULT?
+2018.02.16.15.53.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.53.18,  writing to HP: ERR?
+2018.02.16.15.53.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.53.18,  writing to HP: LFREQ LINE
+2018.02.16.15.53.29,  reading HP: -2.942871514E-05
+
+2018.02.16.15.53.29, -2.942871514e-05
+
+2018.02.16.15.53.29,  reading HP: -3.384302241E-05
+
+2018.02.16.15.53.29, -3.384302241e-05
+
+2018.02.16.15.53.29,  reading HP: -1.765722908E-05
+
+2018.02.16.15.53.30, -1.765722908e-05
+
+2018.02.16.15.53.30,  reading HP:  0.000000000E-01
+
+2018.02.16.15.53.31, 0.0
+
+2018.02.16.15.53.31,  reading HP: -2.942871514E-06
+
+2018.02.16.15.53.32, -2.942871514e-06
+
+2018.02.16.15.53.32,  reading HP:  0.000000000E-01
+
+2018.02.16.15.53.33, 0.0
+
+2018.02.16.15.53.33,  reading HP: -3.237158665E-05
+
+2018.02.16.15.53.33, -3.237158665e-05
+
+2018.02.16.15.53.33,  reading HP: -4.120020119E-05
+
+2018.02.16.15.53.34, -4.120020119e-05
+
+2018.02.16.15.53.34,  reading HP: -2.942871514E-06
+
+2018.02.16.15.53.35, -2.942871514e-06
+
+2018.02.16.15.53.35,  reading HP: -3.090015089E-05
+
+2018.02.16.15.53.36, -3.090015089e-05
+
+2018.02.16.15.53.36,  reading HP:  1.177148605E-05
+
+2018.02.16.15.53.37, 1.177148605e-05
+
+2018.02.16.15.53.37,  reading HP: -1.471435757E-05
+
+2018.02.16.15.53.38, -1.471435757e-05
+
+2018.02.16.15.53.38,  reading HP: -4.414307270E-06
+
+2018.02.16.15.53.38, -4.41430727e-06
+
+2018.02.16.15.53.38,  reading HP: -2.942871514E-06
+
+2018.02.16.15.53.39, -2.942871514e-06
+
+2018.02.16.15.53.39,  reading HP:  4.414307270E-06
+
+2018.02.16.15.53.40, 4.41430727e-06
+
+2018.02.16.15.53.40,  reading HP: -1.324292181E-05
+
+2018.02.16.15.53.41, -1.324292181e-05
+
+2018.02.16.15.53.41,  reading HP: -3.384302241E-05
+
+2018.02.16.15.53.42, -3.384302241e-05
+
+2018.02.16.15.53.42,  reading HP: -4.414307270E-06
+
+2018.02.16.15.53.43, -4.41430727e-06
+
+2018.02.16.15.53.43,  reading HP: -7.357178784E-06
+
+2018.02.16.15.53.43, -7.357178784e-06
+
+2018.02.16.15.53.43,  reading HP: -7.357178784E-06
+
+2018.02.16.15.53.44, -7.357178784e-06
+
+2018.02.16.15.53.44,  writing to HP: LINE?
+2018.02.16.15.53.45,  reading HP:  49.9610492E+00
+
+2018.02.16.15.53.45,  writing to FL5730: RANGE?
+2018.02.16.15.53.46,  reading FL5730: DC11V
+
+2018.02.16.15.53.46,  writing to FL5700: RANGE?
+2018.02.16.15.53.46,  reading FL5700: DC1100V
+
+Spread sheet row 1061
+2018.02.16.15.53.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.53.46,  writing to FL5700: OUT 0.0V
+2018.02.16.15.53.47,  writing to FL5730: OPER
+2018.02.16.15.53.47,  writing to FL5700: OPER
+2018.02.16.15.53.47,  writing to FL5700: FAULT?
+2018.02.16.15.53.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.53.48,  writing to FL5730: FAULT?
+2018.02.16.15.53.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.53.48,  writing to HP: ERR?
+2018.02.16.15.53.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.53.48,  writing to HP: LFREQ LINE
+2018.02.16.15.53.59,  reading HP: -1.471193103E-06
+
+2018.02.16.15.53.59, -1.471193103e-06
+
+2018.02.16.15.53.59,  reading HP:  2.942386207E-05
+
+2018.02.16.15.53.59, 2.942386207e-05
+
+2018.02.16.15.53.59,  reading HP:  2.648147586E-05
+
+2018.02.16.15.54.00, 2.648147586e-05
+
+2018.02.16.15.54.00,  reading HP:  2.059670345E-05
+
+2018.02.16.15.54.01, 2.059670345e-05
+
+2018.02.16.15.54.01,  reading HP: -5.884772413E-06
+
+2018.02.16.15.54.02, -5.884772413e-06
+
+2018.02.16.15.54.02,  reading HP: -2.501028276E-05
+
+2018.02.16.15.54.03, -2.501028276e-05
+
+2018.02.16.15.54.03,  reading HP: -1.912551034E-05
+
+2018.02.16.15.54.03, -1.912551034e-05
+
+2018.02.16.15.54.03,  reading HP: -2.942386207E-06
+
+2018.02.16.15.54.04, -2.942386207e-06
+
+2018.02.16.15.54.04,  reading HP: -1.029835172E-05
+
+2018.02.16.15.54.05, -1.029835172e-05
+
+2018.02.16.15.54.05,  reading HP:  2.942386207E-06
+
+2018.02.16.15.54.06, 2.942386207e-06
+
+2018.02.16.15.54.06,  reading HP:  3.383744138E-05
+
+2018.02.16.15.54.07, 3.383744138e-05
+
+2018.02.16.15.54.07,  reading HP:  3.236624827E-05
+
+2018.02.16.15.54.08, 3.236624827e-05
+
+2018.02.16.15.54.08,  reading HP: -1.618312414E-05
+
+2018.02.16.15.54.09, -1.618312414e-05
+
+2018.02.16.15.54.09,  reading HP:  2.059670345E-05
+
+2018.02.16.15.54.09, 2.059670345e-05
+
+2018.02.16.15.54.09,  reading HP:  2.353908965E-05
+
+2018.02.16.15.54.10, 2.353908965e-05
+
+2018.02.16.15.54.10,  reading HP: -4.413579310E-06
+
+2018.02.16.15.54.11, -4.41357931e-06
+
+2018.02.16.15.54.11,  reading HP:  2.942386207E-05
+
+2018.02.16.15.54.12, 2.942386207e-05
+
+2018.02.16.15.54.12,  reading HP:  1.029835172E-05
+
+2018.02.16.15.54.13, 1.029835172e-05
+
+2018.02.16.15.54.13,  reading HP:  2.206789655E-05
+
+2018.02.16.15.54.14, 2.206789655e-05
+
+2018.02.16.15.54.14,  reading HP: -1.912551034E-05
+
+2018.02.16.15.54.14, -1.912551034e-05
+
+2018.02.16.15.54.14,  writing to HP: LINE?
+2018.02.16.15.54.16,  reading HP:  49.9886111E+00
+
+2018.02.16.15.54.16,  writing to FL5730: RANGE?
+2018.02.16.15.54.16,  reading FL5730: DC11V
+
+2018.02.16.15.54.16,  writing to FL5700: RANGE?
+2018.02.16.15.54.16,  reading FL5700: DC1100V
+
+Spread sheet row 1062
+2018.02.16.15.54.16,  writing to FL5730: OUT 10.0V
+2018.02.16.15.54.16,  writing to FL5700: OUT 10.0V
+2018.02.16.15.54.17,  writing to FL5730: OPER
+2018.02.16.15.54.17,  writing to FL5700: OPER
+2018.02.16.15.54.17,  writing to FL5700: FAULT?
+2018.02.16.15.54.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.54.18,  writing to FL5730: FAULT?
+2018.02.16.15.54.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.54.18,  writing to HP: ERR?
+2018.02.16.15.54.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.54.18,  writing to HP: LFREQ LINE
+2018.02.16.15.54.29,  reading HP: -4.562134903E-05
+
+2018.02.16.15.54.29, -4.562134903e-05
+
+2018.02.16.15.54.29,  reading HP: -2.207484630E-05
+
+2018.02.16.15.54.29, -2.20748463e-05
+
+2018.02.16.15.54.29,  reading HP: -1.471656420E-06
+
+2018.02.16.15.54.30, -1.47165642e-06
+
+2018.02.16.15.54.30,  reading HP: -3.090478483E-05
+
+2018.02.16.15.54.31, -3.090478483e-05
+
+2018.02.16.15.54.31,  reading HP:  1.030159494E-05
+
+2018.02.16.15.54.32, 1.030159494e-05
+
+2018.02.16.15.54.32,  reading HP: -1.618822062E-05
+
+2018.02.16.15.54.33, -1.618822062e-05
+
+2018.02.16.15.54.33,  reading HP: -1.618822062E-05
+
+2018.02.16.15.54.34, -1.618822062e-05
+
+2018.02.16.15.54.34,  reading HP:  3.384809767E-05
+
+2018.02.16.15.54.34, 3.384809767e-05
+
+2018.02.16.15.54.34,  reading HP: -2.943312841E-05
+
+2018.02.16.15.54.35, -2.943312841e-05
+
+2018.02.16.15.54.35,  reading HP:  1.618822062E-05
+
+2018.02.16.15.54.36, 1.618822062e-05
+
+2018.02.16.15.54.36,  reading HP: -2.943312841E-06
+
+2018.02.16.15.54.37, -2.943312841e-06
+
+2018.02.16.15.54.37,  reading HP:  7.358282101E-06
+
+2018.02.16.15.54.38, 7.358282101e-06
+
+2018.02.16.15.54.38,  reading HP: -4.709300545E-05
+
+2018.02.16.15.54.39, -4.709300545e-05
+
+2018.02.16.15.54.39,  reading HP: -2.354650272E-05
+
+2018.02.16.15.54.39, -2.354650272e-05
+
+2018.02.16.15.54.39,  reading HP: -5.297963113E-05
+
+2018.02.16.15.54.40, -5.297963113e-05
+
+2018.02.16.15.54.40,  reading HP:  2.943312841E-06
+
+2018.02.16.15.54.41, 2.943312841e-06
+
+2018.02.16.15.54.41,  reading HP: -2.796147199E-05
+
+2018.02.16.15.54.42, -2.796147199e-05
+
+2018.02.16.15.54.42,  reading HP: -7.358282101E-06
+
+2018.02.16.15.54.43, -7.358282101e-06
+
+2018.02.16.15.54.43,  reading HP: -1.765987704E-05
+
+2018.02.16.15.54.44, -1.765987704e-05
+
+2018.02.16.15.54.44,  reading HP: -7.358282101E-06
+
+2018.02.16.15.54.44, -7.358282101e-06
+
+2018.02.16.15.54.44,  writing to HP: LINE?
+2018.02.16.15.54.46,  reading HP:  50.0178743E+00
+
+2018.02.16.15.54.46,  writing to FL5730: RANGE?
+2018.02.16.15.54.46,  reading FL5730: DC11V
+
+2018.02.16.15.54.46,  writing to FL5700: RANGE?
+2018.02.16.15.54.46,  reading FL5700: DC1100V
+
+Spread sheet row 1063
+2018.02.16.15.54.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.54.47,  writing to FL5700: OUT 10.0V
+2018.02.16.15.54.47,  writing to FL5730: OPER
+2018.02.16.15.54.47,  writing to FL5700: OPER
+2018.02.16.15.54.47,  writing to FL5700: FAULT?
+2018.02.16.15.54.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.54.48,  writing to FL5730: FAULT?
+2018.02.16.15.54.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.54.48,  writing to HP: ERR?
+2018.02.16.15.54.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.54.48,  writing to HP: LFREQ LINE
+2018.02.16.15.54.59,  reading HP:  3.829292839E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.54.59, 3.829292839e-05
+
+2018.02.16.15.54.59,  reading HP:  2.356487901E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.54.59, 2.356487901e-05
+
+2018.02.16.15.54.59,  reading HP: -2.503768395E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.00, -2.503768395e-05
+
+2018.02.16.15.55.00,  reading HP:  1.767365926E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.01, 1.767365926e-05
+
+2018.02.16.15.55.01,  reading HP:  1.472804938E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.02, 1.472804938e-05
+
+2018.02.16.15.55.02,  reading HP:  2.061926914E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.03, 2.061926914e-05
+
+2018.02.16.15.55.03,  reading HP: -1.178243951E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.04, -1.178243951e-05
+
+2018.02.16.15.55.04,  reading HP:  8.836829630E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.04, 8.83682963e-06
+
+2018.02.16.15.55.04,  reading HP:  3.976573333E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.05, 3.976573333e-05
+
+2018.02.16.15.55.05,  reading HP: -8.836829630E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.06, -8.83682963e-06
+
+2018.02.16.15.55.06,  reading HP:  4.860256296E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.07, 4.860256296e-05
+
+2018.02.16.15.55.07,  reading HP: -1.914646420E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.08, -1.91464642e-05
+
+2018.02.16.15.55.08,  reading HP:  2.945609877E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.09, 2.945609877e-06
+
+2018.02.16.15.55.09,  reading HP: -3.387451358E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.09, -3.387451358e-05
+
+2018.02.16.15.55.09,  reading HP:  1.914646420E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.10, 1.91464642e-05
+
+2018.02.16.15.55.10,  reading HP:  1.325524444E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.11, 1.325524444e-05
+
+2018.02.16.15.55.11,  reading HP: -1.914646420E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.12, -1.91464642e-05
+
+2018.02.16.15.55.12,  reading HP: -4.418414815E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.13, -4.418414815e-06
+
+2018.02.16.15.55.13,  reading HP: -7.364024691E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.14, -7.364024691e-06
+
+2018.02.16.15.55.14,  reading HP: -1.914646420E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.14, -1.91464642e-05
+
+2018.02.16.15.55.14,  writing to HP: LINE?
+2018.02.16.15.55.16,  reading HP:  49.9922276E+00
+
+2018.02.16.15.55.16,  writing to FL5730: RANGE?
+2018.02.16.15.55.16,  reading FL5730: DC11V
+
+2018.02.16.15.55.16,  writing to FL5700: RANGE?
+2018.02.16.15.55.16,  reading FL5700: DC1100V
+
+Spread sheet row 1064
+2018.02.16.15.55.16,  writing to FL5730: OUT 10.0V
+2018.02.16.15.55.17,  writing to FL5700: OUT 20.0V
+2018.02.16.15.55.17,  writing to FL5730: OPER
+2018.02.16.15.55.17,  writing to FL5700: OPER
+2018.02.16.15.55.17,  writing to FL5700: FAULT?
+2018.02.16.15.55.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.55.18,  writing to FL5730: FAULT?
+2018.02.16.15.55.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.55.18,  writing to HP: ERR?
+2018.02.16.15.55.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.55.18,  writing to HP: LFREQ LINE
+2018.02.16.15.55.29,  reading HP: -6.065013210E-04
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.29, -0.000606501321
+
+2018.02.16.15.55.29,  reading HP: -1.045184315E-04
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.29, -0.0001045184315
+
+2018.02.16.15.55.29,  reading HP:  2.944181170E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.30, 2.94418117e-06
+
+2018.02.16.15.55.30,  reading HP: -2.944181170E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.31, -2.94418117e-06
+
+2018.02.16.15.55.31,  reading HP:  2.502553994E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.32, 2.502553994e-05
+
+2018.02.16.15.55.32,  reading HP:  3.091390228E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.33, 3.091390228e-05
+
+2018.02.16.15.55.33,  reading HP: -1.177672468E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.34, -1.177672468e-05
+
+2018.02.16.15.55.34,  reading HP: -2.649763053E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.34, -2.649763053e-05
+
+2018.02.16.15.55.34,  reading HP: -4.269062696E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.35, -4.269062696e-05
+
+2018.02.16.15.55.35,  reading HP:  2.944181170E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.36, 2.94418117e-06
+
+2018.02.16.15.55.36,  reading HP: -4.710689872E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.37, -4.710689872e-05
+
+2018.02.16.15.55.37,  reading HP:  4.416271755E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.38, 4.416271755e-06
+
+2018.02.16.15.55.38,  reading HP: -5.005107989E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.39, -5.005107989e-05
+
+2018.02.16.15.55.39,  reading HP: -3.533017404E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.39, -3.533017404e-05
+
+2018.02.16.15.55.39,  reading HP: -5.299526106E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.40, -5.299526106e-05
+
+2018.02.16.15.55.40,  reading HP: -1.177672468E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.41, -1.177672468e-05
+
+2018.02.16.15.55.41,  reading HP: -5.888362340E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.42, -5.88836234e-06
+
+2018.02.16.15.55.42,  reading HP:  1.472090585E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.43, 1.472090585e-05
+
+2018.02.16.15.55.43,  reading HP: -1.472090585E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.44, -1.472090585e-05
+
+2018.02.16.15.55.44,  reading HP: -3.238599287E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.44, -3.238599287e-05
+
+2018.02.16.15.55.44,  writing to HP: LINE?
+2018.02.16.15.55.46,  reading HP:  50.0341601E+00
+
+2018.02.16.15.55.46,  writing to FL5730: RANGE?
+2018.02.16.15.55.46,  reading FL5730: DC11V
+
+2018.02.16.15.55.46,  writing to FL5700: RANGE?
+2018.02.16.15.55.46,  reading FL5700: DC1100V
+
+Spread sheet row 1065
+2018.02.16.15.55.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.55.47,  writing to FL5700: OUT 20.0V
+2018.02.16.15.55.47,  writing to FL5730: OPER
+2018.02.16.15.55.47,  writing to FL5700: OPER
+2018.02.16.15.55.48,  writing to FL5700: FAULT?
+2018.02.16.15.55.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.55.48,  writing to FL5730: FAULT?
+2018.02.16.15.55.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.55.48,  writing to HP: ERR?
+2018.02.16.15.55.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.55.48,  writing to HP: LFREQ LINE
+2018.02.16.15.55.59,  reading HP:  1.178214479E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.59, 1.178214479e-05
+
+2018.02.16.15.55.59,  reading HP:  2.503705768E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.55.59, 2.503705768e-05
+
+2018.02.16.15.55.59,  reading HP:  1.620044909E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.00, 1.620044909e-05
+
+2018.02.16.15.56.00,  reading HP:  2.356428958E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.01, 2.356428958e-05
+
+2018.02.16.15.56.01,  reading HP: -1.620044909E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.02, -1.620044909e-05
+
+2018.02.16.15.56.02,  reading HP:  3.534643438E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.03, 3.534643438e-05
+
+2018.02.16.15.56.03,  reading HP:  5.301965156E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.04, 5.301965156e-05
+
+2018.02.16.15.56.04,  reading HP:  2.356428958E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.04, 2.356428958e-05
+
+2018.02.16.15.56.04,  reading HP:  0.000000000E-01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.05, 0.0
+
+2018.02.16.15.56.05,  reading HP:  1.472768099E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.06, 1.472768099e-06
+
+2018.02.16.15.56.06,  reading HP:  1.178214479E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.07, 1.178214479e-05
+
+2018.02.16.15.56.07,  reading HP: -2.503705768E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.08, -2.503705768e-05
+
+2018.02.16.15.56.08,  reading HP:  0.000000000E-01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.09, 0.0
+
+2018.02.16.15.56.09,  reading HP:  1.325491289E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.09, 1.325491289e-05
+
+2018.02.16.15.56.09,  reading HP:  2.945536198E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.10, 2.945536198e-05
+
+2018.02.16.15.56.10,  reading HP: -1.767321719E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.11, -1.767321719e-05
+
+2018.02.16.15.56.11,  reading HP: -8.836608594E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.12, -8.836608594e-06
+
+2018.02.16.15.56.12,  reading HP:  2.209152148E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.13, 2.209152148e-05
+
+2018.02.16.15.56.13,  reading HP: -8.836608594E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.14, -8.836608594e-06
+
+2018.02.16.15.56.14,  reading HP: -2.945536198E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.14, -2.945536198e-06
+
+2018.02.16.15.56.14,  writing to HP: LINE?
+2018.02.16.15.56.16,  reading HP:  49.9727271E+00
+
+2018.02.16.15.56.16,  writing to FL5730: RANGE?
+2018.02.16.15.56.16,  reading FL5730: DC11V
+
+2018.02.16.15.56.16,  writing to FL5700: RANGE?
+2018.02.16.15.56.16,  reading FL5700: DC1100V
+
+Spread sheet row 1066
+2018.02.16.15.56.16,  writing to FL5730: OUT 10.0V
+2018.02.16.15.56.17,  writing to FL5700: OUT 30.0V
+2018.02.16.15.56.17,  writing to FL5730: OPER
+2018.02.16.15.56.17,  writing to FL5700: OPER
+2018.02.16.15.56.17,  writing to FL5700: FAULT?
+2018.02.16.15.56.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.56.18,  writing to FL5730: FAULT?
+2018.02.16.15.56.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.56.18,  writing to HP: ERR?
+2018.02.16.15.56.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.56.18,  writing to HP: LFREQ LINE
+2018.02.16.15.56.29,  reading HP:  5.884507756E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.29, 5.884507756e-06
+
+2018.02.16.15.56.29,  reading HP: -3.383591960E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.29, -3.38359196e-05
+
+2018.02.16.15.56.29,  reading HP: -4.413380817E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.30, -4.413380817e-06
+
+2018.02.16.15.56.30,  reading HP: -5.884507756E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.31, -5.884507756e-06
+
+2018.02.16.15.56.31,  reading HP: -2.059577715E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.32, -2.059577715e-05
+
+2018.02.16.15.56.32,  reading HP: -1.618239633E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.33, -1.618239633e-05
+
+2018.02.16.15.56.33,  reading HP:  3.236479266E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.34, 3.236479266e-05
+
+2018.02.16.15.56.34,  reading HP: -1.618239633E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.34, -1.618239633e-05
+
+2018.02.16.15.56.34,  reading HP: -2.648028490E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.35, -2.64802849e-05
+
+2018.02.16.15.56.35,  reading HP:  1.029788857E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.36, 1.029788857e-05
+
+2018.02.16.15.56.36,  reading HP: -4.266268123E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.37, -4.266268123e-05
+
+2018.02.16.15.56.37,  reading HP:  1.176901551E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.38, 1.176901551e-05
+
+2018.02.16.15.56.38,  reading HP: -5.884507756E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.39, -5.884507756e-06
+
+2018.02.16.15.56.39,  reading HP: -1.471126939E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.39, -1.471126939e-05
+
+2018.02.16.15.56.39,  reading HP:  7.355634695E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.40, 7.355634695e-06
+
+2018.02.16.15.56.40,  reading HP: -1.471126939E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.41, -1.471126939e-05
+
+2018.02.16.15.56.41,  reading HP: -1.176901551E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.42, -1.176901551e-05
+
+2018.02.16.15.56.42,  reading HP: -1.912465021E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.43, -1.912465021e-05
+
+2018.02.16.15.56.43,  reading HP: -2.353803102E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.44, -2.353803102e-05
+
+2018.02.16.15.56.44,  reading HP: -5.884507756E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.45, -5.884507756e-06
+
+2018.02.16.15.56.45,  writing to HP: LINE?
+2018.02.16.15.56.46,  reading HP:  49.9991793E+00
+
+2018.02.16.15.56.46,  writing to FL5730: RANGE?
+2018.02.16.15.56.46,  reading FL5730: DC11V
+
+2018.02.16.15.56.46,  writing to FL5700: RANGE?
+2018.02.16.15.56.46,  reading FL5700: DC1100V
+
+Spread sheet row 1067
+2018.02.16.15.56.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.56.47,  writing to FL5700: OUT 30.0V
+2018.02.16.15.56.47,  writing to FL5730: OPER
+2018.02.16.15.56.47,  writing to FL5700: OPER
+2018.02.16.15.56.48,  writing to FL5700: FAULT?
+2018.02.16.15.56.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.56.48,  writing to FL5730: FAULT?
+2018.02.16.15.56.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.56.48,  writing to HP: ERR?
+2018.02.16.15.56.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.56.48,  writing to HP: LFREQ LINE
+2018.02.16.15.56.59,  reading HP: -8.830468225E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.59, -8.830468225e-06
+
+2018.02.16.15.56.59,  reading HP:  3.237838349E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.56.59, 3.237838349e-05
+
+2018.02.16.15.56.59,  reading HP: -1.471744704E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.00, -1.471744704e-06
+
+2018.02.16.15.57.00,  reading HP:  3.532187290E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.01, 3.53218729e-05
+
+2018.02.16.15.57.01,  reading HP:  8.830468225E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.02, 8.830468225e-06
+
+2018.02.16.15.57.02,  reading HP:  1.177395763E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.03, 1.177395763e-05
+
+2018.02.16.15.57.03,  reading HP:  8.830468225E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.04, 8.830468225e-06
+
+2018.02.16.15.57.04,  reading HP:  1.618919175E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.04, 1.618919175e-05
+
+2018.02.16.15.57.04,  reading HP: -2.943489408E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.05, -2.943489408e-06
+
+2018.02.16.15.57.05,  reading HP:  1.177395763E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.06, 1.177395763e-05
+
+2018.02.16.15.57.06,  reading HP:  3.826536231E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.07, 3.826536231e-05
+
+2018.02.16.15.57.07,  reading HP:  0.000000000E-01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.08, 0.0
+
+2018.02.16.15.57.08,  reading HP:  1.766093645E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.09, 1.766093645e-05
+
+2018.02.16.15.57.09,  reading HP:  1.471744704E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.10, 1.471744704e-06
+
+2018.02.16.15.57.10,  reading HP: -2.943489408E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.10, -2.943489408e-06
+
+2018.02.16.15.57.10,  reading HP:  2.501965997E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.11, 2.501965997e-05
+
+2018.02.16.15.57.11,  reading HP:  3.973710701E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.12, 3.973710701e-05
+
+2018.02.16.15.57.12,  reading HP:  7.358723521E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.13, 7.358723521e-06
+
+2018.02.16.15.57.13,  reading HP: -2.649140468E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.14, -2.649140468e-05
+
+2018.02.16.15.57.14,  reading HP:  0.000000000E-01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.15, 0.0
+
+2018.02.16.15.57.15,  writing to HP: LINE?
+2018.02.16.15.57.16,  reading HP:  49.9740371E+00
+
+2018.02.16.15.57.16,  writing to FL5730: RANGE?
+2018.02.16.15.57.16,  reading FL5730: DC11V
+
+2018.02.16.15.57.16,  writing to FL5700: RANGE?
+2018.02.16.15.57.16,  reading FL5700: DC1100V
+
+Spread sheet row 1068
+2018.02.16.15.57.16,  writing to FL5730: OUT 10.0V
+2018.02.16.15.57.17,  writing to FL5700: OUT 40.0V
+2018.02.16.15.57.17,  writing to FL5730: OPER
+2018.02.16.15.57.17,  writing to FL5700: OPER
+2018.02.16.15.57.18,  writing to FL5700: FAULT?
+2018.02.16.15.57.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.57.18,  writing to FL5730: FAULT?
+2018.02.16.15.57.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.57.18,  writing to HP: ERR?
+2018.02.16.15.57.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.57.18,  writing to HP: LFREQ LINE
+2018.02.16.15.57.29,  reading HP: -3.237514654E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.29, -3.237514654e-05
+
+2018.02.16.15.57.29,  reading HP: -1.765917084E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.29, -1.765917084e-05
+
+2018.02.16.15.57.29,  reading HP: -6.475029309E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.30, -6.475029309e-05
+
+2018.02.16.15.57.30,  reading HP: -1.030118299E-04
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.31, -0.0001030118299
+
+2018.02.16.15.57.31,  reading HP: -8.535265907E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.32, -8.535265907e-05
+
+2018.02.16.15.57.32,  reading HP: -6.327869552E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.33, -6.327869552e-05
+
+2018.02.16.15.57.33,  reading HP: -5.739230524E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.34, -5.739230524e-05
+
+2018.02.16.15.57.34,  reading HP: -3.826153683E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.34, -3.826153683e-05
+
+2018.02.16.15.57.34,  reading HP: -6.475029309E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.35, -6.475029309e-05
+
+2018.02.16.15.57.35,  reading HP: -2.796035383E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.36, -2.796035383e-05
+
+2018.02.16.15.57.36,  reading HP: -1.324437813E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.37, -1.324437813e-05
+
+2018.02.16.15.57.37,  reading HP:  1.471597570E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.38, 1.47159757e-06
+
+2018.02.16.15.57.38,  reading HP: -1.618757327E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.39, -1.618757327e-05
+
+2018.02.16.15.57.39,  reading HP: -5.886390281E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.40, -5.886390281e-06
+
+2018.02.16.15.57.40,  reading HP:  5.886390281E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.40, 5.886390281e-06
+
+2018.02.16.15.57.40,  reading HP:  0.000000000E-01
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.41, 0.0
+
+2018.02.16.15.57.41,  reading HP: -5.886390281E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.42, -5.886390281e-06
+
+2018.02.16.15.57.42,  reading HP:  1.471597570E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.43, 1.47159757e-05
+
+2018.02.16.15.57.43,  reading HP: -2.943195140E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.44, -2.94319514e-06
+
+2018.02.16.15.57.44,  reading HP: -2.501715869E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.45, -2.501715869e-05
+
+2018.02.16.15.57.45,  writing to HP: LINE?
+2018.02.16.15.57.46,  reading HP:  50.0461085E+00
+
+2018.02.16.15.57.46,  writing to FL5730: RANGE?
+2018.02.16.15.57.46,  reading FL5730: DC11V
+
+2018.02.16.15.57.46,  writing to FL5700: RANGE?
+2018.02.16.15.57.46,  reading FL5700: DC1100V
+
+Spread sheet row 1069
+2018.02.16.15.57.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.57.47,  writing to FL5700: OUT 40.0V
+2018.02.16.15.57.47,  writing to FL5730: OPER
+2018.02.16.15.57.47,  writing to FL5700: OPER
+2018.02.16.15.57.48,  writing to FL5700: FAULT?
+2018.02.16.15.57.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.57.48,  writing to FL5730: FAULT?
+2018.02.16.15.57.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.57.48,  writing to HP: ERR?
+2018.02.16.15.57.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.57.48,  writing to HP: LFREQ LINE
+2018.02.16.15.57.59,  reading HP: -1.914885911E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.59, -1.914885911e-05
+
+2018.02.16.15.57.59,  reading HP:  3.682472906E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.57.59, 3.682472906e-05
+
+2018.02.16.15.57.59,  reading HP:  4.860864236E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.00, 4.860864236e-05
+
+2018.02.16.15.58.00,  reading HP:  7.364945812E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.01, 7.364945812e-06
+
+2018.02.16.15.58.01,  reading HP: -1.178391330E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.02, -1.17839133e-05
+
+2018.02.16.15.58.02,  reading HP:  3.535173990E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.03, 3.53517399e-05
+
+2018.02.16.15.58.03,  reading HP: -4.418967487E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.04, -4.418967487e-06
+
+2018.02.16.15.58.04,  reading HP:  3.829771822E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.04, 3.829771822e-05
+
+2018.02.16.15.58.04,  reading HP:  2.209483743E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.05, 2.209483743e-05
+
+2018.02.16.15.58.05,  reading HP:  1.914885911E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.06, 1.914885911e-05
+
+2018.02.16.15.58.06,  reading HP: -4.418967487E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.07, -4.418967487e-06
+
+2018.02.16.15.58.07,  reading HP: -2.945978325E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.08, -2.945978325e-05
+
+2018.02.16.15.58.08,  reading HP:  1.620288079E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.09, 1.620288079e-05
+
+2018.02.16.15.58.09,  reading HP:  2.062184827E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.10, 2.062184827e-05
+
+2018.02.16.15.58.10,  reading HP: -1.472989162E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.10, -1.472989162e-05
+
+2018.02.16.15.58.10,  reading HP: -2.356782660E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.11, -2.35678266e-05
+
+2018.02.16.15.58.11,  reading HP: -5.891956649E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.12, -5.891956649e-06
+
+2018.02.16.15.58.12,  reading HP:  1.620288079E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.13, 1.620288079e-05
+
+2018.02.16.15.58.13,  reading HP:  2.356782660E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.14, 2.35678266e-05
+
+2018.02.16.15.58.14,  reading HP:  1.767586995E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.15, 1.767586995e-05
+
+2018.02.16.15.58.15,  writing to HP: LINE?
+2018.02.16.15.58.16,  reading HP:  49.9986934E+00
+
+2018.02.16.15.58.16,  writing to FL5730: RANGE?
+2018.02.16.15.58.16,  reading FL5730: DC11V
+
+2018.02.16.15.58.16,  writing to FL5700: RANGE?
+2018.02.16.15.58.16,  reading FL5700: DC1100V
+
+Spread sheet row 1070
+2018.02.16.15.58.16,  writing to FL5730: OUT 10.0V
+2018.02.16.15.58.17,  writing to FL5700: OUT 50.0V
+2018.02.16.15.58.17,  writing to FL5730: OPER
+2018.02.16.15.58.17,  writing to FL5700: OPER
+2018.02.16.15.58.18,  writing to FL5700: FAULT?
+2018.02.16.15.58.18,  reading FL5700: 804
+
+sourceX ESR = 804
+
+2018.02.16.15.58.18,  writing to FL5730: FAULT?
+2018.02.16.15.58.18,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.58.18,  writing to HP: ERR?
+2018.02.16.15.58.18,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.58.18,  writing to HP: LFREQ LINE
+2018.02.16.15.58.29,  reading HP: -1.766464538E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.29, -1.766464538e-05
+
+2018.02.16.15.58.29,  reading HP: -2.649696807E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.29, -2.649696807e-05
+
+2018.02.16.15.58.29,  reading HP: -5.446598991E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.30, -5.446598991e-05
+
+2018.02.16.15.58.30,  reading HP: -3.238518319E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.31, -3.238518319e-05
+
+2018.02.16.15.58.31,  reading HP: -5.299393613E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.32, -5.299393613e-05
+
+2018.02.16.15.58.32,  reading HP: -6.329831260E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.33, -6.32983126e-05
+
+2018.02.16.15.58.33,  reading HP: -1.913669916E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.34, -1.913669916e-05
+
+2018.02.16.15.58.34,  reading HP: -1.324848403E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.35, -1.324848403e-05
+
+2018.02.16.15.58.35,  reading HP:  2.060875294E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.35, 2.060875294e-05
+
+2018.02.16.15.58.35,  reading HP:  2.649696807E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.36, 2.649696807e-05
+
+2018.02.16.15.58.36,  reading HP: -8.832322689E-06
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.37, -8.832322689e-06
+
+2018.02.16.15.58.37,  reading HP: -4.416161344E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.38, -4.416161344e-05
+
+2018.02.16.15.58.38,  reading HP: -2.502491428E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.39, -2.502491428e-05
+
+2018.02.16.15.58.39,  reading HP: -2.208080672E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.40, -2.208080672e-05
+
+2018.02.16.15.58.40,  reading HP: -1.030437647E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.40, -1.030437647e-05
+
+2018.02.16.15.58.40,  reading HP: -1.324848403E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.41, -1.324848403e-05
+
+2018.02.16.15.58.41,  reading HP: -3.238518319E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.42, -3.238518319e-05
+
+2018.02.16.15.58.42,  reading HP:  1.177643025E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.43, 1.177643025e-05
+
+2018.02.16.15.58.43,  reading HP: -2.060875294E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.44, -2.060875294e-05
+
+2018.02.16.15.58.44,  reading HP:  1.324848403E-05
+
+Readings exceeded 0.1% from nominal. Check settle times, ranges, and connections
+2018.02.16.15.58.45, 1.324848403e-05
+
+2018.02.16.15.58.45,  writing to HP: LINE?
+2018.02.16.15.58.46,  reading HP:  50.0047127E+00
+
+2018.02.16.15.58.46,  writing to FL5730: RANGE?
+2018.02.16.15.58.46,  reading FL5730: DC11V
+
+2018.02.16.15.58.46,  writing to FL5700: RANGE?
+2018.02.16.15.58.46,  reading FL5700: DC1100V
+
+Spread sheet row 1071
+2018.02.16.15.58.46,  writing to FL5730: OUT 0.0V
+2018.02.16.15.58.47,  writing to FL5700: OUT 50.0V
+2018.02.16.15.58.47,  writing to FL5730: OPER
+2018.02.16.15.58.47,  writing to FL5700: OPER
+2018.02.16.15.58.48,  writing to FL5700: FAULT?
+2018.02.16.15.58.48,  reading FL5700: 2232
+
+sourceX ESR = 2232
+
+2018.02.16.15.58.48,  writing to FL5730: FAULT?
+2018.02.16.15.58.48,  reading FL5730: 0
+
+sourceS ESR = 0
+
+2018.02.16.15.58.48,  writing to HP: ERR?
+2018.02.16.15.58.48,  reading HP: 0
+
+meter ESR = 0
+
+
+2018.02.16.15.58.48,  writing to HP: LFREQ LINE
+2018.02.16.15.58.59,  reading HP: -3.385994586E-05
+
+Readings exceeded 5% from nominal, aborting. Check settle times, ranges, and connections

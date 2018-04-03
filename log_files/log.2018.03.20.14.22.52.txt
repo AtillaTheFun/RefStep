@@ -1,0 +1,12 @@
+2018.03.20.14.22.52,  Creating 34401a: success
+2018.03.20.14.22.52,  Creating FL5700: success
+2018.03.20.14.22.52,  Creating FL5730: success
+2018.03.20.14.22.52,       34401a: *RST
+2018.03.20.14.22.52,       34401a: VOLT:DC:RANG:AUTO ON;:ZERO:AUTO ON;:TRIG:DEL:AUTO ON;:VOLT:DC:NPLC 20;:TRIG:COUN INF;:TRIG:SOUR IMM
+2018.03.20.14.22.52,       34401a: SYST:ERR?
+2018.03.20.14.22.52,  reading 34401a: -113,"Undefined header"
+
+-113,"Undefined header"
+
+Error -113,"Undefined header"
+ while resetting instrument, or queriying status

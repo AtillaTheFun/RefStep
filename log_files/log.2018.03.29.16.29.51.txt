@@ -1,0 +1,4 @@
+2018.03.29.16.29.51,  Creating HP: success
+2018.03.29.16.29.56,  Creating FL5700: success
+2018.03.29.16.30.01,  Creating FL5730: success
+2018.03.29.16.30.01,       HP: visa failed

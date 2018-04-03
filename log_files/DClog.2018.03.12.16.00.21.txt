@@ -1,0 +1,21 @@
+2018.03.12.16.00.21,  Creating HP: success
+2018.03.12.16.00.21,  writing to HP: RESET
+2018.03.12.16.00.21,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.03.12.16.00.21,  writing to HP: ERR?
+2018.03.12.16.00.22,  reading HP: 0
+
+0
+
+2018.03.12.16.00.27,  reading HP: -1.991090753E-07
+
+2018.03.12.16.00.32,  reading HP: -1.689633142E-07
+
+2018.03.12.16.00.32,  writing to HP: RESET
+2018.03.12.16.00.32,  writing to HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+
+2018.03.12.16.00.32,  writing to HP: ERR?
+2018.03.12.16.00.32,  reading HP: 0
+
+meter ESR = 0
+
+

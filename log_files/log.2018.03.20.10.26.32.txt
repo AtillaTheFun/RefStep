@@ -1,0 +1,4 @@
+2018.03.20.10.26.32,  Creating 34401a: success
+2018.03.20.10.26.32,  Creating FL5700: success
+2018.03.20.10.26.32,  Creating FL5730: success
+2018.03.20.10.26.33,  writing to 34401a: *RST

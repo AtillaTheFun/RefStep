@@ -1,0 +1,4 @@
+2018.03.20.10.12.01,  Creating 34401a: success
+2018.03.20.10.12.01,  Creating FL5700: success
+2018.03.20.10.12.01,  Creating FL5730: success
+2018.03.20.10.12.01,  writing to 34401a: visa failed

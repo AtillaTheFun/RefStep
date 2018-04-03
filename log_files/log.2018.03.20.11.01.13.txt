@@ -1,0 +1,5 @@
+2018.03.20.11.01.13,  Creating 34401a: success
+2018.03.20.11.01.13,  Creating FL5700: success
+2018.03.20.11.01.13,  Creating FL5730: success
+2018.03.20.11.01.13,  writing to 34401a: *RST
+2018.03.20.11.01.13,  writing to 34401a: visa failed

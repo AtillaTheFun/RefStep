@@ -25,17 +25,20 @@ class Analyser(object):
         self.X_setting_col = self.S_setting_col-2 #should always be 2 cols away
 
         self.results = []
-        
+        self.gain_ratios = []
         self.wb = None
+        
         if book_name:
             try:
                 #warnings.simplefilter('ignore')
                 self.wb = load_workbook(book_name,data_only = True)
+                self.name = book_name
                 #warnings.simplefilter('default')
                 #try command? if fail, let user know.
                 self.sh = self.wb[sheet_name]
                 
                 self.sh_results = self.wb.create_sheet(title="Results")
+                self.sh_gain_ratios = self.wb.create_sheet(title="Gain Ratios")
                 window = [1,self.sh.max_row+1,1,self.sh.max_column+1]
                 self.data = self.get_data(window) #row,row,col,col
             except IOError:
@@ -63,10 +66,22 @@ class Analyser(object):
         for value, row in zip(col,range(start_row,len(col)+start_row)):
             self.print_cell(value,row,start_col,sheet)
             
-    def print_cols(self,cols,start_row):
+    def print_cols(self,cols,start_row,sheet):
         length = len(cols)
         for col,i in zip(cols, range(1,length+1)):
-            self.PrintCol(col,start_row,i,self.sh_results)
+            self.PrintCol(col,start_row,i,sheet)
+    
+    def PrintRow(self,row,start_col,start_row,sheet):
+        """
+        Prints an entire column using the print cell function. Requires the column to print, start row, start col.
+        """
+        for value, col in zip(row,range(start_col,len(list(row))+start_col)):
+            self.print_cell(value,start_row,col,sheet)
+            
+    def print_rows(self,rows,start_col,sheet):
+        length = len(rows)
+        for row,i in zip(rows, range(1,length+1)):
+            self.PrintRow(row,start_col,i,sheet)
             
     def read_cell(self,cell_row,cell_col):
         """
@@ -101,7 +116,7 @@ class Analyser(object):
         print("length x "+str(len(ureals)))
         Sum = 0
         num = 0
-        print([x.x for x in ureals])
+        #print([x.x for x in ureals])
         for j in range(2,(len(ureals)+1)/2):
             Sum = Sum +ureals[2*j-1]-ureals[2*j-2]
             num = num+1
@@ -109,6 +124,7 @@ class Analyser(object):
         #print("sum "+str(Sum.x))
         #print("x in put was:")
         #print([x.x for x in ureals])
+        
         lin_ratio = (1.0+1.0/(num*(s1-s0))*Sum) / (1.0+(1.0/(s1-s0))*(ureals[3]-ureals[2])) #computes linearity ratio? only if first and second readings are not the ones from previous range.
         lin_ratio.label = 'x linearity'
         gain_ratio = (1+1/(num*(s1-s0))*Sum)/(1+(1/(s1-s0))*(ureals[1]-ureals[0])) #computes gain ratio? only if first and second readings are not the ones from previous range.
@@ -238,12 +254,13 @@ class Analyser(object):
                 m_ranges = self.m_range(center)+self.m_range(center)
                 
                 x_readouts = [self.read_cell(center,2)] + [self.read_cell(center,2)]+ [self.read_cell(center,2)]+ [self.read_cell(center,2)]
-                m_readouts = [self.read_cell(center,2)] + [self.read_cell(center,2)]+ [self.read_cell(center,2)]+ [self.read_cell(center,2)]
-
+                m_readouts = [self.read_cell(center,2)] + [self.read_cell(center,2)]+ [self.read_cell(center,2)]+ [self.read_cell(center,2)]                
+                step_size = [float(self.read_cell(center,4))+float(self.read_cell(center+1,4))]+[float(self.read_cell(center,4))+float(self.read_cell(center+1,4))]+[float(self.read_cell(center,4))+float(self.read_cell(center+1,4))]+[float(self.read_cell(center,4))+float(self.read_cell(center+1,4))]
 
                 ratios = x_ratios+m_ratios
                 ranges = x_ranges+m_ranges
                 readouts = x_readouts + m_readouts
+                step_sizes = step_size+step_size
                 #print the ratios to the sheet
                 cols.append(["Label"]+[x.label for x in ratios])
                 cols.append(["Ratio"]+[x.x for x in ratios])
@@ -251,7 +268,9 @@ class Analyser(object):
                 cols.append(["Effct. DoF"]+[x.df for x in ratios])
                 cols.append(["Range"]+[x for x in ranges]) 
                 cols.append(["Max/Min V Setting"] + [x for x in readouts])
-                self.print_cols(cols,printing_row)
+                cols.append(["Step Size"]+[x for x in step_sizes])                
+                
+                self.print_cols(cols,printing_row,self.sh_results)
                 printing_row += len(ratios) + 1
                 self.results.append(cols)
                 #check if there is a next section:
@@ -260,6 +279,49 @@ class Analyser(object):
 
                 else:
                     start_row = last_row+1
+        continue_analysis_ratios = True
+        while continue_analysis_ratios == True:
+            sets = int(0.5*len(self.results))
+            rows = []
+            rows.append(["Gain Ratios"]+["Positive"]+['']+["Negative"])
+            rows.append(["Source"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
+            
+                         
+            
+            for i in range(0, sets):
+                mean_posi = (abs(self.results[2*i][1][2]) - 1 + abs(self.results[2*i][1][4])-1)/2 * 1000000
+                std_dev_posi = (self.results[2*i][2][2] + self.results[2*i][2][4])/2 * 1000000
+                mean_neg = (abs(self.results[2*i+1][1][2]) - 1 + abs(self.results[2*i+1][1][4])-1)/2 * 1000000
+                std_dev_neg = (self.results[2*i+1][2][2] + self.results[2*i+1][2][4])/2 * 1000000
+                g_ratio = str(float(self.results[2*i][5][2]))+" : "+str(float(self.results[2*i][6][2]))  
+                
+                rows.append([g_ratio]+[mean_posi]+[std_dev_posi]+[mean_neg]+[std_dev_neg])
+                
+                # x2 and x2+1
+            
+            rows.append([" "])
+            rows.append(["Gain Ratios"]+["Positive"]+['']+["Negative"])
+            rows.append(["Meter"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
+            
+                         
+            
+            for i in range(0, sets):
+                mean_posi = (abs(self.results[2*i][1][6]) - 1 + abs(self.results[2*i][1][8])-1)/2 * 1000000
+                std_dev_posi = (self.results[2*i][2][6] + self.results[2*i][2][8])/2 * 1000000
+                mean_neg = (abs(self.results[2*i+1][1][6]) - 1 + abs(self.results[2*i+1][1][8])-1)/2 * 1000000
+                std_dev_neg = (self.results[2*i+1][2][6] + self.results[2*i+1][2][8])/2 * 1000000
+                g_ratio = str(float(self.results[2*i][5][6]))+" : "+str(float(self.results[2*i][6][6]))  
+                
+                rows.append([g_ratio]+[mean_posi]+[std_dev_posi]+[mean_neg]+[std_dev_neg])
+                
+                # x2 and x2+1
+                
+            self.gain_ratios.append(rows)
+            self.print_rows(rows,1,self.sh_gain_ratios)
+            continue_analysis_ratios = False
+            
+            
+            
         #Return the results? they are acessible as a class variable.           
         #return self.results
 

@@ -687,7 +687,7 @@ class GPIBThreadDC(stuff.WorkerThread):
         """
         these_readings = []
         error_strings = " "
-        
+                
         for i in range(nordgs):
             if self._want_abort:
                 break
@@ -750,8 +750,13 @@ class GPIBThreadDC(stuff.WorkerThread):
         #initialise instruments
         self.initialise_instruments()
 
-        rows = self.grid.GetNumberRows()      
-        i = 0
+        rows = self.grid.GetNumberRows()   
+        self.set_grid_val(0,0,'Range (V)')
+        self.set_grid_val(0,1,'Instrument Readout (V)')
+        self.set_grid_val(0,2,'Standard Deviation')
+        
+        
+        i = 1
         empty = self.read_grid_cell(1,1)        
         while(i<=rows):
             if (i==rows):
@@ -764,7 +769,7 @@ class GPIBThreadDC(stuff.WorkerThread):
             i = i+1
             
                 
-        for row in range(0,self.ranges):
+        for row in range(1,self.ranges):
             if self._want_abort:
                 print('want to abort')
                 break #Breaks and skips to the end, where it runs "self.end()".
@@ -838,7 +843,7 @@ class GPIBThreadDC(stuff.WorkerThread):
         self.com(instrument.query_error)
         error = self.com(instrument.read_instrument)
         self.PrintSave(error)
-        if error != instrument.com['NoError']:
+        if str(error) != str(instrument.com['NoError']):
             self.PrintSave('Error '+str(error)+' while resetting instrument, or queriying status')
             return 'failed'
         else: return 'clear'
