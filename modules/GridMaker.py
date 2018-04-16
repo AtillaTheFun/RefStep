@@ -10,17 +10,21 @@ to save into an excel sheet or even a csv.
 """
 
 class GridPrinter(object):
+    
     """
     Creates a ref-step table, based on the instruments' ranges and desired
     calibration points specified in the tables.
     """
+
     def __init__(self, other_self,grid):
         self.other_self = other_self
         self.grid = grid
         
     def ColMaker(self,rm,rs,rx,cal_ranges):
+
         """Makes entire columns from smaller sets of measurements, a measuremnt set
         is a ascending and decending sequence"""
+
         #create empty arrays
         info = []
         for Range in cal_ranges:
@@ -34,8 +38,10 @@ class GridPrinter(object):
         return full_cols
         
     def SetMaker(self,rm,rs,rx,single_range):
+
         """ Make ascending and descending sets of measuremnts, based on the ranges of insturments.
-        Retusn a sequence of columns, fo rthe various settings for instrumetns and the pause time etc."""
+        Returns a sequence of columns, for the various settings for instrumetns and the pause time etc."""
+
         rx_use = None
         rm_use = None
         #want to find the X range that encompases the max output, to 0.5%?
@@ -85,8 +91,9 @@ class GridPrinter(object):
             x_settings.append(n+ref_step)
             x_settings.append(n+ref_step)
         x_settings = [ref_step+single_range[0],single_range[0],ref_step+single_range[0],single_range[0]]+x_settings
-        
+        x_settings = x_settings + [x_settings[-1]]
         s_settings = [ref_step,0]*(len(x_settings)/2)
+        s_settings = s_settings + [ref_step]
         s_settings[0] = 0 #update first value to the minimum.
 
         #Ranges for all instruments:
@@ -106,16 +113,20 @@ class GridPrinter(object):
         return cols
         
     def mirror(self,array): #mirrors array about last value
+    
         """Just a helper function to mirror and array given to it"""
+
         temp = array[0:-1]
         return array+temp[::-1]
         
     
     def JoinCols(self,info):
+
         """
         Make a measuremnt set for a given source X range. From the ranges
         for the DVM and source S also determines the settings for thsoe.
         """
+
         x_ranges,x_settings,s_ranges,s_settings,m_ranges,nominal,num_readings,delay,delay2 = [[]]*9
         #from list of lists of partial columns return list of entire columns
         for col in info:
@@ -133,11 +144,13 @@ class GridPrinter(object):
         return [x_ranges,x_settings,s_ranges,s_settings,m_ranges,nominal,num_readings,delay,delay2]
         
     def PrintCol(self, col, start_col,start_row):
+
         """
         Prints a column from specified starting point, to a wx grid.
         Has acess to the grid since it was sent during initialisation as
         "grid".
         """
+
         #check if there are enough rows:
         min_rows = start_row+len(col)-1 #minimum rows required
         if min_rows>self.grid.GetNumberRows():
@@ -153,9 +166,11 @@ class GridPrinter(object):
         
 
     def PrintRow(self, row, start_col,start_row):
+
         """
         Prints a row from specified starting point, to a wx grid.
         """
+
         #check if there are enough rows:
         min_cols = start_col+len(row) #minimum rows required
         min_rows = start_row+1
@@ -171,9 +186,11 @@ class GridPrinter(object):
             self.grid.SetCellValue(int(start_row)-1,int(col),str(value))
             
     def AddGridRows(self, no_of_rows):
+
         """
-        Add to grid, *self.grid*, some rows, *no_of_rows*.
+        Add to the grid defined in __init__, self.grid. Adds a number of rows equal to the parameter no_of_rows
         """
+
         if no_of_rows > 0:
                 self.grid.AppendRows(no_of_rows) #always to end
         elif no_of_rows < 0:
@@ -181,9 +198,11 @@ class GridPrinter(object):
         self.other_self.m_scrolledWindow3.SendSizeEvent() # make sure new size is fitted
                     
     def AddGridCols(self, no_of_cols):
+
         """
-        Set grid, *self.grid*, to have columns, *no_of_cols*.
+        Add to the grid defined in __init__, self.grid. Adds a number of collumns equal to the parameter no_of_cols
         """
+
         if no_of_cols > 0:
                 self.grid.AppendCols(no_of_cols) #always to end
         elif no_of_cols < 0:

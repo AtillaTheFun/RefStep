@@ -1,19 +1,18 @@
-# -*- coding: utf-8 -*-
 """
-Created on Wed Jan 10 10:41:54 2018
-
-@author: h.gibb
-
-Code to perform the construction of Calibration reports for Meters and Sources. 
+Performs the construction of Calibration reports for Meters and Sources. Creates a word document containing all information
+entered into the program.
 """
 import docx
 import time
+import tables
 
 class CalReport():
     def init(self, parent):
+        
         """
         Initialisation requires the graphframe object in which the user enters report information. Text fields are read into local variables. 
         """
+
         self.name = parent.m_textCtrl188.GetValue()
         self.serial = parent.m_textCtrl189.GetValue()
         self.date = parent.m_textCtrl190.GetValue()
@@ -22,13 +21,15 @@ class CalReport():
         self.method =  parent.m_textCtrl192.GetValue()
         self.results = parent.m_textCtrl185.GetValue()
         self.parent = parent
+        self.CalVolt = parent.m_textCtrl187b.GetValue()
         
-      
         
     def BuildReport(self):
+        
         """
-        Report building produces a docx file that contains information from user fields. (adding in data from analysis)
+        Report building produces a docx file that contains information from user fields.
         """
+        
         if self.parent.m_checkBox1.GetValue():
             self.MeterCalculations()
         else:
@@ -64,11 +65,16 @@ class CalReport():
         hdr_cells[2].text = 'Expanded Uncertainty'
         for i in range(0, 3):
             for j in range(0,self.parent.m_grid41.GetNumberRows()):
-                table.rows[j+1].cells[i].text = str(self.parent.m_grid41.GetCellValue(j,i)) + 'V'
-                print(str(self.parent.m_grid41.GetCellValue(j,i)))
+                if self.parent.m_grid41.GetCellValue(j,i) == '':
+                    table.rows[j+1].cells[i].text = ' - '
+                else:
+                    table.rows[j+1].cells[i].text = str(self.parent.m_grid41.GetCellValue(j,i)) + 'V'
                 
                 
-        doc.add_heading('DC Voltage Gain', 3)       
+        doc.add_heading('Known 10V reading')
+        doc.add_paragraph('Known 10V readin on 10V range: ' + self.CalVolt)   
+             
+        doc.add_heading('DC Voltage Gain Raitos', 3)       
         table2 = doc.add_table(rows=self.parent.m_grid42.GetNumberRows()+1, cols=5)
         hdr_cells2 = table2.rows[0].cells
         hdr_cells2[0].text = 'Instrument Range'
@@ -76,12 +82,13 @@ class CalReport():
         hdr_cells2[2].text = 'Voltage +'
         hdr_cells2[3].text = 'Voltage -'
         hdr_cells2[4].text = 'Expanded Uncertainty'
+        
+        
         for i in range(0, 4):
             for j in range(0,self.parent.m_grid42.GetNumberRows()):
-                table2.rows[j+1].cells[i].text = str(self.parent.m_grid42.GetCellValue(j,i)) + 'V'
-                print(str(self.parent.m_grid42.GetCellValue(j,i)))
+                table2.rows[j+1].cells[i].text = str(self.parent.m_grid42.GetCellValue(j,i)) #+ 'V'
 
-        doc.add_heading('DC Voltage Linearity', 3)
+        doc.add_heading('DC Voltage Linearity Ratios', 3)
         table3 = doc.add_table(rows=self.parent.m_grid43.GetNumberRows()+1, cols=5)
         hdr_cells3 = table3.rows[0].cells
         hdr_cells3[0].text = 'Instrument Range'
@@ -90,9 +97,8 @@ class CalReport():
         hdr_cells3[3].text = 'Voltage -'
         for i in range(0, 3):
             for j in range(0,self.parent.m_grid43.GetNumberRows()):
-                table3.rows[j+1].cells[i].text = str(self.parent.m_grid43.GetCellValue(j,i)) + 'V'
-                print(str(self.parent.m_grid43.GetCellValue(j,i)))
-
+                table3.rows[j+1].cells[i].text = str(self.parent.m_grid43.GetCellValue(j,i)) #+ 'V'
+                
         
         
         doc.save('Calibration Report for '+self.name+time.strftime(" %a, %d %b %Y", time.localtime())+'.docx')
@@ -100,40 +106,41 @@ class CalReport():
         
         
     def MeterCalculations(self):
+        
         """
-        Calculations for producing tables in a meter Calibration Report
-        Calculate absolute values from ratios calculated in analysis 
+        Calculations for producing data to fill the required tables in a meter Calibration Report
+        Calculate absolute values from ratios calculated in analysis (Yet to add)
         """
+
         self.col = range(0, self.parent.m_grid44.GetNumberCols()-1)
         
         self.labels = [self.col]
         self.expUnc = [self.col]
         self.ratio = [self.col]
         self.vRange = [self.col]
-        
+         
         for x in self.col:
-            print(x)
             label = self.parent.m_grid44.GetCellValue(x, 0)
             ratio = self.parent.m_grid44.GetCellValue(x, 1)
             stDev = self.parent.m_grid44.GetCellValue(x, 2) 
             vRange = self.parent.m_grid44.GetCellValue(x, 4)
             if label[0][0] == 'm':
-                self.labels[x] = label
-                self.expUnc[x] = stDev #needs an operation
-                self.ratio[x] = ratio 
-                self.vRange[x] = vRange
-                if vRange == 10:
-                    self.abs[x] = 10*ratio
-#                else:
-#                    self.abs[x] = ratio*
-#                self.abs[x] = 
+                self.labels.append(label)
+                self.expUnc.append(stDev) #needs an operation
+                self.ratio.append(ratio) 
+                self.vRange.append(vRange)
+
+#        for x in range(0,len(self.labels)-1):
+            
         
         
     def SourceCalculations(self):
+
         """
-        Calculations for producing tables in a source Calibration Report
-        Calculate absolute values from ratios calculated in analysis
+        Calculations for producing data to fill the required tables in a source Calibration Report
+        Calculate absolute values from ratios calculated in analysis(yet to add)
         """
+
         self.row = range(0, self.parent.m_grid44.GetNumberCols())
         
         self.labels = [self.row]
@@ -147,8 +154,8 @@ class CalReport():
             stDev = self.parent.m_grid44.GetCellValue(x, 2) 
             vRange = self.parent.m_grid44.GetCellValue(x, 4)
             if label[0][0] == 'x':
-                self.labels[x] = label
-                self.expUnc[x] = stDev #needs an operation
-                self.ratio[x] = ratio #Not in final form for use in report.
-                self.vRange[x] = vRange
+                self.labels.append(label)
+                self.expUnc.append(stDev) #needs an operation
+                self.ratio.append(ratio) #Not in final form for use in report.
+                self.vRange.append(vRange)
                 

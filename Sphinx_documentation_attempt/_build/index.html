@@ -1,0 +1,1100 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Python RefStep Controller’s documentation! &#8212; Python RefStep Controller  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-python-refstep-controller-s-documentation">
+<h1>Welcome to Python RefStep Controller’s documentation!<a class="headerlink" href="#welcome-to-python-refstep-controller-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-RefStep"></span><p>Main thread for controlling the buttons of the ref-step algorithm.
+Information is collected here and sent to other objects for handling.</p>
+<dl class="class">
+<dt id="RefStep.GraphFrame">
+<em class="property">class </em><code class="descclassname">RefStep.</code><code class="descname">GraphFrame</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="RefStep.GraphFrame.CheckCalibration">
+<code class="descname">CheckCalibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.CheckCalibration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate and show confirmation window to check DC Zero Calibration.`</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.CreateInstruments">
+<code class="descname">CreateInstruments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.CreateInstruments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the dictionary uploaded to the grid, and creates gpib_inst.INSTRUMENT accordingly.
+Instruments must be the meter on the left, source S in the middle, source X on the right.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.DoReset">
+<code class="descname">DoReset</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.DoReset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets by clearing the data, and clearing the on screen text feedback.
+Also sets the Make Safe button back to green.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.FillDCData">
+<code class="descname">FillDCData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.FillDCData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads data to create a report. Requires a results sheet named “Results”.
+Uses tables.TABLES for a excel-to-grid object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.FillData">
+<code class="descname">FillData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.FillData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads data to create a report. Requires a results sheet named “Results”.
+Uses tables.TABLES for a excel-to-grid object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.FillGrid">
+<code class="descname">FillGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.FillGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads self.proj_file to the grid. Requires a dictionary sheet named “Dict” and
+a control sheet named “Sheet 1”. Uses tables.TABLES for a excel-to-grid object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.GenerateTable">
+<code class="descname">GenerateTable</code><span class="sig-paren">(</span><em>instruments</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.GenerateTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate table according to the calibration ranges table</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnAddRange">
+<code class="descname">OnAddRange</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnAddRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a range to the Calibration Ranges table</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnAddRow">
+<code class="descname">OnAddRow</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnAddRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add another row to the ranges table, this is necessary as it requires manual inputting.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnAddRowDC">
+<code class="descname">OnAddRowDC</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnAddRowDC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add another row to the ranges table, this is necessary as it requires manual inputting.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnAnalyse">
+<code class="descname">OnAnalyse</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnAnalyse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the name of the file to analyse,
+and sends it to the analysis object analysis.Analyser</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnAnalysisFile">
+<code class="descname">OnAnalysisFile</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnAnalysisFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>from MIEcalculator, graph_gui.py.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnClearRange">
+<code class="descname">OnClearRange</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnClearRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the last range from the Calibration Ranges table</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnClearResultsDC">
+<code class="descname">OnClearResultsDC</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnClearResultsDC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the Calibration Ranges table in the DC Offset Measurement tab to allow additional test runs. 
+Reloads the ranges into the table once it is clear.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnClose">
+<code class="descname">OnClose</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnClose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure threads not running if frame is closed before stopping everything.
+Seems to generate errors, but at least the threads do get stopped!
+The delay after stopping the threads need to be longer than the time for
+a thread to normally complete? Since thread needs to be able to
+post event back to the main frame.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnCreateReport">
+<code class="descname">OnCreateReport</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnCreateReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses the Report builder to output a Calibration Report.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnGenerateTable">
+<code class="descname">OnGenerateTable</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnGenerateTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a table has been loaded, calls CreateInstrumets and then GenerateTable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnLive">
+<code class="descname">OnLive</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnLive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chooses visa for live instruments</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnLoadTable">
+<code class="descname">OnLoadTable</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnLoadTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Immediatly  calls the FillGrid function, so it can be used without the event too.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnMakeSafe">
+<code class="descname">OnMakeSafe</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnMakeSafe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags all threads to stop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnMeter">
+<code class="descname">OnMeter</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnMeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Respond to checkbox events.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnOpenDCData">
+<code class="descname">OnOpenDCData</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnOpenDCData" title="Permalink to this definition">¶</a></dt>
+<dd><p>from MIEcalculator, graph_gui.py.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnOpenData">
+<code class="descname">OnOpenData</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnOpenData" title="Permalink to this definition">¶</a></dt>
+<dd><p>from MIEcalculator, graph_gui.py.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnOpenDict">
+<code class="descname">OnOpenDict</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnOpenDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>from MIEcalculator, graph_gui.py.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnReadTestCommand">
+<code class="descname">OnReadTestCommand</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnReadTestCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads from whatever instrument is selected using doRead.
+Will fail if it finds nothing on the instrument bus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnRefreshInstruments">
+<code class="descname">OnRefreshInstruments</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnRefreshInstruments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds all active instrument addresses to the drop down selection for the instruments.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnResult1">
+<code class="descname">OnResult1</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnResult1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show Result status, event for termination of gpib thread</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnSaveTables">
+<code class="descname">OnSaveTables</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnSaveTables" title="Permalink to this definition">¶</a></dt>
+<dd><p>from MIEcalculator, graph_gui.py.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnSendTestCommand">
+<code class="descname">OnSendTestCommand</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnSendTestCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a test command to the selected instrument using doSend.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnSimulate">
+<code class="descname">OnSimulate</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnSimulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chooses visa2 for simulated (poorly) GPIB.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnSource">
+<code class="descname">OnSource</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Respond to checkbox events.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.OnStart">
+<code class="descname">OnStart</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.OnStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the instruments, and calls the doStart function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.ProgressUpdate">
+<code class="descname">ProgressUpdate</code><span class="sig-paren">(</span><em>Label</em>, <em>Status</em>, <em>colour</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.ProgressUpdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the status tracker in the Run tab. Takes the name of the  heading to update, 
+the string to update to and the colour of the text as a wx.colour</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.SaveGrid">
+<code class="descname">SaveGrid</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.SaveGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves using the tables.TABLES object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.dcCreateMeter">
+<code class="descname">dcCreateMeter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.dcCreateMeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the dictionary uploaded to the grid, and creates gpib_inst.INSTRUMENT accordingly.
+Instruments must be the meter on the left, source S in the middle, source X on the right.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.dcDoStart">
+<code class="descname">dcDoStart</code><span class="sig-paren">(</span><em>instruments</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.dcDoStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the algorithm, sends the created instruments to the wroker thread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.dcMakeSafe">
+<code class="descname">dcMakeSafe</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.dcMakeSafe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags all threads to stop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.dcStart">
+<code class="descname">dcStart</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.dcStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the instruments, and calls the doStart function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.dcStop">
+<code class="descname">dcStop</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.dcStop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags the worker thread to stop running if it exists.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.doOnSend">
+<code class="descname">doOnSend</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.doOnSend" title="Permalink to this definition">¶</a></dt>
+<dd><p>sends the commend to the address specified,
+creates a new visa resource manager.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.doRead">
+<code class="descname">doRead</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.doRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads from the specified address</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.doStart">
+<code class="descname">doStart</code><span class="sig-paren">(</span><em>instruments</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.doStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the algorithm, sends the created instruments to the wroker thread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.doStop">
+<code class="descname">doStop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.doStop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags the worker thread to stop running if it exists.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RefStep.GraphFrame.on_grid_edited">
+<code class="descname">on_grid_edited</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#RefStep.GraphFrame.on_grid_edited" title="Permalink to this definition">¶</a></dt>
+<dd><p>When one of the two input grids is edited, disable the run button.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="module-modules.analysis">
+<span id="analysis"></span><h2>Analysis<a class="headerlink" href="#module-modules.analysis" title="Permalink to this headline">¶</a></h2>
+<p>Analysis tool. Needs a file name to read (from the same folder) and a file name to save to (can be the same, then it updates) as well as a sheet name in which the data is stored.
+Files must be of the format created by the main program graphframe.py&gt;GridMaker.py.
+Results are saved onto new sheet,</p>
+<dl class="class">
+<dt id="modules.analysis.Analyser">
+<em class="property">class </em><code class="descclassname">modules.analysis.</code><code class="descname">Analyser</code><span class="sig-paren">(</span><em>book_name</em>, <em>sheet_name</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis object for a refstep table with arbitrary lengths of runs (not restricted to 10, but needs more than 1).</p>
+<dl class="method">
+<dt id="modules.analysis.Analyser.PrintCol">
+<code class="descname">PrintCol</code><span class="sig-paren">(</span><em>col</em>, <em>start_row</em>, <em>start_col</em>, <em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.PrintCol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints an entire column using the print cell function. Requires the column to print, start row, start col.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.PrintRow">
+<code class="descname">PrintRow</code><span class="sig-paren">(</span><em>row</em>, <em>start_col</em>, <em>start_row</em>, <em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.PrintRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints an entire column using the print cell function. Requires the column to print, start row, start col.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.Save">
+<code class="descname">Save</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.Save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the product excel sheet to a given name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.analysis">
+<code class="descname">analysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main analysis function. Reads averages and standard deviations to create GTC,ureal objects, by using the find_center function to determine starting and end points of a set.
+These are first sent to the split_set function to be seperated out for the different instruments, then each segment is sent to a ratio computation function which
+returns the gain ratio and lineariy ratio for that set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.find_center">
+<code class="descname">find_center</code><span class="sig-paren">(</span><em>start_row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.find_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a start row, reads through the test column (column 2, settings column for the source)
+and identifies the mid points (5 repeated settings). returns the mid point row and end point row.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><em>block_range</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a 2D array of the entire window specified. the function requires the block range or window to be specified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.m_ratio">
+<code class="descname">m_ratio</code><span class="sig-paren">(</span><em>ureals</em>, <em>s0</em>, <em>s1</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.m_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the ratios for a set of ascending GTC.ureal objects, for source x. The first two data points must belong to
+the range below and are used for the gain ratio computation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.print_cell">
+<code class="descname">print_cell</code><span class="sig-paren">(</span><em>value</em>, <em>row</em>, <em>column</em>, <em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.print_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a single cell to the sheet. function takes in the cell value, the cell row, and the cell column in this order</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.read_cell">
+<code class="descname">read_cell</code><span class="sig-paren">(</span><em>cell_row</em>, <em>cell_col</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.read_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a cell from the loaded data. cell coordinates must be within the window specified earlier.
+function takes inputs as the cell row and cell column.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.split_set">
+<code class="descname">split_set</code><span class="sig-paren">(</span><em>ureals</em>, <em>s_settings</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.split_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a symmetric set of ascending and decending GTC.ureal objects that contain data for both meter and source
+this function splits the data up to its respective instruments (most points are used in both meter and source calculations)
+and then splits it further into ascending and decending components.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.analysis.Analyser.x_ratio">
+<code class="descname">x_ratio</code><span class="sig-paren">(</span><em>ureals</em>, <em>s0</em>, <em>s1</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.analysis.Analyser.x_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the ratios for a set of ascending GTC.ureal objects, for source x. The first two data points must belong to
+the range below and are used for the gain ratio computation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.gpib_data">
+<span id="gpib-data"></span><h2>GPIB Data<a class="headerlink" href="#module-modules.gpib_data" title="Permalink to this headline">¶</a></h2>
+<p>Everything about GPIB control for the Ref Step algorithm.
+The GUI should only allow one GPIB thread at a time.
+Thread also writes raw data file to an excel sheet.
+Log files are written at event termination from graphframe.py.</p>
+<dl class="class">
+<dt id="modules.gpib_data.GPIBThreadDC">
+<em class="property">class </em><code class="descclassname">modules.gpib_data.</code><code class="descname">GPIBThreadDC</code><span class="sig-paren">(</span><em>notify_window</em>, <em>EVT</em>, <em>param</em>, <em>data</em>, <em>start_time</em>, <em>OverideSafety</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC" title="Permalink to this definition">¶</a></dt>
+<dd><p>DC Offset calculation thread.</p>
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.CheckInstruments">
+<code class="descname">CheckInstruments</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.CheckInstruments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given any number of instruments, will read through each and PrintSave errors.
+Each instrument is continuously interrogated until it returns its no-error string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.Error_string_maker">
+<code class="descname">Error_string_maker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.Error_string_maker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads all errors in the instruments, and appends them together in a string.
+If there are errors during the running of the code, they will be printed
+on the left of the table as a warning flag.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.MakeSafe">
+<code class="descname">MakeSafe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.MakeSafe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the instruments safe, bypass the self.com
+command in order to pass it directly to the instruments,
+that way recording weather or not the making safe worked
+for the instruments. Reports to GUI if it is unsafe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.PrintSave">
+<code class="descname">PrintSave</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.PrintSave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a string, and saves to the log file too.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.SafetyCheck">
+<code class="descname">SafetyCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.SafetyCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>A linear function for the determination of some basic safety settings.
+It can be overriden.
+Will check: errors, resetting, outputting zero volts, ouputting 1 volt.
+If this is sucessful it will also determine if the wires are connected the wrong way.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.com">
+<code class="descname">com</code><span class="sig-paren">(</span><em>command</em>, <em>send_item=None</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.com" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the instrument command with an item (if one is specified).
+All commands go through this function, as it wraps each command
+with a check to see if the thread should abort. Saves having to
+surround each instrument send command with an if statement.
+Will also recieve the status of the command from the instrument
+class, and if it failes this will flag the thread to abort.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.do_readings">
+<code class="descname">do_readings</code><span class="sig-paren">(</span><em>delay_time2</em>, <em>range_max</em>, <em>nominal_reading</em>, <em>nordgs</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.do_readings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a single reading on the meter, including safety checks:
+report a reading as faulty if it is 0.1% of the top of the current
+range away from the nominal value. If the difference of the nominal
+reading to the actual reading is 5% of the max range value of more then abort.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to close files and post an event to the main grid,
+letting it know that the thread has ended.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.initialchecks">
+<code class="descname">initialchecks</code><span class="sig-paren">(</span><em>instrument</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.initialchecks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short function used in the safety check routine, given an instrument it resets
+the instrument, does initialisation and reads errors. Will continuously read
+errors until the meter returns the no-error string. This can cause problems if
+the no-error string is inputed wrongly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.print_instrument_status">
+<code class="descname">print_instrument_status</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.print_instrument_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the status of all instruments, print to grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.read_grid_cell">
+<code class="descname">read_grid_cell</code><span class="sig-paren">(</span><em>row</em>, <em>col</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.read_grid_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a grid cell</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main thread, reads through the table and executes commands.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.set_grid_val">
+<code class="descname">set_grid_val</code><span class="sig-paren">(</span><em>row</em>, <em>col</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.set_grid_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of a grid cell</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.set_meter_range">
+<code class="descname">set_meter_range</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.set_meter_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the range for the meter, but also return the value
+of the max of the range. used in safety checks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadDC.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>wait_time</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadDC.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>safely loop until time is up, checking for abort</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modules.gpib_data.GPIBThreadF">
+<em class="property">class </em><code class="descclassname">modules.gpib_data.</code><code class="descname">GPIBThreadF</code><span class="sig-paren">(</span><em>notify_window</em>, <em>EVT</em>, <em>param</em>, <em>data</em>, <em>start_time</em>, <em>OverideSafety</em>, <em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ref step main thread</p>
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.CheckInstruments">
+<code class="descname">CheckInstruments</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.CheckInstruments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given any number of instruments, will read through each and PrintSave errors.
+Each instrument is continuously interrogated until it returns its no-error string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.Error_string_maker">
+<code class="descname">Error_string_maker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.Error_string_maker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads all errors in the instruments, and appends them together in a string.
+If there are errors during the running of the code, they will be printed
+on the left of the table as a warning flag.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.MakeSafe">
+<code class="descname">MakeSafe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.MakeSafe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the instruments safe, bypass the self.com
+command in order to pass it directly to the instruments,
+that way recording weather or not the making safe worked
+for the instruments. Reports to GUI if it is unsafe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.PrintSave">
+<code class="descname">PrintSave</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.PrintSave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a string, and saves to the log file too.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.SafetyCheck">
+<code class="descname">SafetyCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.SafetyCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>A linear function for the determination of some basic safety settings.
+It can be overriden.
+Will check: errors, resetting, outputting zero volts, ouputting 1 volt.
+If this is sucessful it will also determine if the wires are connected the wrong way.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.com">
+<code class="descname">com</code><span class="sig-paren">(</span><em>command</em>, <em>send_item=None</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.com" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the instrument command with an item (if one is specified).
+All commands go through this function, as it wraps each command
+with a check to see if the thread should abort. Saves having to
+surround each instrument send command with an if statement.
+Will also recieve the status of the command from the instrument
+class, and if it failes this will flag the thread to abort.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.do_readings">
+<code class="descname">do_readings</code><span class="sig-paren">(</span><em>delay_time2</em>, <em>range_max</em>, <em>nominal_reading</em>, <em>nordgs</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.do_readings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a single reading on the meter, including safety checks:
+report a reading as faulty if it is 0.1% of the top of the current
+range away from the nominal value. If the difference of the nominal
+reading to the actual reading is 5% of the max range value of more then abort.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to close files and post an event to the main grid,
+letting it know that the thread has ended.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.initialchecks">
+<code class="descname">initialchecks</code><span class="sig-paren">(</span><em>instrument</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.initialchecks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short function used in the safety check routine, given an instrument it resets
+the instrument, does initialisation and reads errors. Will continuously read
+errors until the meter returns the no-error string. This can cause problems if
+the no-error string is inputed wrongly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.initialise_instruments">
+<code class="descname">initialise_instruments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.initialise_instruments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the instruments one at a time and print the result of first read for each instrument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.print_instrument_status">
+<code class="descname">print_instrument_status</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.print_instrument_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the status of all instruments, print to grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.read_grid_cell">
+<code class="descname">read_grid_cell</code><span class="sig-paren">(</span><em>row</em>, <em>col</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.read_grid_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a grid cell</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main thread, reads through the table and executes commands.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.set_grid_val">
+<code class="descname">set_grid_val</code><span class="sig-paren">(</span><em>row</em>, <em>col</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.set_grid_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of a grid cell</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.set_meter_range">
+<code class="descname">set_meter_range</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.set_meter_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the range for the meter, but also return the value
+of the max of the range. used in safety checks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.set_source_ranges">
+<code class="descname">set_source_ranges</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.set_source_ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the grid and obtain values for the ranges of the sources.
+If the ranges are different to the ranges set previously,
+set the current range (avoid needlessly sending range commands).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_data.GPIBThreadF.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>wait_time</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_data.GPIBThreadF.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>safely loop until time is up, checking for abort</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.gpib_inst">
+<span id="gpib-instruement"></span><h2>GPIB Instruement<a class="headerlink" href="#module-modules.gpib_inst" title="Permalink to this headline">¶</a></h2>
+<p>A general instrument class that returns a status for each command sent
+or recieved from its instrument. This allows it to be used with the “com”
+function in the main algorithm, when visa fails it does not halt the
+whole program but reports the failure instead.</p>
+<dl class="class">
+<dt id="modules.gpib_inst.INSTRUMENT">
+<em class="property">class </em><code class="descclassname">modules.gpib_inst.</code><code class="descname">INSTRUMENT</code><span class="sig-paren">(</span><em>inst_bus</em>, <em>letter</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>This instrument class really is only a function to read and write to
+some instrument, using pyvisa. It has a general ‘dictionary’ to which
+more key word arguments can be added, and more sub functions can be
+used to make instruments specific. It can be used very generally, as just a semd
+and recieve class which also wraps each communication with a check to see if the
+communication was sucesful.</p>
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.MeasureSetup">
+<code class="descname">MeasureSetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.MeasureSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, pre measurement sequence set up</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.Operate">
+<code class="descname">Operate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.Operate" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, operates sources</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.SingleMsmntSetup">
+<code class="descname">SingleMsmntSetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.SingleMsmntSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, should any commands be sent prior to an individual measurement</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.Standby">
+<code class="descname">Standby</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.Standby" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, puts sources on standby</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.create_instrument">
+<code class="descname">create_instrument</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.create_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Needs to be called prior to any commands being sent or recieved.
+Creates the visa instrument object, to which commands will be sent
+and recieved.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.initialise_instrument">
+<code class="descname">initialise_instrument</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.initialise_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>A specific instrument command to the ref-step algorithm,
+initialises instruments with a set of commands</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.inst_status">
+<code class="descname">inst_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.inst_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, used for reading status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.make_safe">
+<code class="descname">make_safe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.make_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, should turn instruments off</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.query_error">
+<code class="descname">query_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.query_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, reading the instruments error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.read_instrument">
+<code class="descname">read_instrument</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.read_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to the send function, but reads and expects a return value too.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.reset_instrument">
+<code class="descname">reset_instrument</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.reset_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, reset routine</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>From here a command is sent to the instrument, surrounded by the try block.
+If the command fails, it does not halt the problem but sends back a failed status.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.set_DCrange">
+<code class="descname">set_DCrange</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.set_DCrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, setting a DC voltage</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.gpib_inst.INSTRUMENT.set_DCvalue">
+<code class="descname">set_DCvalue</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.gpib_inst.INSTRUMENT.set_DCvalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>specific to the ref-step algorithm, set a DC value for sources</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.GridMaker">
+<span id="grid-maker"></span><h2>Grid Maker<a class="headerlink" href="#module-modules.GridMaker" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modules.GridMaker.GridPrinter">
+<em class="property">class </em><code class="descclassname">modules.GridMaker.</code><code class="descname">GridPrinter</code><span class="sig-paren">(</span><em>other_self</em>, <em>grid</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ref-step table, based on the instruments’ ranges and desired
+calibration points specified in the tables.</p>
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.AddGridCols">
+<code class="descname">AddGridCols</code><span class="sig-paren">(</span><em>no_of_cols</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.AddGridCols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set grid, <em>self.grid</em>, to have columns, <em>no_of_cols</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.AddGridRows">
+<code class="descname">AddGridRows</code><span class="sig-paren">(</span><em>no_of_rows</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.AddGridRows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add to grid, <em>self.grid</em>, some rows, <em>no_of_rows</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.ColMaker">
+<code class="descname">ColMaker</code><span class="sig-paren">(</span><em>rm</em>, <em>rs</em>, <em>rx</em>, <em>cal_ranges</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.ColMaker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes entire columns from smaller sets of measurements, a measuremnt set
+is a ascending and decending sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.JoinCols">
+<code class="descname">JoinCols</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.JoinCols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a measuremnt set for a given source X range. From the ranges
+for the DVM and source S also determines the settings for thsoe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.PrintCol">
+<code class="descname">PrintCol</code><span class="sig-paren">(</span><em>col</em>, <em>start_col</em>, <em>start_row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.PrintCol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a column from specified starting point, to a wx grid.
+Has acess to the grid since it was sent during initialisation as
+“grid”.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.PrintRow">
+<code class="descname">PrintRow</code><span class="sig-paren">(</span><em>row</em>, <em>start_col</em>, <em>start_row</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.PrintRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a row from specified starting point, to a wx grid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.SetMaker">
+<code class="descname">SetMaker</code><span class="sig-paren">(</span><em>rm</em>, <em>rs</em>, <em>rx</em>, <em>single_range</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.SetMaker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make ascending and descending sets of measuremnts, based on the ranges of insturments.
+Returns a sequence of columns, for the various settings for instrumetns and the pause time etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.GridMaker.GridPrinter.mirror">
+<code class="descname">mirror</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.GridMaker.GridPrinter.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just a helper function to mirror and array given to it</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.noname">
+<span id="noname-ui-creator"></span><h2>noname (UI Creator)<a class="headerlink" href="#module-modules.noname" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modules.noname.MyFrame1">
+<em class="property">class </em><code class="descclassname">modules.noname.</code><code class="descname">MyFrame1</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.noname.MyFrame1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-modules.pywxgrideditmixin">
+<span id="pywxgrideditmixin"></span><h2>pywxgrideditmixin<a class="headerlink" href="#module-modules.pywxgrideditmixin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin">
+<em class="property">class </em><code class="descclassname">modules.pywxgrideditmixin.</code><code class="descname">PyWXGridEditMixin</code><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Copy/Paste and undo/redo mixin for wx.grid. Undo/redo is per-table, not yet global.</p>
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.AddUndo">
+<code class="descname">AddUndo</code><span class="sig-paren">(</span><em>undo</em>, <em>redo</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.AddUndo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an undo/redo combination to the respective stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.Box2String">
+<code class="descname">Box2String</code><span class="sig-paren">(</span><em>top</em>, <em>left</em>, <em>rows</em>, <em>cols</em>, <em>getRowLabels=False</em>, <em>getColLabels=False</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.Box2String" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return values in a selected cell range as a string.  This is used to pass text to clipboard.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.Copy">
+<code class="descname">Copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.Copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy selected range into clipboard.  If more than one range is selected at a time, only the first is copied</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.Delete">
+<code class="descname">Delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.Delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear Cell contents</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.GetSelectionBox">
+<code class="descname">GetSelectionBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.GetSelectionBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a set of selection boxes of the form (top, left, nrows, ncols)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.Mixin_OnCellChange">
+<code class="descname">Mixin_OnCellChange</code><span class="sig-paren">(</span><em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.Mixin_OnCellChange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undo/redo handler Use saved value from above for undo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.Mixin_OnCellEditor">
+<code class="descname">Mixin_OnCellEditor</code><span class="sig-paren">(</span><em>evt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.Mixin_OnCellEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>this method saves the value of cell before it’s edited (when that value disappears)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.OnCut">
+<code class="descname">OnCut</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.OnCut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cut cells from grid into clipboard</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.OnMixinKeypress">
+<code class="descname">OnMixinKeypress</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.OnMixinKeypress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keystroke handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.pywxgrideditmixin.PyWXGridEditMixin.OnPaste">
+<code class="descname">OnPaste</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.pywxgrideditmixin.PyWXGridEditMixin.OnPaste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event handler to paste from clipboard into grid.  Data assumed to be separated by tab (columns) and ”
+” (rows).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.ReportBuilder">
+<span id="report-builder"></span><h2>Report Builder<a class="headerlink" href="#module-modules.ReportBuilder" title="Permalink to this headline">¶</a></h2>
+<p>Created on Wed Jan 10 10:41:54 2018</p>
+<p>&#64;author: h.gibb</p>
+<p>Code to perform the construction of Calibration reports for Meters and Sources.</p>
+<dl class="class">
+<dt id="modules.ReportBuilder.CalReport">
+<em class="property">class </em><code class="descclassname">modules.ReportBuilder.</code><code class="descname">CalReport</code><a class="headerlink" href="#modules.ReportBuilder.CalReport" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="modules.ReportBuilder.CalReport.BuildReport">
+<code class="descname">BuildReport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.ReportBuilder.CalReport.BuildReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report building produces a docx file that contains information from user fields.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.ReportBuilder.CalReport.MeterCalculations">
+<code class="descname">MeterCalculations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.ReportBuilder.CalReport.MeterCalculations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculations for producing tables in a meter Calibration Report
+Calculate absolute values from ratios calculated in analysis (Yet to add)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.ReportBuilder.CalReport.SourceCalculations">
+<code class="descname">SourceCalculations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.ReportBuilder.CalReport.SourceCalculations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculations for producing tables in a source Calibration Report
+Calculate absolute values from ratios calculated in analysis(yet to add)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.ReportBuilder.CalReport.init">
+<code class="descname">init</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.ReportBuilder.CalReport.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisation requires the graphframe object in which the user enters report information. Text fields are read into local variables.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.stuff">
+<span id="stuff"></span><h2>Stuff<a class="headerlink" href="#module-modules.stuff" title="Permalink to this headline">¶</a></h2>
+<p>Useful classes and methods for GUI with events, timers and threaded tasks.</p>
+<dl class="class">
+<dt id="modules.stuff.WorkerThread">
+<em class="property">class </em><code class="descclassname">modules.stuff.</code><code class="descname">WorkerThread</code><span class="sig-paren">(</span><em>notify_window</em>, <em>EVT</em>, <em>param</em>, <em>data</em>, <em>start_time</em>, <em>OverideSafety</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.stuff.WorkerThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Worker Thread Class.</p>
+<dl class="method">
+<dt id="modules.stuff.WorkerThread.abort">
+<code class="descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.stuff.WorkerThread.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>abort worker thread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.stuff.WorkerThread.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.stuff.WorkerThread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run Worker Thread.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modules.stuff.RedirectText">
+<em class="property">class </em><code class="descclassname">modules.stuff.</code><code class="descname">RedirectText</code><span class="sig-paren">(</span><em>aWxTextCtrl</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.stuff.RedirectText" title="Permalink to this definition">¶</a></dt>
+<dd><p>A thread-safe class for redirecting stdout/stderr.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.tables">
+<span id="tables"></span><h2>Tables<a class="headerlink" href="#module-modules.tables" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modules.tables.TABLES">
+<em class="property">class </em><code class="descclassname">modules.tables.</code><code class="descname">TABLES</code><span class="sig-paren">(</span><em>other_self</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.tables.TABLES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads data from Excel.</p>
+<dl class="method">
+<dt id="modules.tables.TABLES.SetGridCols">
+<code class="descname">SetGridCols</code><span class="sig-paren">(</span><em>grid_name</em>, <em>no_of_cols</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.tables.TABLES.SetGridCols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set grid, <em>grid_name</em>, to have columns, <em>no_of_cols</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.tables.TABLES.SetGridRows">
+<code class="descname">SetGridRows</code><span class="sig-paren">(</span><em>grid_name</em>, <em>no_of_rows</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.tables.TABLES.SetGridRows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set grid, <em>grid_name</em>, to have rows, <em>no_of_rows</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.tables.TABLES.excel_to_grid">
+<code class="descname">excel_to_grid</code><span class="sig-paren">(</span><em>source</em>, <em>sheet</em>, <em>grid</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.tables.TABLES.excel_to_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the Excel file in source and loads the sheet into the grid
+nx is the number of extra columns required.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.tables.TABLES.grid_to_excel">
+<code class="descname">grid_to_excel</code><span class="sig-paren">(</span><em>target</em>, <em>grids</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.tables.TABLES.grid_to_excel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the grid and writes to the excel file, then saves. each input grid is a tuple, grid followed by sheet name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.tables.TABLES.style">
+<code class="descname">style</code><span class="sig-paren">(</span><em>worksheet</em>, <em>row</em>, <em>column</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.tables.TABLES.style" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Determines type of cell content and returns appropriate string</dt>
+<dd>for placing in wxGrid cell. Without this you get additional 
+characters (u : “) to confuse the presentation in the grid.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Python RefStep Controller’s documentation!</a><ul>
+<li><a class="reference internal" href="#module-modules.analysis">Analysis</a></li>
+<li><a class="reference internal" href="#module-modules.gpib_data">GPIB Data</a></li>
+<li><a class="reference internal" href="#module-modules.gpib_inst">GPIB Instruement</a></li>
+<li><a class="reference internal" href="#module-modules.GridMaker">Grid Maker</a></li>
+<li><a class="reference internal" href="#module-modules.noname">noname (UI Creator)</a></li>
+<li><a class="reference internal" href="#module-modules.pywxgrideditmixin">pywxgrideditmixin</a></li>
+<li><a class="reference internal" href="#module-modules.ReportBuilder">Report Builder</a></li>
+<li><a class="reference internal" href="#module-modules.stuff">Stuff</a></li>
+<li><a class="reference internal" href="#module-modules.tables">Tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Maor Ben-Shahar, Hamish Gibb.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

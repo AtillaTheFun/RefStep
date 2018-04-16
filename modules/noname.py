@@ -27,7 +27,7 @@ class MyFrame1 (wx.Frame):
         self.m_mgr.SetFlags(wx.aui.AUI_MGR_DEFAULT)
         
         self.m_auinotebook4 = wx.aui.AuiNotebook(self, wx.ID_ANY, wx.Point(-1,-1), wx.Size(-1,-1), 0)
-        self.m_mgr.AddPane(self.m_auinotebook4, wx.aui.AuiPaneInfo() .Left() .CloseButton(False).MaximizeButton(True).MinimizeButton(True).PinButton(True).Dock().Resizable().FloatingSize(wx.DefaultSize) .MinSize(wx.Size(600,300)))
+        self.m_mgr.AddPane(self.m_auinotebook4, wx.aui.AuiPaneInfo() .Left() .CloseButton(False).MaximizeButton(True).MinimizeButton(True).PinButton(True).Dock().Resizable().FloatingSize(wx.DefaultSize) .MinSize(wx.Size(600,350)))
         
         self.m_panel511 = wx.Panel(self.m_auinotebook4, wx.ID_ANY, wx.Point(-1,-1), wx.Size(-1,-1), wx.TAB_TRAVERSAL)
         gbSizer311 = wx.GridBagSizer(0, 0)
@@ -53,11 +53,11 @@ class MyFrame1 (wx.Frame):
         self.m_button14 = wx.Button(self.m_panel511, wx.ID_ANY, u"Refresh instruments", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer311.Add(self.m_button14, wx.GBPosition(0, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         
-        self.m_staticText13 = wx.StaticText(self.m_panel511, wx.ID_ANY, u"Reference source", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText13 = wx.StaticText(self.m_panel511, wx.ID_ANY, u"Reference source (S)", wx.DefaultPosition, wx.DefaultSize, 0)
         self.m_staticText13.Wrap(-1)
         gbSizer311.Add(self.m_staticText13, wx.GBPosition(2, 0), wx.GBSpan(1, 1), wx.ALL, 5)
         
-        self.m_staticText14 = wx.StaticText(self.m_panel511, wx.ID_ANY, u"To calibrate", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText14 = wx.StaticText(self.m_panel511, wx.ID_ANY, u"Source to calibrate (X)", wx.DefaultPosition, wx.DefaultSize, 0)
         self.m_staticText14.Wrap(-1)
         gbSizer311.Add(self.m_staticText14, wx.GBPosition(3, 0), wx.GBSpan(1, 1), wx.ALL, 5)
         
@@ -74,7 +74,7 @@ class MyFrame1 (wx.Frame):
         gbSizer311.Add(self.m_textCtrl18, wx.GBPosition(5, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         
         self.m_textCtrl23 = wx.TextCtrl(self.m_panel511, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(250,100), wx.TE_MULTILINE)
-        gbSizer311.Add(self.m_textCtrl23, wx.GBPosition(6, 0), wx.GBSpan(6, 2), wx.ALL, 5)
+        gbSizer311.Add(self.m_textCtrl23, wx.GBPosition(6, 0), wx.GBSpan(2, 2), wx.ALL, 5)
         
         self.m_button15 = wx.Button(self.m_panel511, wx.ID_ANY, u"Send", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer311.Add(self.m_button15, wx.GBPosition(5, 2), wx.GBSpan(1, 1), wx.ALL, 5)
@@ -82,6 +82,8 @@ class MyFrame1 (wx.Frame):
         self.m_button16 = wx.Button(self.m_panel511, wx.ID_ANY, u"Read", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer311.Add(self.m_button16, wx.GBPosition(5, 3), wx.GBSpan(1, 1), wx.ALL, 5)
         
+        
+                
         
         self.m_panel511.SetSizer(gbSizer311)
         self.m_panel511.Layout()
@@ -146,7 +148,7 @@ class MyFrame1 (wx.Frame):
         self.m_staticText50d = wx.StaticText(self.m_panel5, wx.ID_ANY, u'Repetitions per Range:', wx.DefaultPosition, wx.DefaultSize, 0)       
         gbSizer3.Add(self.m_staticText50d,wx.GBPosition(8,0), wx.GBSpan(1, 1), wx.ALL, 5)       
         
-        self.m_textCtrl50d = wx.TextCtrl(self.m_panel5, wx.ID_ANY, u'[3]', wx.DefaultPosition,wx.DefaultSize)
+        self.m_textCtrl50d = wx.TextCtrl(self.m_panel5, wx.ID_ANY, u'[1]', wx.DefaultPosition,wx.DefaultSize)
         gbSizer3.Add(self.m_textCtrl50d,wx.GBPosition(8,1), wx.GBSpan(1, 1), wx.ALL, 5)     
         
         #Sets
@@ -177,6 +179,9 @@ class MyFrame1 (wx.Frame):
         self.m_button5 = wx.Button(self.m_panel4, wx.ID_ANY, u"Start", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer6.Add(self.m_button5, wx.GBPosition(0, 0), wx.GBSpan(1, 1), wx.ALL, 5)
         
+        self.m_checkBox3 = wx.CheckBox(self.m_panel4, wx.ID_ANY, u"Instruments are Zero Calibrated", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer6.Add(self.m_checkBox3, wx.GBPosition(1,0),wx.GBSpan(1,2), wx.ALL, 5)
+        
         self.m_button12 = wx.Button(self.m_panel4, wx.ID_ANY, u"Make Safe", wx.DefaultPosition, wx.DefaultSize, 0)
         self.m_button12.SetBackgroundColour(wx.Colour(0, 255, 0))
         
@@ -188,6 +193,27 @@ class MyFrame1 (wx.Frame):
         
         self.m_textCtrl81 = wx.TextCtrl(self.m_panel4, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(500,250), wx.TE_MULTILINE)
         gbSizer6.Add(self.m_textCtrl81, wx.GBPosition(3, 0), wx.GBSpan(1, 3), wx.ALL, 5)
+        
+        self.m_staticText122 = wx.StaticText(self.m_panel4, wx.ID_ANY, u"Status Tracker", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer6.Add(self.m_staticText122, wx.GBPosition(5, 0), wx.GBSpan(1,1), wx.ALL, 5)        
+        
+
+        self.m_staticText123 = wx.StaticText(self.m_panel4, wx.ID_ANY, u"Creating Instruments:", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer6.Add(self.m_staticText123, wx.GBPosition(6, 0), wx.GBSpan(1,1), wx.ALL, 5)        
+        self.m_staticText123b = wx.TextCtrl(self.m_panel4, wx.ID_ANY, u" ", wx.DefaultPosition, wx.DefaultSize, wx.TE_READONLY)
+        gbSizer6.Add(self.m_staticText123b, wx.GBPosition(6, 1), wx.GBSpan(1,1), wx.ALL, 5)        
+
+        self.m_staticText124 = wx.StaticText(self.m_panel4, wx.ID_ANY, u"Safety Checks:", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer6.Add(self.m_staticText124, wx.GBPosition(7, 0), wx.GBSpan(1,1), wx.ALL, 5)        
+        self.m_staticText124b = wx.TextCtrl(self.m_panel4, wx.ID_ANY, u" ", wx.DefaultPosition, wx.DefaultSize, wx.TE_READONLY)
+        gbSizer6.Add(self.m_staticText124b, wx.GBPosition(7, 1), wx.GBSpan(1,1), wx.ALL, 5)        
+
+        self.m_staticText125 = wx.StaticText(self.m_panel4, wx.ID_ANY, u"Data Collection:", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer6.Add(self.m_staticText125, wx.GBPosition(8, 0), wx.GBSpan(1,1), wx.ALL, 5)        
+        self.m_staticText125b = wx.TextCtrl(self.m_panel4, wx.ID_ANY, u" ", wx.DefaultPosition, wx.Size(200,-1), wx.TE_READONLY)
+        gbSizer6.Add(self.m_staticText125b, wx.GBPosition(8, 1), wx.GBSpan(1,1), wx.ALL, 5)        
+
+
         
         self.m_button6 = wx.Button(self.m_panel4, wx.ID_ANY, u"Stop", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer6.Add(self.m_button6, wx.GBPosition(0, 1), wx.GBSpan(1, 1), wx.ALL, 5)
@@ -284,6 +310,7 @@ class MyFrame1 (wx.Frame):
         
         
         # DC Offset Measurement ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        # UI setup
 
         self.m_scrolledWindow49 = wx.Panel(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
 
@@ -330,7 +357,7 @@ class MyFrame1 (wx.Frame):
         
         
         
-        self.m_staticText91 = wx.StaticText(self.m_scrolledWindow49, wx.ID_ANY, u"Ranges to Calibrate:", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText91 = wx.StaticText(self.m_scrolledWindow49, wx.ID_ANY, u"Calibration Ranges:", wx.DefaultPosition, wx.DefaultSize, 0)
         self.m_staticText91.Wrap(-1)
         gbSizer9.Add(self.m_staticText91, wx.GBPosition(4, 0), wx.GBSpan(1, 2), wx.ALL, 5)
         
@@ -359,8 +386,6 @@ class MyFrame1 (wx.Frame):
         self.m_grid91.EnableDragRowSize(True)
         self.m_grid91.SetRowLabelSize(80)
         self.m_grid91.SetRowLabelAlignment(wx.ALIGN_CENTRE, wx.ALIGN_CENTRE)
-    
-        # Label Appearance
         
         # Cell Defaults
         self.m_grid91.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
@@ -382,7 +407,8 @@ class MyFrame1 (wx.Frame):
         gbSizer9.Add(self.m_textCtrl91, wx.GBPosition(8, 0), wx.GBSpan(1, 4), wx.ALL, 5)
         
         
-# CALIBRATION REPORT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        # CALIBRATION REPORT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        # UI setup
         self.m_scrolledWindow48 = wx.Panel(self.m_auinotebook4, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
 
 
@@ -400,16 +426,25 @@ class MyFrame1 (wx.Frame):
         
         self.m_checkBox1 = wx.CheckBox(self.m_scrolledWindow48, wx.ID_ANY, u"Calibrate Meter", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_checkBox1, wx.GBPosition(0,1), wx.GBSpan(1,1), wx.ALL, 5)
-        self.m_checkBox1.SetValue(True)
         
         self.m_checkBox2 = wx.CheckBox(self.m_scrolledWindow48, wx.ID_ANY, u"Calibrate Source", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_checkBox2, wx.GBPosition(0,2), wx.GBSpan(1,1), wx.ALL, 5)
+        self.m_checkBox2.SetValue(True)
         
         self.m_button187 = wx.Button(self.m_scrolledWindow48, wx.ID_ANY, u"Choose Data", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_button187, wx.GBPosition(1, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         
         self.m_textCtrl187 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"[DataFile.xlsx]", wx.DefaultPosition, wx.DefaultSize, wx.TE_READONLY)
         gbSizer8.Add(self.m_textCtrl187, wx.GBPosition(1, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        
+        self.m_staticText187a = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Known 10V on 10V range:", wx.DefaultPosition, wx.DefaultSize, 0)
+        gbSizer8.Add(self.m_staticText187a, wx.GBPosition(1, 3), wx.GBSpan(1, 1), wx.ALL, 5)
+        
+        
+        self.m_textCtrl187b = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"[Known 10V on 10V range]", wx.DefaultPosition, wx.DefaultSize, wx.TE_READONLY)
+        gbSizer8.Add(self.m_textCtrl187b, wx.GBPosition(1, 4), wx.GBSpan(1, 1), wx.ALL, 5)
+        
+        
         
         self.m_button187b = wx.Button(self.m_scrolledWindow48, wx.ID_ANY, u"Choose DC Data", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_button187b, wx.GBPosition(2, 1), wx.GBSpan(1, 1), wx.ALL, 5)
@@ -445,17 +480,17 @@ class MyFrame1 (wx.Frame):
         self.m_staticText196 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Calibration Conditions:", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText196, wx.GBPosition(7, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         self.m_textCtrl196 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,100), 0)
-        gbSizer8.Add(self.m_textCtrl196, wx.GBPosition(7, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        gbSizer8.Add(self.m_textCtrl196, wx.GBPosition(7, 2), wx.GBSpan(1, 4), wx.ALL, 5)
  
   
         self.m_staticText192 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Description of Method:", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText192, wx.GBPosition(8, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         self.m_textCtrl192 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,100), 0)
-        gbSizer8.Add(self.m_textCtrl192, wx.GBPosition(8, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        gbSizer8.Add(self.m_textCtrl192, wx.GBPosition(8, 2), wx.GBSpan(1, 4), wx.ALL, 5)
         
         
         self.m_textCtrl185 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(400,50), 0)
-        gbSizer8.Add(self.m_textCtrl185, wx.GBPosition(9, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        gbSizer8.Add(self.m_textCtrl185, wx.GBPosition(9, 2), wx.GBSpan(1, 4), wx.ALL, 5)
         self.m_staticText185 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Results:", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText185, wx.GBPosition(9, 1), wx.GBSpan(1, 1), wx.ALL, 5)
 
@@ -494,7 +529,7 @@ class MyFrame1 (wx.Frame):
         gbSizer8.Add(self.m_grid41, wx.GBPosition(10, 2), wx.GBSpan(1, 4), wx.ALL, 5)
         
         self.m_staticText193 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"DC Volatge Offset:", wx.DefaultPosition, wx.DefaultSize, 0)
-        gbSizer8.Add(self.m_staticText193, wx.GBPosition(10, 1), wx.GBSpan(1, 1), wx.ALL, 5)
+        gbSizer8.Add(self.m_staticText193, wx.GBPosition(10, 1), wx.GBSpan(1,1), wx.ALL, 5)
 
         
         self.m_grid42 = wx.grid.Grid(self.m_scrolledWindow48, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0)
@@ -573,7 +608,7 @@ class MyFrame1 (wx.Frame):
         self.m_staticText810 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Report No.", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText810, wx.GBPosition(13, 1), wx.GBSpan(1, 1), wx.ALL, 5)
         self.m_textCtrl810 = wx.TextCtrl(self.m_scrolledWindow48, wx.ID_ANY, u"Electrical/"+time_bit+"/____/Day Month Year", wx.DefaultPosition, wx.Size(400,30), 0)
-        gbSizer8.Add(self.m_textCtrl810, wx.GBPosition(13, 2), wx.GBSpan(1, 1), wx.ALL, 5)
+        gbSizer8.Add(self.m_textCtrl810, wx.GBPosition(13, 2), wx.GBSpan(1, 4), wx.ALL, 5)
         
         self.m_button822 = wx.Button(self.m_scrolledWindow48, wx.ID_ANY, u"Create Report" , wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_button822, wx.GBPosition(14, 1), wx.GBSpan(1, 1), wx.ALL, 5)
@@ -613,9 +648,7 @@ class MyFrame1 (wx.Frame):
         self.m_staticText195 = wx.StaticText(self.m_scrolledWindow48, wx.ID_ANY, u"Ratio Data", wx.DefaultPosition, wx.DefaultSize, 0)
         gbSizer8.Add(self.m_staticText195, wx.GBPosition(15, 1), wx.GBSpan(1, 1), wx.ALL, 5)
 
-
-  
-  # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
          
         self.m_menubar1 = wx.MenuBar(0)
         self.m_menu11 = wx.Menu()
@@ -676,6 +709,8 @@ class MyFrame1 (wx.Frame):
         
         
         self.SetMenuBar(self.m_menubar1)
+        
+        #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
         self.m_auinotebook41 = wx.aui.AuiNotebook(self, wx.ID_ANY, wx.Point(-1,-1), wx.Size(500,-1), 0)
         self.m_auinotebook41.SetMinSize(wx.Size(200,300))

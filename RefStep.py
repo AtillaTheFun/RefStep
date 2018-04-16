@@ -20,7 +20,6 @@ import docx
 import modules.noname as noname
 import modules.visa2 as visa2 # this is the simulation version of visa
 import modules.GridMaker as GridMaker
-import modules.graph_data as graph_data
 import modules.pywxgrideditmixin as pywxgrideditmixin
 import modules.tables as tables
 import modules.analysis as analysis
@@ -54,7 +53,6 @@ class GraphFrame(noname.MyFrame1):
         sys.stdout = redir #print statements, note to avoid 'print' if callafter delay is an issue
         sys.stderr = redir #python errors
         self.data = stuff.SharedList(None) #no data on start up
-        self.timer0 =wx.Timer(self) #a timer for regular graphing
 
         self.cwd = os.getcwd() #identifies working directory at startup.
         iconFile = os.path.join(self.cwd, 'testpoint.ico')
@@ -77,44 +75,54 @@ class GraphFrame(noname.MyFrame1):
         self.OnAbout(None)
         
     def OnCreateReport(self, event):
+        
         """
         Uses the Report builder to output a Calibration Report.
         """
+
         CalRep = ReportBuilder.CalReport()
         CalRep.init(self)
         CalRep.BuildReport()
         
     def OnSource(self, event):
+
         """
         Respond to checkbox events.
         """
+
         if self.m_checkBox1.GetValue():
             self.m_checkBox1.SetValue(False)
         else:
             self.m_checkBox1.SetValue(True)
     
     def OnMeter(self, event):
+
         """
         Respond to checkbox events.
         """
+
         if self.m_checkBox2.GetValue():
             self.m_checkBox2.SetValue(False)
         else:
             self.m_checkBox2.SetValue(True)
             
     def dcStop(self, event):
+
         """
         Flags the worker thread to stop running if it exists.
         """
+
         # Flag the worker thread to stop if running
         if self.worker1:
             print('Halting GPIB data gathering')
             self.worker1.abort() 
         
     def dcStart(self, event):
+
         """
         Creates the instruments, and calls the doStart function. 
         """
+
         log = self.m_textCtrl91 # where stdout will be redirected
         redir = stuff.RedirectText(log)
         sys.stdout = redir #print statements, note to avoid 'print' if callafter delay is an issue
@@ -128,25 +136,30 @@ class GraphFrame(noname.MyFrame1):
         
         
     def dcMakeSafe(self, event):
+
         """
         Flags all threads to stop.
         """
+
         if self.worker1:
             self.worker1.MakeSafe()
         self.doStop() #stop main data gathering
-        self.timer0.Stop()#graph timer is stopped
-        self.paused = True #graphing is paused
+        self.paused = True 
         #self.m_button2.SetLabel("Plot")
 
        
         
     def dcCreateMeter(self):
+
         """
         Reads the dictionary uploaded to the grid, and creates gpib_inst.INSTRUMENT accordingly.
         Instruments must be the meter on the left, source S in the middle, source X on the right.
         """
+
         def sim(s):
+
             """Nested function used only here, returns a simplified string"""
+
             s = s.replace('\\r','\r')
             s = s.replace('\\n','\n')
             #Other simplifications might be necessary in the future I suppose.
@@ -166,6 +179,7 @@ class GraphFrame(noname.MyFrame1):
         return [self.meter]
         
     def dcDoStart(self, instruments):
+
         """
         Starts the algorithm, sends the created instruments to the wroker thread.
         """
@@ -192,19 +206,23 @@ class GraphFrame(noname.MyFrame1):
             self.worker1 = gpib_data.GPIBThreadDC(self, self.EVT_RESULT_ID_1,\
             [self.inst_bus, grid, self.meter,\
              dvm_range_col, self.Analysis_file_name,self.m_textCtrl92.GetValue(),self.m_textCtrl93.GetValue()],\
-            self.data,self.START_TIME,self.OverideSafety)
+            self.data,self.START_TIME,self.OverideSafety,self)
             #It has a huge list of useful things that it needs.
 
     def OnAddRowDC(self,event):
+
         """Add another row to the ranges table, this is necessary as it requires manual inputting."""
+
         self.m_grid91.AppendRows(1, True)
         self.m_grid91.Layout()
 
             
     def OnOpenData(self, event):
+
         """
         from MIEcalculator, graph_gui.py.
         """
+
         # In this case, the dialog is created within the method because
         # the directory name, etc, may be changed during the running of the
         # application. In theory, you could create one earlier, store it in
@@ -227,9 +245,11 @@ class GraphFrame(noname.MyFrame1):
         dlg.Destroy()
 
     def OnOpenDCData(self, event):
+
         """
         from MIEcalculator, graph_gui.py.
         """
+
         # In this case, the dialog is created within the method because
         # the directory name, etc, may be changed during the running of the
         # application. In theory, you could create one earlier, store it in
@@ -251,6 +271,7 @@ class GraphFrame(noname.MyFrame1):
         dlg.Destroy()
         
     def FillData(self):
+
         """
         Loads data to create a report. Requires a results sheet named "Results".
         Uses tables.TABLES for a excel-to-grid object.
@@ -258,7 +279,22 @@ class GraphFrame(noname.MyFrame1):
         
         datagrid = tables.TABLES(self)
         self.data_grid = datagrid.excel_to_grid(self.data_file, 'Results', self.m_grid44)
+        self.data_grid = datagrid.excel_to_grid(self.data_file, 'Gain Ratios', self.m_grid42) 
+        self.data_grid = datagrid.excel_to_grid(self.data_file, 'Linearity Ratios', self.m_grid43)
+        meter_row = 0
+        for i in range(0, self.m_grid42.GetNumberRows()):
+            if self.m_grid42.GetCellValue(i,0) == 'Meter Gain Ratios' :
+                meter_row = i
+        if self.m_checkBox1.GetValue():
+            self.m_grid42.DeleteRows(0,meter_row)
+            
+            
+        else:
+            self.m_grid42.DeleteRows(meter_row-1, self.m_grid42.GetNumberRows()-1)
+            
+            
     def FillDCData(self):
+
         """
         Loads data to create a report. Requires a results sheet named "Results".
         Uses tables.TABLES for a excel-to-grid object.
@@ -281,30 +317,42 @@ class GraphFrame(noname.MyFrame1):
         dlg.Destroy()
         
     def OnClearResultsDC(self, event):
+
+        """
+        Clears the Calibration Ranges table in the DC Offset Measurement tab to allow additional test runs. 
+        Reloads the ranges into the table once it is clear.
+        """
+
         self.m_grid91.ClearGrid()
         print('Clear Grid')
         self.FillGrid()
         
     def OnLive(self, event):
+
         """
         Chooses visa for live instruments
         """
+
         if self.m_menuItem2.IsChecked():
             self.inst_bus = visa #default for real instruments        
         
     def OnSimulate(self, event):
+
         """
         Chooses visa2 for simulated (poorly) GPIB.
         """
+
         if self.m_menuItem1.IsChecked():
             self.inst_bus = visa2 #choose visa2 for simulation
         else:
             self.inst_bus = visa
 
     def OnOpenDict(self, event):
+
         """
         from MIEcalculator, graph_gui.py.
         """
+
         # In this case, the dialog is created within the method because
         # the directory name, etc, may be changed during the running of the
         # application. In theory, you could create one earlier, store it in
@@ -329,10 +377,13 @@ class GraphFrame(noname.MyFrame1):
         self.FillGrid()
         
     def OnLoadTable(self, event):
+
         """Immediatly  calls the FillGrid function, so it can be used without the event too."""
+
         self.FillGrid()
         
     def FillGrid(self):
+
         """
         Loads self.proj_file to the grid. Requires a dictionary sheet named "Dict" and
         a control sheet named "Sheet 1". Uses tables.TABLES for a excel-to-grid object.
@@ -386,20 +437,26 @@ class GraphFrame(noname.MyFrame1):
                 
 
     def OnAddRow(self,event):
+
         """Add another row to the ranges table, this is necessary as it requires manual inputting."""
+
         self.m_grid21.AppendRows(1, True)
         self.m_grid21.Layout()
         
     def OnAddRange(self,event):
-        """Add a range to the Calibration Ranges table"""
+
+        """Add a range to the Calibration Ranges table """
+
         ranges = self.m_grid21.GetNumberRows()
         i = 0
-        while i < ranges-1:
-            print(i)
+        while i < ranges:
             cell = self.m_grid21.GetCellValue(i,0)
             if cell == '':
                 row = i
-                i = ranges-1
+                i = ranges
+            if i == (ranges-1):
+                self.m_grid21.AppendRows(1, True)
+                ranges = self.m_grid21.GetNumberRows()
             i = i +1
         self.m_grid21.SetCellValue(row,0,self.m_textCtrl50y.GetValue())
         self.m_grid21.SetCellValue(row,1,self.m_textCtrl50z.GetValue())        
@@ -410,24 +467,57 @@ class GraphFrame(noname.MyFrame1):
         self.m_grid21.SetCellValue(row,6,self.m_textCtrl50e.GetValue())    
         
     def OnClearRange(self, event):
+
         """Remove the last range from the Calibration Ranges table"""
+
         ranges = self.m_grid21.GetNumberRows()
         i = 0
-        while i < ranges-1:
-            print(i)
+        while i < ranges:
             cell = self.m_grid21.GetCellValue(i,0)
             if cell == '':
+                row = i-1
+                i = ranges
+            if i == (ranges-1):
                 row = i
-                i = ranges-1
             i = i +1
         
-        if row>0:
-            for i in range(0,6):
-                self.m_grid21.SetCellValue(row-1,i,'')        
+        if row>-1:
+            for i in range(0,7):
+                self.m_grid21.SetCellValue(row,i,'')    
+                
+    def ProgressUpdate(self,Label,Status,colour):
+
+        """
+        Update the status tracker in the Run tab. Parameters are Label of the heading to update, 
+        the string to update to and the colour of the text as a wx.colour 
+        """        
+
+        if Status == 'Error':
+            obj = self.LastObj
+            colour = wx.Colour(255,0,0)            
+            
+        if Label == "Creating Instruments:":
+            obj = self.m_staticText123b
+            self.m_staticText124b.SetValue(' ')
+            self.m_staticText125b.SetValue(' ')
+            
+        elif Label == "Safety Checks:":
+            obj = self.m_staticText124b
+            self.m_staticText125b.SetValue(' ')
+        elif Label == "Data Collection:":
+            obj = self.m_staticText125b
+            
+        #obj.SetDefaultStyle(wx.TextAttr(wx.NullColour, colour))
+        obj.SetForegroundColour(colour)
+        obj.SetValue(Status)
+        self.LastObj = obj 
+    
     def OnGenerateTable(self,event):
+
         """
         If a table has been loaded, calls CreateInstrumets and then GenerateTable.
         """
+
         #check that the ranges are inputed correctly?
         if self.loaded_dict == True:
             instruments = self.CreateInstruments()
@@ -435,9 +525,12 @@ class GraphFrame(noname.MyFrame1):
         else: print("Load instrument dictionaries")
     
     def GenerateTable(self,instruments):
+
         """
-        Generate table according to the calibration ranges table
+        Generate table according to the calibration ranges table. The ranges 
+        entered into the table are drawn from the insruments given as parameters
         """
+
         grid = self.m_grid3 #The grid to be used.
         #Make the grid 0 by 0, so it enlarges to exactly the right size when data is inputted. 
         if grid.GetNumberRows()>0:
@@ -479,9 +572,11 @@ class GraphFrame(noname.MyFrame1):
         self.m_grid3.Layout()
         
     def OnAnalysisFile(self, event):
+
         """
         from MIEcalculator, graph_gui.py.
         """
+
         # In this case, the dialog is created within the method because
         # the directory name, etc, may be changed during the running of the
         # application. In theory, you could create one earlier, store it in
@@ -505,10 +600,12 @@ class GraphFrame(noname.MyFrame1):
         if analysis_file: self.Analysis_file_name.SetLabel(analysis_file)
         
     def OnAnalyse(self,event):
+
         """
         Reads the name of the file to analyse,
         and sends it to the analysis object analysis.Analyser
         """
+
         #read a text box to get the name of file to analyse
         #create analysis object, send it the name of the file
         #it updates the file, adding the ratios.
@@ -529,9 +626,11 @@ class GraphFrame(noname.MyFrame1):
         #Perhaps find a good place to put back to the table.
         
     def OnSaveTables(self,event):
+
         """
         from MIEcalculator, graph_gui.py.
         """
+
         # In this case, the dialog is created within the method because
         # the directory name, etc, may be changed during the running of the
         # application. In theory, you could create one earlier, store it in
@@ -553,23 +652,29 @@ class GraphFrame(noname.MyFrame1):
         if save_file: self.SaveGrid(save_file)
 
     def SaveGrid(self,path):
+
         """
         Saves using the tables.TABLES object
         """
+
         controlgrid = tables.TABLES(self)
         controlgrid.grid_to_excel(path, [(self.m_grid3,"Control"),(self.m_grid2,"Dict"),(self.m_grid21,"Ranges")])
         
     def on_grid_edited(self, event):
+
         """When one of the two input grids is edited, disable the run button."""
+
         self.filled_grid = False
         #This prevents the user from running the program until they press
         #the fill grid button, and update the grid.
         
     def DoReset(self, event):
+  
         """
         Resets by clearing the data, and clearing the on screen text feedback.
         Also sets the Make Safe button back to green.
         """
+
         #reset the data, and clear the text box
         self.doStop()
         self.data.reset_list()
@@ -578,29 +683,47 @@ class GraphFrame(noname.MyFrame1):
         
 
     def OnStart(self, event):
+        
         """
         Creates the instruments, and calls the doStart function. 
         """
+
         log = self.m_textCtrl81 # where stdout will be redirected
         redir = stuff.RedirectText(log)
         sys.stdout = redir #print statements, note to avoid 'print' if callafter delay is an issue
         sys.stderr = redir #python errors
         if self.filled_grid == True:
-            instruments = self.CreateInstruments()
-            self.doStart(instruments)
+            if self.m_checkBox3.IsChecked():
+                instruments = self.CreateInstruments()
+                self.doStart(instruments)
+            else:
+                self.CheckCalibration()
         else:
             print("Input grids changed, generate a table again to continue")
+            
+    def CheckCalibration(self):
+
+        """
+        Generate and show confirmation window to check DC Zero Calibration.`
+        """
+        
+        popup = Confirmation()
+        popup.Show()
         
     def CreateInstruments(self):
+
         """
         Reads the dictionary uploaded to the grid, and creates gpib_inst.INSTRUMENT accordingly.
         Instruments must be the meter on the left, source S in the middle, source X on the right.
         """
+
         def sim(s):
+
             """Nested function used only here, returns a simplified string"""
+
             s = s.replace('\\r','\r')
             s = s.replace('\\n','\n')
-            #Other simplifications might be necessary in the future I suppose.
+            #Other simplifications might be necessary for additional instruments.
             return s
         
         dicts = self.m_grid2
@@ -625,6 +748,7 @@ class GraphFrame(noname.MyFrame1):
         self.OverideSafety = False
     
     def doStart(self,instruments):
+
         """
         Starts the algorithm, sends the created instruments to the wroker thread.
         """
@@ -659,50 +783,39 @@ class GraphFrame(noname.MyFrame1):
             [self.inst_bus, grid, start_row, stop_row, dvm_nordgs_col, self.meter,\
              dvm_range_col, self.sourceX, sX_range_col, sX_setting_col,self.sourceS,\
              sS_range_col, sS_setting_col,delay_col, self.Analysis_file_name],\
-            self.data,self.START_TIME,self.OverideSafety)
+            self.data,self.START_TIME,self.OverideSafety,self)
             #It has a huge list of useful things that it needs.
             
     def OnStop(self, event):
         self.doStop()
         
     def doStop(self):
+
         """
         Flags the worker thread to stop running if it exists.
         """
+
         # Flag the worker thread to stop if running
         if self.worker1:
             print('Halting GPIB data gathering')
             self.worker1.abort() 
             
     def OnMakeSafe(self, event):
+
         """
         Flags all threads to stop.
         """
+
         if self.worker1:
             self.worker1.MakeSafe()
         self.doStop() #stop main data gathering
-        self.timer0.Stop()#graph timer is stopped
-        self.paused = True #graphing is paused
+        self.paused = True 
         #self.m_button2.SetLabel("Plot")
 
         # next run a gpib thread that sets sources to zero and standby and meter to autorange HV?
-
-#    def OnTimer0(self,evt):
-#        #self.thePlot()
         
-    def OnPauseButton(self, event):
-        
-        if self.paused:
-            #self.thePlot #plot immediately, then on timer events
-            self.timer0.Start(1000)
-        else:
-            self.timer0.Stop()
-        self.paused = not self.paused
-        label = "Plot" if self.paused else "Pause"
-        #self.m_button2.SetLabel(label)
-        
- 
     def OnResult1(self, event):
+
         """Show Result status, event for termination of gpib thread"""
         
         #ENABLE BUTTONS
@@ -737,9 +850,11 @@ class GraphFrame(noname.MyFrame1):
         self.m_panel7.SendSizeEvent()#forces textCtrl8 to resize to content
 
     def OnRefreshInstruments(self, event):
+
         """
         Adds all active instrument addresses to the drop down selection for the instruments.
         """
+
         rm = self.inst_bus.ResourceManager()#new Visa
         try:
             resources = rm.list_resources()
@@ -763,9 +878,11 @@ class GraphFrame(noname.MyFrame1):
         bus.send_ifc()
         
     def OnSendTestCommand(self, event):
+
         """
         Sends a test command to the selected instrument using doSend.
         """
+
         name = self.m_comboBox8.GetValue()
         if name == 'Meter':
             address = self.Meteraddress.GetValue()
@@ -780,8 +897,10 @@ class GraphFrame(noname.MyFrame1):
             self.m_textCtrl23.AppendText('select instrument\n')
 
     def doOnSend(self,address):
+
         """ sends the commend to the address specified,
         creates a new visa resource manager."""
+
         try:
             command = self.m_textCtrl18.GetValue()
             rm = self.inst_bus.ResourceManager()#new Visa
@@ -793,10 +912,12 @@ class GraphFrame(noname.MyFrame1):
             
         
     def OnReadTestCommand(self, event):
+
         """
         Reads from whatever instrument is selected using doRead.
         Will fail if it finds nothing on the instrument bus.
         """
+
         instrument = self.m_comboBox8.GetValue()
         if instrument == 'Meter':
             address = self.Meteraddress.GetValue()
@@ -811,7 +932,9 @@ class GraphFrame(noname.MyFrame1):
             self.m_textCtrl23.AppendText('select instrument\n')
         
     def doRead(self,address):
+
         """reads from the specified address"""
+
         rm = self.inst_bus.ResourceManager()#new Visa
         instrument = rm.open_resource(address)
         try:
@@ -853,6 +976,7 @@ class GraphFrame(noname.MyFrame1):
 
     
     def OnClose(self, event):
+
         """
         Make sure threads not running if frame is closed before stopping everything.
         Seems to generate errors, but at least the threads do get stopped!
@@ -860,6 +984,7 @@ class GraphFrame(noname.MyFrame1):
         a thread to normally complete? Since thread needs to be able to
         post event back to the main frame.
         """
+
         if self.worker1: #stop main GPIB thread
             self.worker1.abort()
             time.sleep(0.3)
@@ -885,6 +1010,38 @@ class HelpBox (wx.Frame):
 
     def __del__(self):
         pass
+
+
+class Confirmation (wx.Frame):
+    
+    """ 
+    Creates window to remind user to perform a DC Zero calibration on the instruments.
+    User can either confirm that instruments are calibrated or can decide it is not 
+    neccesary for the next run of tests.
+    """
+    
+    def __init__(self):
+        wx.Frame.__init__(self, None, wx.ID_ANY, 'Sources not calibrated?',size=(800,130))
+        panel=wx.Panel(self, -1)
+        
+        msg = "Instruments need to undergo DC Zero Calibration. If already calibrated, ensure 'Instruments are Zero Calibrated' checkbox is filled."
+        instructions = wx.StaticText(panel, label=msg)
+        
+        closeBtn = wx.Button(panel, label="Instruments have been DC zero calibrated")
+        closeBtn.Bind(wx.EVT_BUTTON, self.onClose)
+        closeBtn2= wx.Button(panel, label="DC zero calibration is not required")
+        closeBtn2.Bind(wx.EVT_BUTTON, self.onClose)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        flags = wx.ALL|wx.CENTER
+        sizer.Add(instructions, 0, flags, 5)
+        sizer.Add(closeBtn, 0, flags, 5)
+        sizer.Add(closeBtn2, 0, flags, 5)
+        
+        panel.SetSizer(sizer)
+        
+    def onClose(self, event):
+        self.Close()
+
 
 
 if __name__ == "__main__":

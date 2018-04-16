@@ -4,6 +4,7 @@ The GUI should only allow one GPIB thread at a time.
 Thread also writes raw data file to an excel sheet.
 Log files are written at event termination from graphframe.py.
 """
+import wx, wx.html
 
 import stuff
 import csv
@@ -15,10 +16,12 @@ import openpyxl
 import PyPDF2
 
 class GPIBThreadF(stuff.WorkerThread):
+
     """
     Ref step main thread
     """
-    def __init__(self, notify_window, EVT, param, data,start_time,OverideSafety):
+
+    def __init__(self, notify_window, EVT, param, data,start_time,OverideSafety,parent):
         stuff.WorkerThread.__init__(self, notify_window, EVT, param, data,start_time,OverideSafety)
         #param[0] holds self.inst_bus, the chosen real or simulated visa
         self.inst_bus = param[0] #visa or simulated visa2
@@ -38,6 +41,7 @@ class GPIBThreadF(stuff.WorkerThread):
         self.Analysis_file_name = param[14]
         self.OverideSafety = OverideSafety
         self.MadeSafe = False
+        self.parent = parent
 
         time_bit = time.strftime("%Y.%m.%d.%H.%M.%S",time.localtime())
         log_file_name = 'log_files/log.'+time_bit+".txt"
@@ -59,9 +63,11 @@ class GPIBThreadF(stuff.WorkerThread):
 
         
     def PrintSave(self, text):
+
         """
         Prints a string, and saves to the log file too.
         """
+
         if self._want_abort: #stop the pointless printing if the thread wants to abort
             return
         else:
@@ -69,6 +75,7 @@ class GPIBThreadF(stuff.WorkerThread):
             print(str(text))
             
     def com(self, command,send_item=None):
+
         """
         Combine the instrument command with an item (if one is specified).
         All commands go through this function, as it wraps each command
@@ -95,12 +102,14 @@ class GPIBThreadF(stuff.WorkerThread):
             return 0
         
     def MakeSafe(self):
+
         """
         Make the instruments safe, bypass the self.com
         command in order to pass it directly to the instruments,
         that way recording weather or not the making safe worked
         for the instruments. Reports to GUI if it is unsafe.
         """
+
         sucessX,valX,stringX = self.sourceX.make_safe()
         sucessS,valS,stringS = self.sourceS.make_safe()
         sucessM,valM,stringM = self.voltmeter.make_safe()
@@ -112,11 +121,13 @@ class GPIBThreadF(stuff.WorkerThread):
             wx.PostEvent(self._notify_window, stuff.ResultEvent(self.EVT, None))
             
     def Error_string_maker(self):
+
         """
         Reads all errors in the instruments, and appends them together in a string.
         If there are errors during the running of the code, they will be printed
         on the left of the table as a warning flag.
         """
+
         #somehow still prints "0" when the instruments have no error.
         string = " "
         #query instrument errors, and save individual error strings.
@@ -136,21 +147,27 @@ class GPIBThreadF(stuff.WorkerThread):
         return string
 
     def set_grid_val(self,row,col,data):
+
         """ Set the value of a grid cell"""
+
         wx.CallAfter(self.grid.SetCellValue, row, col, str(data))
         
     def read_grid_cell(self,row,col):
+
         """ Read a grid cell"""
+
         value = 0
         if not self._want_abort:
             value = self.grid.GetCellValue(row, col)
         return value
         
     def end(self):
+
         """
         Function to close files and post an event to the main grid,
         letting it know that the thread has ended.
         """
+
         self.MakeSafe()
         self.com(self.sourceS.Standby)
         self.com(self.sourceX.Standby)
@@ -160,9 +177,11 @@ class GPIBThreadF(stuff.WorkerThread):
         wx.PostEvent(self._notify_window, stuff.ResultEvent(self.EVT, 'GPIB ended'))
 
     def wait(self,wait_time):
+
         """
         safely loop until time is up, checking for abort
         """
+
         t=time.time()
         while time.time()<t+wait_time:
             if self._want_abort: #has the stop button been pushed?
@@ -170,6 +189,11 @@ class GPIBThreadF(stuff.WorkerThread):
         return
     
     def initialise_instruments(self):
+
+        """
+        Initialise the instruments one at a time and print the result of first read for each instrument.
+        """
+
         self.com(self.voltmeter.reset_instrument)
         self.com(self.voltmeter.initialise_instrument)
         self.com(self.sourceX.reset_instrument)
@@ -189,11 +213,13 @@ class GPIBThreadF(stuff.WorkerThread):
         print('init done')
         
     def set_source_ranges(self,row):
+
         """
         Read the grid and obtain values for the ranges of the sources.
         If the ranges are different to the ranges set previously,
         set the current range (avoid needlessly sending range commands).
         """
+
         #read ranges of instruments.
         #If current range is not equal to the previous, apply range setting.
         sourceS_range = self.read_grid_cell(row, self.sourceS_range_col)
@@ -209,10 +235,12 @@ class GPIBThreadF(stuff.WorkerThread):
         self.com(self.sourceX.set_DCvalue,sourceX_value)
         
     def set_meter_range(self,row):
+
         """
-        Set the range for the meter, but also return the value
+        Set the range for the meter to that in the dvm range collumn at the given row, but also return the value
         of the max of the range. used in safety checks.
         """
+
         dvm_range = self.read_grid_cell(row, self.dvm_range_col)
         for some_range in self.voltmeter.range:
             if float(some_range[2]) == float(dvm_range):
@@ -231,12 +259,14 @@ class GPIBThreadF(stuff.WorkerThread):
         return range_max
     
     def do_readings(self,delay_time2,range_max,nominal_reading,nordgs):
+
         """
         Do a single reading on the meter, including safety checks:
         report a reading as faulty if it is 0.1% of the top of the current
         range away from the nominal value. If the difference of the nominal
         reading to the actual reading is 5% of the max range value of more then abort.
         """
+
         these_readings = []
         error_strings = " "
         
@@ -273,7 +303,9 @@ class GPIBThreadF(stuff.WorkerThread):
         return these_readings,error_strings
 
     def print_instrument_status(self,row):
+
         """Read the status of all instruments, print to grid"""
+
         self.com(self.voltmeter.inst_status)
         self.set_grid_val(row, self.dvm_nordgs_col+3, str(self.com(self.voltmeter.read_instrument)))
         #force string of value as it needs to go into the grid and grid only takes in strings.
@@ -285,37 +317,54 @@ class GPIBThreadF(stuff.WorkerThread):
         self.set_grid_val(row, self.dvm_nordgs_col+5, str(self.com(self.sourceX.read_instrument)))
 
     def run(self):
+
         """
         Main thread, reads through the table and executes commands.
         """
+        
+        self.parent.ProgressUpdate("Creating Instruments:", "In Progress",wx.Colour(0, 0, 0))
         self.com(self.voltmeter.create_instrument)
         self.com(self.sourceX.create_instrument)
         self.com(self.sourceS.create_instrument)
+        
+        
         #If the initialisations failed, stop the thread immediatly.
         #There is no point running make safe if the instruments arent there.
         if self._want_abort:
             #Notify the window that the thread ended, so buttons are enabled.
             wx.PostEvent(self._notify_window, stuff.ResultEvent(self.EVT, 'GPIB ended'))
+            self.parent.ProgressUpdate("Creating Instruments:", "Error",wx.Colour(255, 0, 0))
+        
             return
-
+        else:
+            self.parent.ProgressUpdate("Creating Instruments:", "Complete",wx.Colour(0, 255, 0))
+            
+        self.parent.ProgressUpdate("Safety Checks:", "In Progress",wx.Colour(0, 0, 0))
+        
         if self.OverideSafety == False: #Then do the safety checks.
             state = self.SafetyCheck()
             if state != 'clear':
                 self._want_abort = True
                 self.PrintSave('safety checks failed, making safe, aborting.')
                 self.MakeSafe()
+                self.parent.ProgressUpdate("Safety Checks:", "Error",wx.Colour(255, 0, 0))
+            else:
+                self.parent.ProgressUpdate("Safety Checks:", "Complete",wx.Colour(0, 255, 0))
 
         #initialise instruments
         self.initialise_instruments()
-
+        not_complete = 0;
         
 
         for row in range(self.start_row,self.stop_row + 1):
             if self._want_abort:
+                self.parent.ProgressUpdate("Data Collection:", "Not Complete: Step " + str(row+1-self.start_row) + " of " + str(self.stop_row+1-self.start_row) + " steps" ,wx.Colour(255, 0, 0))
+                not_complete = 1;
                 break #Breaks and skips to the end, where it runs "self.end()".
 
             #do the row highlighting, force a refresh.
             self.PrintSave("Spread sheet row "+str(int(row)+1))
+            self.parent.ProgressUpdate("Data Collection:", "In Progress: " + str(row+1-self.start_row) + " of " + str(self.stop_row+1-self.start_row) + " steps" ,wx.Colour(0, 0, 0))
             wx.CallAfter(self.grid.SelectRow,row)
             wx.CallAfter(self.grid.ForceRefresh)
             wx.CallAfter(self.grid.Update)
@@ -377,11 +426,13 @@ class GPIBThreadF(stuff.WorkerThread):
             csv_line = [self.read_grid_cell(row, i) for i in range(self.grid.GetNumberCols())]
             csv_line = csv_line+[before_msmnt_time,after_msmnt_time]+these_readings
             self.sh.append(csv_line)
-
+        if not_complete == 0:
+            self.parent.ProgressUpdate("Data Collection:", "Complete",wx.Colour(0, 255, 0))
         self.end()
 
 
     def initialchecks(self,instrument):
+
         """
         Short function used in the safety check routine, given an instrument it resets
         the instrument, does initialisation and reads errors. Will continuously read
@@ -400,10 +451,12 @@ class GPIBThreadF(stuff.WorkerThread):
         else: return 'clear'
 
     def CheckInstruments(self,*args):
+
         """
         Given any number of instruments, will read through each and PrintSave errors.
         Each instrument is continuously interrogated until it returns its no-error string.
         """
+
         for instrument in args:
             self.com(instrument.query_error)
             error = self.com(instrument.read_instrument)  #2220
@@ -418,12 +471,14 @@ class GPIBThreadF(stuff.WorkerThread):
 
             
     def SafetyCheck(self):
+
         """
         A linear function for the determination of some basic safety settings.
         It can be overriden.
         Will check: errors, resetting, outputting zero volts, ouputting 1 volt.
         If this is sucessful it will also determine if the wires are connected the wrong way.
         """
+
         #determine how long to wait for an output of 1V to settle. do this
         #by reading ranges that include 1V, and finding maximum delay
 
@@ -506,6 +561,7 @@ class GPIBThreadF(stuff.WorkerThread):
                 return state
             state = self.CheckInstruments(self.sourceX,self.sourceS)
             
+            
         return state
 
 
@@ -515,12 +571,26 @@ class GPIBThreadF(stuff.WorkerThread):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 class GPIBThreadDC(stuff.WorkerThread):
+
     """
     DC Offset calculation thread.
     """
+
     def __init__(self, notify_window, EVT, param, data, start_time,
-                 OverideSafety):
+                 OverideSafety,parent):
         stuff.WorkerThread.__init__(self, notify_window, EVT, param, data,
                                     start_time, OverideSafety)
         self.inst_bus = param[0]  # visa or simulated visa2
@@ -540,12 +610,17 @@ class GPIBThreadDC(stuff.WorkerThread):
         self.logfile = open(log_file_name,'w')
         self.ranges = 0
         self.dvm_range_col = 0
-        self.start()
         
+        self.parent = parent
+        
+        self.start()
+
     def PrintSave(self, text):
+
         """
         Prints a string, and saves to the log file too.
         """
+
         if self._want_abort: #stop the pointless printing if the thread wants to abort
             return
         else:
@@ -553,6 +628,7 @@ class GPIBThreadDC(stuff.WorkerThread):
             print(str(text))
             
     def com(self, command,send_item=None):
+
         """
         Combine the instrument command with an item (if one is specified).
         All commands go through this function, as it wraps each command
@@ -578,12 +654,14 @@ class GPIBThreadDC(stuff.WorkerThread):
         else:
             return 0
     def MakeSafe(self):
+
         """
         Make the instruments safe, bypass the self.com
         command in order to pass it directly to the instruments,
         that way recording weather or not the making safe worked
         for the instruments. Reports to GUI if it is unsafe.
         """
+
         sucessM,valM,stringM = self.voltmeter.make_safe()
         self.PrintSave("Make safe sent. status is:")
         self.PrintSave("Meter {}".format(sucessM))
@@ -593,11 +671,13 @@ class GPIBThreadDC(stuff.WorkerThread):
             wx.PostEvent(self._notify_window, stuff.ResultEvent(self.EVT, None))
             
     def Error_string_maker(self):
+
         """
         Reads all errors in the instruments, and appends them together in a string.
         If there are errors during the running of the code, they will be printed
         on the left of the table as a warning flag.
         """
+
         #somehow still prints "0" when the instruments have no error.
         string = " "
         #query instrument errors, and save individual error strings.
@@ -610,21 +690,27 @@ class GPIBThreadDC(stuff.WorkerThread):
         return string
 
     def set_grid_val(self,row,col,data):
-        """ Set the value of a grid cell"""
+
+        """ Set the value of a grid cell at coordinate to given data value"""
+
         wx.CallAfter(self.grid.SetCellValue, row, col, str(data))
         
     def read_grid_cell(self,row,col):
+
         """ Read a grid cell"""
+
         value = 0
         if not self._want_abort:
             value = self.grid.GetCellValue(row, col)
         return value
         
     def end(self):
+
         """
         Function to close files and post an event to the main grid,
         letting it know that the thread has ended.
         """
+
         self.MakeSafe()
         
         self.logfile.close()
@@ -634,9 +720,11 @@ class GPIBThreadDC(stuff.WorkerThread):
         
 
     def wait(self,wait_time):
+
         """
         safely loop until time is up, checking for abort
         """
+
         t=time.time()
         while time.time()<t+wait_time:
             if self._want_abort: #has the stop button been pushed?
@@ -655,12 +743,13 @@ class GPIBThreadDC(stuff.WorkerThread):
         
         print('init done')
         
-        
     def set_meter_range(self,row):
+
         """
-        Set the range for the meter, but also return the value
+        Set the range for the meter to that in the dvm range collumn at the given row, but also return the value
         of the max of the range. used in safety checks.
         """
+        
         dvm_range = self.read_grid_cell(row, self.dvm_range_col)
         if row>0:
             if dvm_range != self.read_grid_cell(row-1, self.dvm_range_col):
@@ -679,12 +768,14 @@ class GPIBThreadDC(stuff.WorkerThread):
         return range_max
     
     def do_readings(self,delay_time2,range_max,nominal_reading,nordgs):
+
         """
         Do a single reading on the meter, including safety checks:
         report a reading as faulty if it is 0.1% of the top of the current
         range away from the nominal value. If the difference of the nominal
         reading to the actual reading is 5% of the max range value of more then abort.
         """
+
         these_readings = []
         error_strings = " "
                 
@@ -721,16 +812,20 @@ class GPIBThreadDC(stuff.WorkerThread):
         return these_readings,error_strings
 
     def print_instrument_status(self,row):
+
         """Read the status of all instruments, print to grid"""
+
         self.com(self.voltmeter.inst_status)
         print( str(self.com(self.voltmeter.read_instrument)))
         #force string of value as it needs to go into the grid and grid only takes in strings.
         
         
     def run(self):
+
         """
         Main thread, reads through the table and executes commands.
         """
+
         self.com(self.voltmeter.create_instrument)
         
         #If the initialisations failed, stop the thread immediatly.
@@ -831,6 +926,7 @@ class GPIBThreadDC(stuff.WorkerThread):
 
 
     def initialchecks(self,instrument):
+
         """
         Short function used in the safety check routine, given an instrument it resets
         the instrument, does initialisation and reads errors. Will continuously read
@@ -849,10 +945,12 @@ class GPIBThreadDC(stuff.WorkerThread):
         else: return 'clear'
 
     def CheckInstruments(self,*args):
+
         """
         Given any number of instruments, will read through each and PrintSave errors.
         Each instrument is continuously interrogated until it returns its no-error string.
         """
+
         for instrument in args:
             self.com(instrument.query_error)
             error = self.com(instrument.read_instrument)  #2220
@@ -867,12 +965,14 @@ class GPIBThreadDC(stuff.WorkerThread):
 
             
     def SafetyCheck(self):
+
         """
         A linear function for the determination of some basic safety settings.
         It can be overriden.
         Will check: errors, resetting, outputting zero volts, ouputting 1 volt.
         If this is sucessful it will also determine if the wires are connected the wrong way.
         """
+
         #determine how long to wait for an output of 1V to settle. do this
         #by reading ranges that include 1V, and finding maximum delay
 

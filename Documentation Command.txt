@@ -1,0 +1,1 @@
+>sphinx-build -b html C:\Users\h.gibb\Documents\GitHub\RefStep\Sphinx_documentation_attempt C:\Users\h.gibb\Documents\GitHub\RefStep\Sphinx_documentation_attempt\_build

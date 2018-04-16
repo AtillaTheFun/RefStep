@@ -1,0 +1,59 @@
+2018.04.09.09.51.14,  Creating HP: success
+2018.04.09.09.51.14,  Creating FL5700: success
+2018.04.09.09.51.14,  Creating FL5730: success
+2018.04.09.09.51.14,       HP: RESET
+2018.04.09.09.51.14,       HP: END 2; DCV AUTO; AZERO ON;DELAY 0;NPLC 20
+2018.04.09.09.51.14,       HP: ERR?
+2018.04.09.09.51.14,  reading HP: 0
+
+0
+
+2018.04.09.09.51.14,       FL5700: *RST
+2018.04.09.09.51.14,       FL5700: OUT 0V, 0HZ
+2018.04.09.09.51.14,       FL5700: FAULT?
+2018.04.09.09.51.15,  reading FL5700: 0
+
+0
+
+2018.04.09.09.51.15,       FL5730: *RST
+2018.04.09.09.51.15,       FL5730: OUT 0V, 0HZ
+2018.04.09.09.51.15,       FL5730: FAULT?
+2018.04.09.09.51.16,  reading FL5730: 0
+
+0
+
+2018.04.09.09.51.16,       FL5700: STBY
+2018.04.09.09.51.16,       FL5730: STBY
+2018.04.09.09.51.16,       FL5700: FAULT?
+2018.04.09.09.51.17,  reading FL5700: 0
+
+2018.04.09.09.51.17,       FL5730: FAULT?
+2018.04.09.09.51.17,  reading FL5730: 0
+
+2018.04.09.09.51.17,       FL5730: OUT 0V
+2018.04.09.09.51.17,       FL5700: OUT 0V
+2018.04.09.09.51.18,       FL5730: FAULT?
+2018.04.09.09.51.18,  reading FL5730: 0
+
+2018.04.09.09.51.18,       FL5700: FAULT?
+2018.04.09.09.51.18,  reading FL5700: 0
+
+testing voltage is setting correctly, and zeros
+2018.04.09.09.51.18,       FL5700: OPER
+2018.04.09.09.51.19,       FL5730: OPER
+2018.04.09.09.51.24,  reading HP: -1.166523826E+00
+
+2018.04.09.09.51.24,       FL5700: FAULT?
+2018.04.09.09.51.24,  reading FL5700: 0
+
+2018.04.09.09.51.24,       FL5730: FAULT?
+2018.04.09.09.51.24,  reading FL5730: 0
+
+testing voltage setting correctly
+2018.04.09.09.51.24,       FL5700: STBY
+2018.04.09.09.51.25,       FL5700: RANGELCK OFF; OUT 2V; RANGELCK ON
+2018.04.09.09.51.25,       FL5700: OUT 1V
+2018.04.09.09.51.25,       FL5700: OPER
+2018.04.09.09.51.31,  reading HP: -1.212580667E+00
+
+Source X set to 1, expect reading to be near 1, but it is -1.212580667 check output load on X and SettleTime

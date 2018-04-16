@@ -9,15 +9,19 @@ import warnings
 import GTC
 
 class Analyser(object):
+    
     """
     Analysis object for a refstep table with arbitrary lengths of runs (not restricted to 10, but needs more than 1).
     """
+
     def __init__(self,book_name,sheet_name): 
+
         """
         Initialisation requires the name (change to path?) of the file, name of sheet to read
         and the 'window' to read data from. The window is a set of coordinates (y,y,x,x) of the
         top left and bottom right that define the block of data to load.
         """
+
         self.mean_col = 13 #column for the mean values
         self.std_col = self.mean_col+1
         self.DoF_col = self.mean_col-6 #might change if we add col for the actual range settings of the instruments for verification
@@ -39,6 +43,7 @@ class Analyser(object):
                 
                 self.sh_results = self.wb.create_sheet(title="Results")
                 self.sh_gain_ratios = self.wb.create_sheet(title="Gain Ratios")
+                self.sh_lin_ratios = self.wb.create_sheet(title="Linearity Ratios")
                 window = [1,self.sh.max_row+1,1,self.sh.max_column+1]
                 self.data = self.get_data(window) #row,row,col,col
             except IOError:
@@ -47,22 +52,28 @@ class Analyser(object):
             print("No valid file name")
 
     def Save(self,name):
+
         """
         Saves the product excel sheet to a given name.
         """
+
         if self.wb:
             self.wb.save(name)
         
     def print_cell(self,value,row,column,sheet):
+
         """
         Prints a single cell to the sheet. function takes in the cell value, the cell row, and the cell column in this order
         """
+
         sheet.cell(row = row,column = column,value = value)
         
     def PrintCol(self,col,start_row,start_col,sheet):
+
         """
         Prints an entire column using the print cell function. Requires the column to print, start row, start col.
         """
+
         for value, row in zip(col,range(start_row,len(col)+start_row)):
             self.print_cell(value,row,start_col,sheet)
             
@@ -72,9 +83,11 @@ class Analyser(object):
             self.PrintCol(col,start_row,i,sheet)
     
     def PrintRow(self,row,start_col,start_row,sheet):
+
         """
-        Prints an entire column using the print cell function. Requires the column to print, start row, start col.
+        Prints an entire row using the print cell function. Requires the row to print, start row, start col.
         """
+
         for value, col in zip(row,range(start_col,len(list(row))+start_col)):
             self.print_cell(value,start_row,col,sheet)
             
@@ -84,10 +97,12 @@ class Analyser(object):
             self.PrintRow(row,start_col,i,sheet)
             
     def read_cell(self,cell_row,cell_col):
+
         """
         Reads a cell from the loaded data. cell coordinates must be within the window specified earlier.
         function takes inputs as the cell row and cell column.
         """
+
         try:
             info = self.data[cell_row][cell_col]
         except:
@@ -96,9 +111,11 @@ class Analyser(object):
         return info
 
     def get_data(self,block_range):
+
         """
         Returns a 2D array of the entire window specified. the function requires the block range or window to be specified.
         """
+
         rows = []
         for i in range(block_range[0],block_range[1]):
             single_row = []
@@ -108,10 +125,12 @@ class Analyser(object):
         return rows
 
     def x_ratio(self,ureals,s0,s1):
+
         """
         Computes the ratios for a set of ascending GTC.ureal objects, for source x. The first two data points must belong to
         the range below and are used for the gain ratio computation.
         """
+
         #compute ratios for a set of ascending ureals, for source x. first two data points are for the gain ratio, ie they are on a lower range.
         print("length x "+str(len(ureals)))
         Sum = 0
@@ -132,10 +151,12 @@ class Analyser(object):
         return [lin_ratio,gain_ratio]
     
     def m_ratio(self,ureals,s0,s1):
+
         """
         Computes the ratios for a set of ascending GTC.ureal objects, for source x. The first two data points must belong to
         the range below and are used for the gain ratio computation.
         """
+
         #compute ratios for a set of ascending ureals, for the meter, first two data points are for the gain ratio, ie they are on a lower range.
         print("length m "+str(len(ureals)))
         Sum = 0
@@ -156,14 +177,16 @@ class Analyser(object):
         return [lin_ratio,gain_ratio]
 
     def split_set(self,ureals,s_settings):
+
         """
         Given a symmetric set of ascending and decending GTC.ureal objects that contain data for both meter and source
         this function splits the data up to its respective instruments (most points are used in both meter and source calculations)
         and then splits it further into ascending and decending components.
         """
+
         #split set of ascending and decending data to two ratio computations, for x and s
         length = len(ureals)
-        top_data = ureals[:(length+1/2)] #include center point
+        top_data = ureals[:(length/2)] #include center point
         bottom_data = ureals[(length/2):]
         #meter and source require different subsets of each of these sets of data
         m_data = ureals[:2]+ureals[3:-3]+ureals[-2:] #first and second points for gain ratios, then from sixth point
@@ -183,21 +206,25 @@ class Analyser(object):
         return [m_top,m_bottom,x_top,x_bottom]+s_bits
 
     def find_center(self,start_row):
+
         """
         Given a start row, reads through the test column (column 2, settings column for the source)
-        and identifies the mid points (3 repeated settings). returns the mid point row and end point row.
+        and identifies the mid points (5 repeated settings). returns the mid point row and end point row.
         """
+
         test_row = start_row+2 #skip the first two settings used for gain ratio
         test_col = 2 #will read column 2 to identify the turning point of algorithm
         loop = True #loop test flag
         while loop ==True:
             #print(test_row,test_col)
             #record the cells below and above test cell
-            cell1 = self.read_cell(test_row-1, test_col)
-            cell2 = self.read_cell(test_row, test_col)
-            cell3 = self.read_cell(test_row+1, test_col)
+            cell1 = self.read_cell(test_row-2, test_col)
+            cell2 = self.read_cell(test_row-1, test_col)
+            cell3 = self.read_cell(test_row, test_col)
+            cell4 = self.read_cell(test_row+1, test_col)
+            cell5 = self.read_cell(test_row+2, test_col)
             #if they are all equal this must be the turninig point of the sequence
-            if cell1==cell2 and cell1 ==cell3:
+            if cell1==cell2 and cell1 ==cell3 and cell1 ==cell4 and cell1 ==cell5:
                 loop = False
             else:
                 test_row = test_row+1
@@ -215,11 +242,13 @@ class Analyser(object):
         
     
     def analysis(self):
+
         """
         Main analysis function. Reads averages and standard deviations to create GTC,ureal objects, by using the find_center function to determine starting and end points of a set.
         These are first sent to the split_set function to be seperated out for the different instruments, then each segment is sent to a ratio computation function which
-        returns the gain ratio and lineariy ratio for that set.
+        returns the gain ratio and lineariy ratio for that set. Additionally the ratios are converted to parts per million and stored in a separate location. 
         """
+
         if self.wb == None:
             return
         
@@ -283,11 +312,12 @@ class Analyser(object):
         while continue_analysis_ratios == True:
             sets = int(0.5*len(self.results))
             rows = []
-            rows.append(["Gain Ratios"]+["Positive"]+['']+["Negative"])
-            rows.append(["Source"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
+            rows.append(["Source Gain Ratios"]+["Positive"]+['']+["Negative"])
+            rows.append(["Range"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
             
                          
             
+            # Generate Gain Ratios in correct form using calculated ratios for the Source 
             for i in range(0, sets):
                 mean_posi = (abs(self.results[2*i][1][2]) - 1 + abs(self.results[2*i][1][4])-1)/2 * 1000000
                 std_dev_posi = (self.results[2*i][2][2] + self.results[2*i][2][4])/2 * 1000000
@@ -300,11 +330,11 @@ class Analyser(object):
                 # x2 and x2+1
             
             rows.append([" "])
-            rows.append(["Gain Ratios"]+["Positive"]+['']+["Negative"])
-            rows.append(["Meter"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
+            rows.append(["Meter Gain Ratios"]+["Positive"]+['']+["Negative"])
+            rows.append(["Range"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
             
                          
-            
+            # Generate Gain Ratios in correct form using calculated ratios for the Meter 
             for i in range(0, sets):
                 mean_posi = (abs(self.results[2*i][1][6]) - 1 + abs(self.results[2*i][1][8])-1)/2 * 1000000
                 std_dev_posi = (self.results[2*i][2][6] + self.results[2*i][2][8])/2 * 1000000
@@ -313,12 +343,47 @@ class Analyser(object):
                 g_ratio = str(float(self.results[2*i][5][6]))+" : "+str(float(self.results[2*i][6][6]))  
                 
                 rows.append([g_ratio]+[mean_posi]+[std_dev_posi]+[mean_neg]+[std_dev_neg])
+
+                                
+            lin_ratios = []
+            lin_ratios.append(["Source Linearity Ratios"]+["Positive"]+['']+["Negative"])
+            lin_ratios.append(["Range"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
+            
+            
+            for i in range(0, sets):
+                mean_posi = (abs(self.results[2*i][1][2]) - 1 + abs(self.results[2*i][1][4])-1)/2 * 1000000
+                std_dev_posi = (self.results[2*i][2][2] + self.results[2*i][2][4])/2 * 1000000
+                mean_neg = (abs(self.results[2*i+1][1][2]) - 1 + abs(self.results[2*i+1][1][4])-1)/2 * 1000000
+                std_dev_neg = (self.results[2*i+1][2][2] + self.results[2*i+1][2][4])/2 * 1000000
+                g_ratio = str(float(self.results[2*i][5][2]))+" : "+str(float(self.results[2*i][6][2]))  
                 
+                lin_ratios.append([g_ratio]+[mean_posi]+[std_dev_posi]+[mean_neg]+[std_dev_neg])
+                
+                # x2 and x2+1
+            
+            lin_ratios.append([" "])
+            lin_ratios.append(["Meter Linearity Ratios"]+["Positive"]+['']+["Negative"])
+            lin_ratios.append(["Range"]+["Mean(ppm)"]+["Std Dev(ppm)"]+["Mean(ppm)"]+["Std Dev(ppm)"])
+            
+                         
+            # Generate Gain Ratios in correct form using calculated ratios for the Meter 
+            for i in range(0, sets):
+                mean_posi = (abs(self.results[2*i][1][6]) - 1 + abs(self.results[2*i][1][8])-1)/2 * 1000000
+                std_dev_posi = (self.results[2*i][2][6] + self.results[2*i][2][8])/2 * 1000000
+                mean_neg = (abs(self.results[2*i+1][1][6]) - 1 + abs(self.results[2*i+1][1][8])-1)/2 * 1000000
+                std_dev_neg = (self.results[2*i+1][2][6] + self.results[2*i+1][2][8])/2 * 1000000
+                g_ratio = str(float(self.results[2*i][5][6]))+" : "+str(float(self.results[2*i][6][6]))  
+                
+                lin_ratios.append([g_ratio]+[mean_posi]+[std_dev_posi]+[mean_neg]+[std_dev_neg])
+
+            
                 # x2 and x2+1
                 
             self.gain_ratios.append(rows)
             self.print_rows(rows,1,self.sh_gain_ratios)
+            self.print_rows(lin_ratios,1,self.sh_lin_ratios)
             continue_analysis_ratios = False
+            
             
             
             
